@@ -34,7 +34,7 @@ function zl_ungroupSelectedShapeGroups () {
 	    var thisProp = parentProp.property(idxList[i]);
 	    thisProp.selected = true;
 	    try {
-	    	app.executeCommand(app.findMenuCommandId("Ungroup Shapes"));
+	    	app.executeCommand(3742);
 	    } catch(e) {}
 	    parentProp.property(idxList[i]).selected = false;
 	}
