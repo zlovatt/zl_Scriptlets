@@ -8,9 +8,11 @@ Copyright (c) 2016 Zack Lovatt. All rights reserved.
 
 Series of small, simlpe utilities for ft-toolbar or any other script launcher.
 
+* zl_addTrimPaths                - Adds Trim Paths to selected shape layers
 * zl_convertNewGaussianBlurToOld - Convert the new (CC 2015.3) Gaussian Blur effect to Gaussian Blur (Legacy)
 * zl_deleteKeysAtTime            - Delete all keys at current time
 * zl_loopSelectedLayers          - Loop out ('cycle') selected layers
+* zl_newTextLayer                - Creates a new text layer
 * zl_parentEachToAbove           - Parent each selected layer to above layer
 * zl_randomizeShapeGroupOrder    - Randomize order of selected shape groups
 * zl_recursiveEnableMoblur       - Recursively enable motion blur on selected comps
