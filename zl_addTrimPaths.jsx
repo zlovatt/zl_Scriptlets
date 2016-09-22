@@ -4,17 +4,21 @@
     zack@zacklovatt.com
 
     Name: Add 'Trim Paths'
-    Version: 1.0
+    Version: 1.1
 
     Description:
         Adds 'Trim Paths' to any selected shape layers.
+
+        If you don't want keyframes, set addKeys to false.
 
         This script is provided "as is," without warranty of any kind, expressed
         or implied. In no event shall the author be held liable for any damages
         arising in any way from the use of this script.
 **********************************************************************************************/
 
-function zl_addTrimPaths() {
+var addKeys = true;
+
+function zl_addTrimPaths(addKeys) {
 	var thisComp = app.project.activeItem;
 	if (thisComp === null || !(thisComp instanceof CompItem)){
 	    alert("Please select a composition!");
@@ -27,8 +31,18 @@ function zl_addTrimPaths() {
 				if (thisLayer.matchName == "ADBE Vector Layer") {
 					var thisContentsGrp = thisLayer.property("ADBE Root Vectors Group");
 
-					if (thisContentsGrp.canAddProperty("ADBE Vector Filter - Trim"))
-						thisContentsGrp.addProperty("ADBE Vector Filter - Trim");
+					if (thisContentsGrp.canAddProperty("ADBE Vector Filter - Trim")) {
+						var trimProp = thisContentsGrp.addProperty("ADBE Vector Filter - Trim");
+
+						if (addKeys) {
+							var trimEndProp = trimProp.property("ADBE Vector Trim End");
+
+							var trimTimes = [thisLayer.inPoint, thisLayer.inPoint+1];
+							var trimValues = [0, 100];
+
+							trimEndProp.setValuesAtTimes(trimTimes, trimValues);
+						}
+					}
 				}
 			}
 		} else {
@@ -37,7 +51,6 @@ function zl_addTrimPaths() {
 	}
 }
 
-
 app.beginUndoGroup("Add Trim Paths");
-zl_addTrimPaths();
+zl_addTrimPaths(addKeys);
 app.endUndoGroup();
