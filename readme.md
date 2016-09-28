@@ -17,6 +17,7 @@ Series of small, simlpe utilities for ft-toolbar or any other script launcher.
 * zl_randomizeShapeGroupOrder    - Randomize order of selected shape groups
 * zl_recursiveEnableMoblur       - Recursively enable motion blur on selected comps
 * zl_reverseShapeGroupOrder      - Reverse shape group order in a shape layer
+* zl_selectKeysInWorkArea        - Select all keys under the work area. Set flag to TRUE to append selection, FALSE to overwrite.
 * zl_selectLaterLayers           - Select all layers that start after current time
 * zl_setToAvgPosition-Expression - Select three layers; third layer will be expression-set to average position of first two.
 * zl_setToAvgPosition-Fixed      - Select three layers; third layer will be set to average position of first two at current time.
