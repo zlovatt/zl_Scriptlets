@@ -6,10 +6,10 @@ Copyright (c) 2016 Zack Lovatt. All rights reserved.
 -----------------------
 #### Description
 
-Series of small, simlpe utilities for ft-toolbar or any other script launcher.
+Series of small, simple utilities for ft-toolbar or any other script launcher.
 
 * zl_addTrimPaths                - Adds Trim Paths to selected shape layers
-* zl_convertNewGaussianBlurToOld - Convert the new (CC 2015.3) Gaussian Blur effect to Gaussian Blur (Legacy)
+* zl_convertNewGaussianBlurToOld - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * zl_deleteKeysAtTime            - Delete all keys at current time
 * zl_loopSelectedLayers          - Loop out ('cycle') selected layers
 * zl_newTextLayer                - Creates a new text layer
