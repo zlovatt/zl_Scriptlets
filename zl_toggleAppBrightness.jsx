@@ -1,0 +1,37 @@
+function zl_toggleAppBrightness()
+	{
+		// Do the work
+		app.beginUndoGroup("Toggle App Brightness");
+
+		try
+		{
+			// Toggle the pref, save to disk, and reload so it's active in the current session
+			if (parseFloat(app.version) >= 12.0)
+			{
+				var newSetting = +!(app.preferences.getPrefAsLong("Main Pref Section v2", "User Interface Brightness (4) [0.0..1.0]", PREFType.PREF_Type_MACHINE_INDEPENDENT) === 1);
+
+				app.preferences.savePrefAsLong("Main Pref Section v2", "User Interface Brightness (4) [0.0..1.0]", newSetting, PREFType.PREF_Type_MACHINE_INDEPENDENT);
+			}
+			else
+			{
+				var newSetting = +!(app.preferences.getPrefAsLong("Main Pref Section", "Pref_JAVASCRIPT_DEBUGGER") === 1);
+
+				app.preferences.savePrefAsLong("Main Pref Section", "Pref_JAVASCRIPT_DEBUGGER", newSetting);
+			}
+			app.preferences.saveToDisk();
+			app.preferences.reload();
+
+			if (newSetting === 0)
+				alert("AE Now Dark!");
+			else
+				alert("AE Now Light!");
+		}
+		catch (e)
+		{
+			alert("Can't change prefs!");
+		}
+
+		app.endUndoGroup();
+	};
+
+zl_toggleAppBrightness();
