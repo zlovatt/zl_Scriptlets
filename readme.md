@@ -22,6 +22,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * zl_selectLaterLayers           - Select all layers that start after current time
 * zl_setToAvgPosition-Expression - Select three layers; third layer will be expression-set to average position of first two.
 * zl_setToAvgPosition-Fixed      - Select three layers; third layer will be set to average position of first two at current time.
+* zl_spatialPropToJson           - Creates a JSON object of selected spatial properties x/y values
 * zl_toggleAppBrightness		 - Toggles AE brightness between min and max
 * zl_toggleJSDebugger		 	 - Toggles Javascript debugger enabled/disabled
 * zl_ungroupSelectedShapeGroups  - Ungroup the selected shape groups
