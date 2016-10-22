@@ -26,3 +26,4 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * zl_toggleAppBrightness		 - Toggles AE brightness between min and max
 * zl_toggleJSDebugger		 	 - Toggles Javascript debugger enabled/disabled
 * zl_ungroupSelectedShapeGroups  - Ungroup the selected shape groups
+* zl_updateDefaultImportFPS      - Prompts the user for to update default import FPS
