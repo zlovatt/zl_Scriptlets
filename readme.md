@@ -1,7 +1,7 @@
 zl_Scriptlets
 zack@zacklovatt.com
 
-Copyright (c) 2016 Zack Lovatt. All rights reserved.
+Copyright (c) 2017 Zack Lovatt. All rights reserved.
 
 -----------------------
 #### Description
@@ -17,6 +17,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * zl_parentEachToAbove            - Parent each selected layer to above layer
 * zl_randomizeShapeGroupOrder     - Randomize order of selected shape groups
 * zl_recursiveEnableMoblur        - Recursively enable motion blur on selected comps
+* zl_responsiveLayout             - Responsive scriptUI panel layout, now supporting multi-dimension buttons
 * zl_reverseShapeGroupOrder       - Reverse shape group order in a shape layer
 * zl_selectKeysAtCTI              - Select all keys at current time indicator. Set flag to TRUE to append selection, FALSE to overwrite.
 * zl_selectKeysInWorkArea         - Select all keys under the work area. Set flag to TRUE to append selection, FALSE to overwrite.
