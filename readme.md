@@ -9,6 +9,7 @@ Copyright (c) 2017 Zack Lovatt. All rights reserved.
 Series of small, simple utilities for ft-toolbar or any other script launcher.
 
 * zl_addTrimPaths                 - Adds Trim Paths to selected shape layers
+* zl_applyCDLToColoristaFree      - Prompts user to select a CDL, creates an adj layer w/ Colorista Free with the CDL
 * zl_convertNewGaussianBlurToOld  - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * zl_deleteKeysAtTime             - Delete all keys at current time
 * zl_forceLegacySkinForAllScripts - Tries to force 'use legacy skin' to ON for all installed scriptUI panels.
