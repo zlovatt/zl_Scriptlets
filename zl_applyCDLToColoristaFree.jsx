@@ -1,63 +1,82 @@
 /**********************************************************************************************
-    applyCDLToColoristaFree
-    Copyright (c) 2017 Zack Lovatt. All rights reserved.
-    zack@zacklovatt.com
+	applyCDLToColoristaFree
+	Copyright (c) 2017 Zack Lovatt. All rights reserved.
+	zack@zacklovatt.com
 
-    Name: Apply CDL to Colorista Free
-    Version: 1.0
+	Name: Apply CDL to Colorista Free
+	Version: 1.1
 
-    Description:
-    	Prompts user to select a .cdl file
-        Creates an adjustment layer in the active comp,
-        	applies Red Giant Colorista Free (http://redgiant.com/downloads/legacy-versions)
-        	applies the CDL as values to it.
+	Description:
+		Prompts user to select a .cdl file.
 
-        This script is provided "as is," without warranty of any kind, expressed
-        or implied. In no event shall the author be held liable for any damages
-        arising in any way from the use of this script.
+		IF LAYER SELECTED:
+			- Tries to find Colorista Free on the layer
+			- If it finds it, updates the values from the CDL
+			- If it doesn't find it, acts like NO LAYER SELECTED
+		IF NO LAYER SELECTED:
+			- Creates an adjustment layer in the active comp,
+			- Applies Red Giant Colorista Free (http://redgiant.com/downloads/legacy-versions)
+			- Applies the CDL as values to it.
+
+		This script is provided "as is," without warranty of any kind, expressed
+		or implied. In no event shall the author be held liable for any damages
+		arising in any way from the use of this script.
 **********************************************************************************************/
 
 (function applyCDLToColoristaFree () {
 	app.beginUndoGroup("Apply CDL to Colorista Free");
 
 	try {
-		var cdlFile = getCDLFile();
-		var cdlContents = readFile(cdlFile);
-		var cdlObj = buildCDLObject(cdlContents);
+		var cdlFile = getCDLFile(),
+			cdlContents = readFile(cdlFile),
+			cdlObj = buildCDLObject(cdlContents);
 
-		var comp = getActiveComp();
-		var layer = comp.layers.addSolid([0,0,0], cdlObj.name, comp.width, comp.height, comp.pixelAspect, comp.duration);
+		var comp = getActiveComp(),
+			layer = comp.selectedLayers[0],
+			foundEffect = false,
+			coloristaEffect;
+
+		if (layer !== undefined) {
+			coloristaEffect = findEffect(layer, "RG MBCC CDL");
+
+			if (coloristaEffect.length > 0) {
+				setColoristaValues(coloristaEffect[0], cdlObj);
+				foundEffect = true;
+			}
+		}
+
+		if (layer === undefined || !foundEffect) {
+			layer = comp.layers.addSolid([0,0,0], cdlObj.name, comp.width, comp.height, comp.pixelAspect, comp.duration);
 			layer.adjustmentLayer = true;
 
-		applyCDLToLayer(layer, cdlObj);
+			coloristaEffect = addEffect(layer, "RG MBCC CDL");
+			setColoristaValues(coloristaEffect, cdlObj);
+		}
+
 	} catch(e) {
 		alert(e);
+	} finally {
+		app.endUndoGroup();
 		return;
 	}
 
-	app.endUndoGroup();
-
-
-	function applyCDLToLayer(layer, cdlObj) {
-		var effect = addEffect(layer, "RG MBCC CDL");
-
-		// Saturation
-		effect.property("RG MBCC CDL-0002").setValue(parseFloat(cdlObj.saturation));
+	function setColoristaValues(coloristaEffect, cdlObj) {
+		coloristaEffect.property("RG MBCC CDL-0002").setValue(parseFloat(cdlObj.saturation));
 
 		// Slope
-		effect.property("RG MBCC CDL-0004").setValue(parseFloat(cdlObj.slope[0]));
-		effect.property("RG MBCC CDL-0005").setValue(parseFloat(cdlObj.slope[1]));
-		effect.property("RG MBCC CDL-0006").setValue(parseFloat(cdlObj.slope[2]));
+		coloristaEffect.property("RG MBCC CDL-0004").setValue(parseFloat(cdlObj.slope[0]));
+		coloristaEffect.property("RG MBCC CDL-0005").setValue(parseFloat(cdlObj.slope[1]));
+		coloristaEffect.property("RG MBCC CDL-0006").setValue(parseFloat(cdlObj.slope[2]));
 
 		// Offset
-		effect.property("RG MBCC CDL-0007").setValue(parseFloat(cdlObj.offset[0]));
-		effect.property("RG MBCC CDL-0008").setValue(parseFloat(cdlObj.offset[1]));
-		effect.property("RG MBCC CDL-0009").setValue(parseFloat(cdlObj.offset[2]));
+		coloristaEffect.property("RG MBCC CDL-0007").setValue(parseFloat(cdlObj.offset[0]));
+		coloristaEffect.property("RG MBCC CDL-0008").setValue(parseFloat(cdlObj.offset[1]));
+		coloristaEffect.property("RG MBCC CDL-0009").setValue(parseFloat(cdlObj.offset[2]));
 
 		// Power
-		effect.property("RG MBCC CDL-0010").setValue(parseFloat(cdlObj.power[0]));
-		effect.property("RG MBCC CDL-0011").setValue(parseFloat(cdlObj.power[1]));
-		effect.property("RG MBCC CDL-0012").setValue(parseFloat(cdlObj.power[2]));
+		coloristaEffect.property("RG MBCC CDL-0010").setValue(parseFloat(cdlObj.power[0]));
+		coloristaEffect.property("RG MBCC CDL-0011").setValue(parseFloat(cdlObj.power[1]));
+		coloristaEffect.property("RG MBCC CDL-0012").setValue(parseFloat(cdlObj.power[2]));
 	}
 
 	function readFile (file) {
@@ -111,9 +130,26 @@
 			effect = effectGroup.addProperty(effectName);
 		else
 			throw "Can't add " + effectName + " to " + layer.name + ".\n" +
-				  "Ensure you have Colorista Free installed.";
+				  "Ensure you have effect " + effectName + " installed.";
 
 		return effect;
+	}
+
+	function findEffect (layer, effectName) {
+		if (!(layer instanceof AVLayer))
+			throw String(layer) + " is not a valid layer!";
+
+		var effectGroup = layer.property("ADBE Effect Parade"),
+			foundEffects = [];
+
+		for (var i = 1, il = effectGroup.numProperties; i <= il; i++) {
+			var effect = effectGroup(i);
+
+			if (effect.matchName == effectName || effect.name == effectName)
+				foundEffects.push(effect)
+		}
+
+		return foundEffects;
 	}
 
 	function getActiveComp() {
