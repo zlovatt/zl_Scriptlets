@@ -1,4 +1,4 @@
-function convertNewGBlurToOld() {
+(function convertNewGBlurToOld() {
 	var comp = app.project.activeItem;
 	var layers = comp.selectedLayers;
 
@@ -9,7 +9,7 @@ function convertNewGBlurToOld() {
 
 	function getBlurData (effect) {
 		return {
-	        blurIdx: effect.propertyIndex,
+			blurIdx: effect.propertyIndex,
 			blurName: effect.name,
 			blurVal: effect.property(1).value,
 			blurDir: effect.property(2).value
@@ -18,13 +18,13 @@ function convertNewGBlurToOld() {
 
 	function removeOldBlurs (layerEffects, blurDataArray) {
 		for (var i = blurDataArray.length-1; i >= 0; i--) {
-	        var thisIdx = blurDataArray[i].blurIdx;
+			var thisIdx = blurDataArray[i].blurIdx;
 			layerEffects.property(thisIdx).remove();
 		}
 	}
 
 	function buildNewEffects (layerEffects, blurDataArray) {
-	    for (var i = 0, il = blurDataArray.length; i < il; i++) {
+		for (var i = 0, il = blurDataArray.length; i < il; i++) {
 			var newBlur = layerEffects.addProperty("ADBE Gaussian Blur");
 				newBlur.property(1).setValue(blurDataArray[i].blurVal)
 				newBlur.property(2).setValue(blurDataArray[i].blurDir)
@@ -38,14 +38,14 @@ function convertNewGBlurToOld() {
 		var blurDataArray = [];
 
 		for (var i = 1, il = layerEffects.numProperties; i <= il; i++) {
-	        var effect = layerEffects(i);
+			var effect = layerEffects(i);
 			if (!checkEffect(effect)) continue;
 
 			blurDataArray.push(getBlurData(effect));
 		}
 
-	    removeOldBlurs (layerEffects, blurDataArray);
-	    buildNewEffects (layerEffects, blurDataArray);
+		removeOldBlurs (layerEffects, blurDataArray);
+		buildNewEffects (layerEffects, blurDataArray);
 	}
 
 	function iterateThroughSelectedLayers (layers) {
@@ -58,6 +58,4 @@ function convertNewGBlurToOld() {
 	app.beginUndoGroup("New Blur to Old Blur");
 	iterateThroughSelectedLayers(layers);
 	app.endUndoGroup();
-};
-
-convertNewGBlurToOld();
+})();

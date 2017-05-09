@@ -1,4 +1,4 @@
-(function zl_selectKeysAtCTI () {
+(function selectKeysAtCTI () {
     var addToSelection = false; // set to TRUE if you want to add to selection, vs overwrite
 
 

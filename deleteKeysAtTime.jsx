@@ -1,114 +1,112 @@
 /**********************************************************************************************
-    zl_deleteKeysAtTime
-    Copyright (c) 2015 Zack Lovatt. All rights reserved.
-    zack@zacklovatt.com
+	deleteKeysAtTime
+	Copyright (c) 2017 Zack Lovatt. All rights reserved.
+	zack@zacklovatt.com
 
-    Name: zl_deleteKeysAtTime
-    Version: 0.1
+	Name: deleteKeysAtTime
+	Version: 0.2
 
-    Description:
-        Delete all keys at current time.
+	Description:
+		Delete all keys at current time.
 
-        Originally requested by Andrew Embury.
+		Originally requested by Andrew Embury.
 
-        This script is provided "as is," without warranty of any kind, expressed
-        or implied. In no event shall the author be held liable for any damages
-        arising in any way from the use of this script.
+		This script is provided "as is," without warranty of any kind, expressed
+		or implied. In no event shall the author be held liable for any damages
+		arising in any way from the use of this script.
 
 **********************************************************************************************/
 
-function zk_DKAT (thisObj){
+(function deleteKeysAtTime() {
 
-    var zl_deleteKeysAtTime_scriptName = "zl_deleteKeysAtTime";
-    var zl_deleteKeysAtTime_versionNumber = "v0.1";
+	var deleteKeysAtTime_scriptName = "deleteKeysAtTime";
+	var deleteKeysAtTime_versionNumber = "v0.1";
 
-    /******************************
-        zl_deleteKeysAtTime()
+	/******************************
+		deleteKeysAtTime()
 
-        Description:
-        This function contains the main logic for this script.
+		Description:
+		This function contains the main logic for this script.
 
-        Parameters:
-        thisComp - current comp to bake
+		Parameters:
+		thisComp - current comp to bake
 
-        Returns:
-        Nothing.
-    ******************************/
-    function zl_deleteKeysAtTime (thisComp) {
-        var userLayers = [];
+		Returns:
+		Nothing.
+	******************************/
+	function deleteKeysAtTime (thisComp) {
+		var userLayers = [];
 
-        // 1: Build layer set
-        if (thisComp.selectedLayers.length !== 0)
-            for (var i = 0; i < thisComp.selectedLayers.length; i++)
-                userLayers.push(thisComp.selectedLayers[i]);
-        else
-            for (var i = 1; i <= thisComp.layers.length; i++)
-                userLayers.push(thisComp.layers[i]);
+		// 1: Build layer set
+		if (thisComp.selectedLayers.length !== 0)
+			for (var i = 0; i < thisComp.selectedLayers.length; i++)
+				userLayers.push(thisComp.selectedLayers[i]);
+		else
+			for (var i = 1; i <= thisComp.layers.length; i++)
+				userLayers.push(thisComp.layers[i]);
 
-        // 3: Bake
-        if (userLayers.length !== 0) {
-            for (var i = 0; i < userLayers.length; i++) {
-                var thisLayer = userLayers[i];
-                var wasSelected = thisLayer.selected;
+		// 3: Bake
+		if (userLayers.length !== 0) {
+			for (var i = 0; i < userLayers.length; i++) {
+				var thisLayer = userLayers[i];
+				var wasSelected = thisLayer.selected;
 
-                for (var j = 1; j <= thisLayer.numProperties; j++)
-                    zl_deleteKeysAtTime_deleteKeys(thisComp.time, thisLayer, thisLayer.property(j).name);
+				for (var j = 1; j <= thisLayer.numProperties; j++)
+					deleteKeysAtTime_deleteKeys(thisComp.time, thisLayer, thisLayer.property(j).name);
 
-                thisLayer.selected = wasSelected;
-            }
-        } else {
-            alert("No layers to delete keys from!");
-        }
-    } // end function deleteKeysAtTime
+				thisLayer.selected = wasSelected;
+			}
+		} else {
+			alert("No layers to delete keys from!");
+		}
+	} // end function deleteKeysAtTime
 
 
    /******************************
-        zl_deleteKeysAtTime_deleteKeys()
+		deleteKeysAtTime_deleteKeys()
 
-        Description:
-        Handles recursion & prop conversion
+		Description:
+		Handles recursion & prop conversion
 
-        Parameters:
-        curTime - Current time to delete on
-        curLayer - Layer or prop group to run through
-        curPropGroup - Current prop group / layer
+		Parameters:
+		curTime - Current time to delete on
+		curLayer - Layer or prop group to run through
+		curPropGroup - Current prop group / layer
 
-        Returns:
-        Nothing.
-    ******************************/
-    function zl_deleteKeysAtTime_deleteKeys (curTime, curLayer, curPropGroup) {
-        var thisPropGroup = curLayer.property(curPropGroup);
-        var numProps;
+		Returns:
+		Nothing.
+	******************************/
+	function deleteKeysAtTime_deleteKeys (curTime, curLayer, curPropGroup) {
+		var thisPropGroup = curLayer.property(curPropGroup);
+		var numProps;
 
-        try {
-            numProps = thisPropGroup.numProperties;
-        } catch (err) {}
+		try {
+			numProps = thisPropGroup.numProperties;
+		} catch (err) {}
 
-        if (numProps !== undefined)
-            for (var p = 1; p < numProps + 1; p++) {
-                var curProp = thisPropGroup.property(p);
-                if (curProp.numProperties !== undefined)
-                    zl_deleteKeysAtTime_deleteKeys(curTime, thisPropGroup, curProp.name);
-                else
-                    if (curProp.numKeys !== 0)
-                        if (curProp.keyTime(curProp.nearestKeyIndex(curTime)) == curTime)
-                            curProp.removeKey(curProp.nearestKeyIndex(curTime));
-            } // end for
-    } // end function deleteKeys
+		if (numProps !== undefined)
+			for (var p = 1; p < numProps + 1; p++) {
+				var curProp = thisPropGroup.property(p);
+				if (curProp.numProperties !== undefined)
+					deleteKeysAtTime_deleteKeys(curTime, thisPropGroup, curProp.name);
+				else
+					if (curProp.numKeys !== 0)
+						if (curProp.keyTime(curProp.nearestKeyIndex(curTime)) == curTime)
+							curProp.removeKey(curProp.nearestKeyIndex(curTime));
+			} // end for
+	} // end function deleteKeys
 
 
-    // RUN!
-    var proj = (app.project) ? app.project: app.newProject();
-    var thisComp = proj.activeItem;
+	// RUN!
+	var proj = (app.project) ? app.project: app.newProject();
+	var thisComp = proj.activeItem;
 
-    if (thisComp != null && (thisComp instanceof CompItem)) {
-        app.beginUndoGroup(zl_deleteKeysAtTime_scriptName);
-        zl_deleteKeysAtTime(thisComp);
-        app.endUndoGroup();
-    } else {
-        alert("Select an active comp!", zl_deleteKeysAtTime_scriptName);
-    }
+	if (thisComp != null && (thisComp instanceof CompItem)) {
+		app.beginUndoGroup(deleteKeysAtTime_scriptName);
+		deleteKeysAtTime(thisComp);
+		app.endUndoGroup();
+	} else {
+		alert("Select an active comp!", deleteKeysAtTime_scriptName);
+	}
 
-} // end zl_kiln
-
-zk_DKAT(this);
+})();

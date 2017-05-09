@@ -1,10 +1,10 @@
 /**********************************************************************************************
-    zl_addTrimPaths
-    Copyright (c) 2016 Zack Lovatt. All rights reserved.
+    addTrimPaths
+    Copyright (c) 2017 Zack Lovatt. All rights reserved.
     zack@zacklovatt.com
 
     Name: Add 'Trim Paths'
-    Version: 1.1
+    Version: 1.2
 
     Description:
         Adds 'Trim Paths' to any selected shape layers.
@@ -16,12 +16,14 @@
         arising in any way from the use of this script.
 **********************************************************************************************/
 
-var addKeys = true;
+(function addTrimPaths () {
+	var addKeys = true;
 
-function zl_addTrimPaths(addKeys) {
+	app.beginUndoGroup("Add Trim Paths");
+
 	var thisComp = app.project.activeItem;
 	if (thisComp === null || !(thisComp instanceof CompItem)){
-	    alert("Please select a composition!");
+		alert("Please select a composition!");
 	} else {
 		var userLayers = thisComp.selectedLayers;
 		if (userLayers.length > 0) {
@@ -49,8 +51,6 @@ function zl_addTrimPaths(addKeys) {
 			alert("Please select some layers!");
 		}
 	}
-}
 
-app.beginUndoGroup("Add Trim Paths");
-zl_addTrimPaths(addKeys);
-app.endUndoGroup();
+	app.endUndoGroup();
+})();

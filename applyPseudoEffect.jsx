@@ -1,7 +1,7 @@
-// based on Apply Pseudo Effect as Animation Preset by Tomas Sinkunas (www.rendertom)
-// Adjustments to helper functions by Zack Lovatt
-
 /*
+	based on Apply Pseudo Effect as Animation Preset by Tomas Sinkunas (www.rendertom)
+	Adjustments to helper functions by Zack Lovatt
+
 	Script applies Pseudo Effect as Animation preset, eliminating the need for the end user to install Pseudo Effect to XML and restart AE.
 
 	How to make it work:
@@ -11,7 +11,7 @@
 	4. Done. Your clients dont need to install Pseudo Effect as it will be applied ad Animation Preset. Enjoy.
 */
 
-function applyPseudoEffectFFX () {
+(function applyPseudoEffectFFX () {
 	// Define your Pseudo Effect here
 	var myPseudoEffect = {
 		matchName 	: null,
@@ -137,4 +137,4 @@ function applyPseudoEffectFFX () {
 	function isSecurityPrefEnabled () {
 		return app.preferences.getPrefAsLong("Main Pref Section", "Pref_SCRIPTING_FILE_NETWORK_SECURITY") == 1;
 	}
-}();
+})();

@@ -1,6 +1,4 @@
-zl_spatialPropToJson();
-
-function zl_spatialPropToJson() {
+(function spatialPropToJson() {
     var thisComp = app.project.activeItem;
     var userProps = thisComp.selectedProperties;
     var jsonObj = {};
@@ -26,4 +24,4 @@ function zl_spatialPropToJson() {
     }
 
     alert(JSON.stringify(jsonObj));
-}
+})();
