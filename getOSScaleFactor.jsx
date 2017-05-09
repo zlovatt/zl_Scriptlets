@@ -36,13 +36,15 @@
 			return getWindowsScaleFactor();
 		else if (isRetina())
 			return 2.0;
-	}
+
+		return 1.0;
+	};
 
 	function isRetina() {
 		if (isWindows()) return;
 
 		var command = "system_profiler SPDisplaysDataType | grep Resolution";
-		var result = system.callSystem(command).toString();
+		var result = system.callSystem(command);
 
 		if (result.toLowerCase().match("retina"))
 			return true;
@@ -76,8 +78,8 @@
 	// This returns the effective resolution of the monitor
 	function getEffectiveResolution () {
 		var command = "wmic path Win32_VideoController get ";
-		var width = parseInt(system.callSystem(command + "CurrentHorizontalResolution").toString().split("\n")[1]);
-		var height = parseInt(system.callSystem(command + "CurrentVerticalResolution").toString().split("\n")[1]);
+		var width = parseInt(system.callSystem(command + "CurrentHorizontalResolution").split("\n")[1]);
+		var height = parseInt(system.callSystem(command + "CurrentVerticalResolution").split("\n")[1]);
 
 		log("effectiveResolution: " + String([width, height]));
 
