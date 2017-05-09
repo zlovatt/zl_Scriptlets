@@ -21,20 +21,22 @@
 	var userLayers = proj.activeItem.selectedLayers;
 
 	if (userLayers.length > 0) {
-		for (var i = 0; i < userLayers.length; i++) {
+		var i;
+
+		for (i = 0; i < userLayers.length; i++) {
 			var thisLayer = userLayers[i];
 
 			if (!(thisLayer instanceof ShapeLayer)) {
 				alert("Select a shape layer!");
 			} else {
-				var vecGroup = thisLayer.property("ADBE Root Vectors Group");
-				var numGroups = vecGroup.numProperties;
+				var vecGroup = thisLayer.property("ADBE Root Vectors Group"),
+					numGroups = vecGroup.numProperties;
 
 				var shapeArrayByName = [];
-				for (var i = 1; i <= numGroups; i++)
+				for (i = 1; i <= numGroups; i++)
 					shapeArrayByName.push(vecGroup(i).name);
 
-				for (var i = numGroups - 1; i > 0; i--)
+				for (i = numGroups - 1; i > 0; i--)
 					vecGroup.property(shapeArrayByName[i]).moveTo(numGroups-i);
 			} // end else
 		} // end for

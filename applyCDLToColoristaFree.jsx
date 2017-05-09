@@ -146,7 +146,7 @@
 			var effect = effectGroup(i);
 
 			if (effect.matchName == effectName || effect.name == effectName)
-				foundEffects.push(effect)
+				foundEffects.push(effect);
 		}
 
 		return foundEffects;

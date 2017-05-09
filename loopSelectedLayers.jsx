@@ -38,7 +38,7 @@
 		for (var i = 0; i < userLayers.length; i++) {
 			var curLayer = userLayers[i];
 
-			if(curLayer.canSetTimeRemapEnabled == true){
+			if(curLayer.canSetTimeRemapEnabled === true){
 				// Enable time remap, set it to the expression
 				curLayer.timeRemapEnabled = true;
 				curLayer.timeRemap.expression = loopExpression;

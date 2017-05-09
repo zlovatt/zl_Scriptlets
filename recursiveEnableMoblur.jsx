@@ -31,13 +31,12 @@
 		var projectItems = app.project.items;
 		for (var i = 1; i <= projectItems.length; i++) {
 			var thisItem = projectItems[i];
-			if (thisItem.selected == true)
-				if (thisItem instanceof CompItem)
-					enableMoblur(thisItem);
+			if (thisItem.selected === true && thisItem instanceof CompItem)
+				enableMoblur(thisItem);
 		}
 	}
 
-	app.beginUndoGroup("Recursive Enable Moblur")
+	app.beginUndoGroup("Recursive Enable Moblur");
 	blurSelectedComps();
-	app.endUndoGroup()
+	app.endUndoGroup();
 })();

@@ -3,7 +3,8 @@
 	var layers = comp.selectedLayers;
 
 	function checkEffect (effect) {
-		if (effect.matchName == "ADBE Gaussian Blur 2") return true
+		if (effect.matchName == "ADBE Gaussian Blur 2")
+			return true;
 		return false;
 	}
 
@@ -13,7 +14,7 @@
 			blurName: effect.name,
 			blurVal: effect.property(1).value,
 			blurDir: effect.property(2).value
-		}
+		};
 	}
 
 	function removeOldBlurs (layerEffects, blurDataArray) {
@@ -26,8 +27,8 @@
 	function buildNewEffects (layerEffects, blurDataArray) {
 		for (var i = 0, il = blurDataArray.length; i < il; i++) {
 			var newBlur = layerEffects.addProperty("ADBE Gaussian Blur");
-				newBlur.property(1).setValue(blurDataArray[i].blurVal)
-				newBlur.property(2).setValue(blurDataArray[i].blurDir)
+				newBlur.property(1).setValue(blurDataArray[i].blurVal);
+				newBlur.property(2).setValue(blurDataArray[i].blurDir);
 				newBlur.name = blurDataArray[i].blurName;
 				newBlur.moveTo(blurDataArray[i].blurIdx);
 		}

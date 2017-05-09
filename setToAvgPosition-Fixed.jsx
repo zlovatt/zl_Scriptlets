@@ -19,7 +19,7 @@
 **********************************************************************************************/
 (function setToAvgPosition_Fixed () {
 	var thisComp = app.project.activeItem;
-	var userLayers = thisComp.selectedLayers
+	var userLayers = thisComp.selectedLayers;
 
 	var layer1 = userLayers[0];
 	var layer2 = userLayers[1];
@@ -29,5 +29,5 @@
 	var l2Pos = layer2.position.value;
 	var layerAvg = (l1Pos + l2Pos)/2;
 
-	targetLayer.position.setValue(layerAvg)
+	targetLayer.position.setValue(layerAvg);
 })();

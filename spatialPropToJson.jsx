@@ -7,7 +7,7 @@
         var thisProp = userProps[i];
         var layerName = thisProp.propertyGroup(thisProp.propertyDepth).name;
 
-        if (!thisProp.isSpatial || thisProp.numKeys == 0 || thisProp.keyValue(1).length < 2)
+        if (!thisProp.isSpatial || thisProp.numKeys === 0 || thisProp.keyValue(1).length < 2)
             continue;
 
         jsonObj[thisProp.name] = {

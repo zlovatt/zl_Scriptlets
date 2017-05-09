@@ -32,7 +32,7 @@
 					curLayer.selected = true;
 			}
 
-			if (thisComp.selectedLayers.length == 0)
+			if (thisComp.selectedLayers.length === 0)
 				alert("No later layers!");
 		} else {
 			alert("No layer selected!");

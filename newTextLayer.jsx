@@ -25,10 +25,12 @@
 	if (thisComp === null || !(thisComp instanceof CompItem)){
 		alert("Please select a composition!");
 	} else {
+		var newTextLayer;
+
 		if (makeParagraphText)
-			var newTextLayer = thisComp.layers.addBoxText();
+			newTextLayer = thisComp.layers.addBoxText();
 		else
-			var newTextLayer = thisComp.layers.addText();
+			newTextLayer = thisComp.layers.addText();
 
 		newTextLayer.selected = true;
 	}

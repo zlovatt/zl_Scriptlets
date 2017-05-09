@@ -35,19 +35,20 @@
 		Nothing.
 	******************************/
 	function deleteKeysAtTime (thisComp) {
-		var userLayers = [];
+		var userLayers = [],
+			i;
 
 		// 1: Build layer set
 		if (thisComp.selectedLayers.length !== 0)
-			for (var i = 0; i < thisComp.selectedLayers.length; i++)
+			for (i = 0; i < thisComp.selectedLayers.length; i++)
 				userLayers.push(thisComp.selectedLayers[i]);
 		else
-			for (var i = 1; i <= thisComp.layers.length; i++)
+			for (i = 1; i <= thisComp.layers.length; i++)
 				userLayers.push(thisComp.layers[i]);
 
 		// 3: Bake
 		if (userLayers.length !== 0) {
-			for (var i = 0; i < userLayers.length; i++) {
+			for (i = 0; i < userLayers.length; i++) {
 				var thisLayer = userLayers[i];
 				var wasSelected = thisLayer.selected;
 
@@ -101,7 +102,7 @@
 	var proj = (app.project) ? app.project: app.newProject();
 	var thisComp = proj.activeItem;
 
-	if (thisComp != null && (thisComp instanceof CompItem)) {
+	if (thisComp !== null && (thisComp instanceof CompItem)) {
 		app.beginUndoGroup(deleteKeysAtTime_scriptName);
 		deleteKeysAtTime(thisComp);
 		app.endUndoGroup();

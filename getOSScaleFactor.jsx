@@ -45,7 +45,7 @@
 		var result = system.callSystem(command).toString();
 
 		if (result.toLowerCase().match("retina"))
-			return true
+			return true;
 	}
 
 	function getWindowsScaleFactor () {

@@ -7,7 +7,7 @@
 	for (var i = 0, il = scriptUIFiles.length; i < il; i++) {
 		var script = scriptUIFiles[i];
 		var scriptFileName = script.displayName;
-		var success = forceLegacySkin(scriptFileName)
+		var success = forceLegacySkin(scriptFileName);
 
 		if (logSuccess)
 			$.writeln(scriptFileName + ": " + success);
@@ -20,7 +20,7 @@
 			return folder.resolve();
 
 		return folder;
-	};
+	}
 
 	function getScriptUIFiles () {
 		var searchTerm = "*.jsx*"; // returns jsx and jsxbin files

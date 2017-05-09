@@ -10,7 +10,7 @@
 		if (prefs.havePref("Import Options Preference Section", "Import Options Default Sequence FPS"))
 			lastFPS = prefs.getPrefAsLong("Import Options Preference Section", "Import Options Default Sequence FPS");
 
-	var newFPS = parseFloat(prompt("Enter a new framerate", lastFPS))
+	var newFPS = parseFloat(prompt("Enter a new framerate", lastFPS));
 
 	if (!isNaN(newFPS)) {
 		try {

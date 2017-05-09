@@ -23,16 +23,17 @@
 		var selectedProps = thisComp.selectedProperties;
 		var parentProp = selectedProps[0].propertyGroup();
 		var idxList = [];
+		var i, il;
 
 		// Build list of indices
-		for (var i = 0, il = selectedProps.length; i < il; i++) {
+		for (i = 0, il = selectedProps.length; i < il; i++) {
 			idxList.push(selectedProps[i].propertyIndex);
 		}
 
 		app.executeCommand(2004); // Deselect all
 
 		// Deselect them
-		for (var i = 0, il = idxList.length; i < il; i++) {
+		for (i = 0, il = idxList.length; i < il; i++) {
 			var thisProp = parentProp.property(idxList[i]);
 			thisProp.selected = true;
 			try {
