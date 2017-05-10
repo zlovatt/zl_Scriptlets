@@ -13,6 +13,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * applyPseudoEffect                  - Write ffx binary string to disk and apply to layer, adaptation of same from @rendertom
 * convertNewGaussianBlurToOld        - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * deleteKeysAtTime                   - Delete all keys at current time
+* findAllPresetFiles                 - Returns array of all preset ffx files installed
 * forceLegacySkin                    - Tries to force 'use legacy skin' to ON for specific script passed by filename
 * forceLegacySkinForAllScripts       - Tries to force 'use legacy skin' to ON for all installed scriptUI panels
 * getOSScaleFactor                   - Returns OS UI/Display scale factor
