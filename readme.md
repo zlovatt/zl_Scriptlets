@@ -26,6 +26,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * recursiveEnableMoblur              - Recursively enable motion blur on selected comps
 * responsiveLayout                   - Responsive scriptUI panel layout, now supporting multi-dimension buttons
 * reverseShapeGroupOrder             - Reverse shape group order in a shape layer
+* selectDuplicateSourceLayers        - Select all layers that are multiple instances of the same file source
 * selectKeysAtCTI                    - Select all keys at current time indicator. Set flag to TRUE to append selection, FALSE to overwrite
 * selectKeysInWorkArea               - Select all keys under the work area. Set flag to TRUE to append selection, FALSE to overwrite
 * selectLaterLayers                  - Select all layers that start after current time
