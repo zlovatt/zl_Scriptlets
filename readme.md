@@ -1,7 +1,7 @@
 zl_Scriptlets
 zack@zacklovatt.com
 
-Copyright (c) 2017 Zack Lovatt. All rights reserved.
+Copyright (c) 2018 Zack Lovatt. All rights reserved.
 
 -----------------------
 #### Description

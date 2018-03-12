@@ -20,6 +20,9 @@
 	    });
 
 	    forAllItemsInArray (targetProps, function(prop) {
+            if (prop.isSeparationLeader && prop.dimensionsSeparated)
+                return;
+                
             if (!addToSelection)
                 deselectKeys(prop);
 
