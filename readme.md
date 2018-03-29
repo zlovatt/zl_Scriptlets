@@ -35,5 +35,6 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * spatialPropToJson                  - Creates a JSON object of selected spatial properties x/y values
 * toggleAppBrightness		         - Toggles AE brightness between min and max
 * toggleJSDebugger		 	         - Toggles Javascript debugger enabled/disabled
+* toggleTemporalContinuous           - Toggles Continuous on selected keys; Run to enable, shift+click to disable.
 * ungroupSelectedShapeGroups         - Ungroup the selected shape groups
 * updateDefaultImportFPS             - Prompts the user for to update default import FPS
