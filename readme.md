@@ -18,6 +18,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * forceLegacySkinForAllScripts       - Tries to force 'use legacy skin' to ON for all installed scriptUI panels
 * getOSScaleFactor                   - Returns OS UI/Display scale factor
 * loopSelectedLayers                 - Loop out ('cycle') selected layers
+* mistikaVRToAENull                  - Translates a Mistika VR .grp file to null sliders for yaw/pitch/roll
 * moveFirstLayerOfSelectedCompsToEnd - Moves the first layer of each selected comp in project panel to the end of each comp
 * newTextLayer                       - Creates a new text layer
 * parentEachToAbove                  - Parent each selected layer to above layer
