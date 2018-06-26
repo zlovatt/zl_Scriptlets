@@ -14,6 +14,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * convertNewGaussianBlurToOld          - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * Create Nulls From Paths - Responsive - A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
 * deleteKeysAtTime                     - Delete all keys at current time
+* defaultFolders-v2.0                  - Creates a number of folders (or, if ran as a window, lets you customzie folder names to create)
 * findAllPresetFiles                   - Returns array of all preset ffx files installed
 * forceLegacySkin                      - Tries to force 'use legacy skin' to ON for specific script passed by filename
 * forceLegacySkinForAllScripts         - Tries to force 'use legacy skin' to ON for all installed scriptUI panels
