@@ -11,6 +11,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * addTrimPaths                         - Adds Trim Paths to selected shape layers
 * applyColourFileToColoristaFree       - Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free with the CDL
 * applyPseudoEffect                    - Write ffx binary string to disk and apply to layer, adaptation of same from @rendertom
+* bridgetalkCaller                     - Cross-host bridgetalk caller setup
 * convertNewGaussianBlurToOld          - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * Create Nulls From Paths - Responsive - A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
 * deleteKeysAtTime                     - Delete all keys at current time
