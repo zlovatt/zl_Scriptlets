@@ -14,8 +14,8 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * bridgetalkCaller                     - Cross-host bridgetalk caller setup
 * convertNewGaussianBlurToOld          - Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 * Create Nulls From Paths - Responsive - A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
-* deleteKeysAtTime                     - Delete all keys at current time
 * defaultFolders-v2.0                  - Creates a number of folders (or, if ran as a window, lets you customzie folder names to create)
+* deleteKeysAtTime                     - Delete all keys at current time
 * findAllPresetFiles                   - Returns array of all preset ffx files installed
 * forceLegacySkin                      - Tries to force 'use legacy skin' to ON for specific script passed by filename
 * forceLegacySkinForAllScripts         - Tries to force 'use legacy skin' to ON for all installed scriptUI panels
@@ -37,8 +37,9 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * setToAvgPosition-Expression          - Select three layers; third layer will be expression-set to average position of first two
 * setToAvgPosition-Fixed               - Select three layers; third layer will be set to average position of first two at current time
 * spatialPropToJson                    - Creates a JSON object of selected spatial properties x/y values
-* toggleAppBrightness		           - Toggles AE brightness between min and max
-* toggleJSDebugger		 	           - Toggles Javascript debugger enabled/disabled
+* toggleAppBrightness                  - Toggles AE brightness between min and max
+* toggleJSDebugger                     - Toggles Javascript debugger enabled/disabled
 * toggleTemporalContinuous             - Toggles Continuous on selected keys; Run to enable, shift+click to disable.
 * ungroupSelectedShapeGroups           - Ungroup the selected shape groups
 * updateDefaultImportFPS               - Prompts the user for to update default import FPS
+* writeLayerNamesToFile                - Writes layer names to a file, separated by a new line
