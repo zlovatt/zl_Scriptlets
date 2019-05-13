@@ -30,6 +30,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * recursiveEnableMoblur                - Recursively enable motion blur on selected comps
 * responsiveLayout                     - Responsive scriptUI panel layout, now supporting multi-dimension buttons
 * revealCurrentFile                    - Opens a Finder/Explorer window to the current AEP
+* revealFirstSelectionInProject        - Reveals source of first selected layer in project
 * reverseShapeGroupOrder               - Reverse shape group order in a shape layer
 * selectDuplicateSourceLayers          - Select all layers that are multiple instances of the same file source
 * selectKeysAtCTI                      - Select all keys at current time indicator. Set flag to TRUE to append selection, FALSE to overwrite
