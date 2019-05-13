@@ -1,4 +1,8 @@
-﻿(function revealCurrentFile() {
+﻿/**
+ * Reveals current AEP in your OS file browser.
+ * Mostly an abridged version of the aequery method of doing this.
+ */
+(function revealCurrentFile() {
   /**
    * Reveals a file in finder/explorer
    *
