@@ -19,6 +19,9 @@
     bt.body = func + "\n" + func.name + "(" + args.toString() + ");";
 
     bt.onResult = function (msg) {
+      if (!callback)
+        return;
+
       // Note: msg.body is a string!
       // If you are receiving data, you'll need to parse it.
       callback(msg.body);
