@@ -8,6 +8,7 @@ Copyright (c) 2019 Zack Lovatt. All rights reserved.
 
 Series of small, simple utilities for ft-toolbar or any other script launcher.
 
+* addRandomEffect                      - Adds a random layer effect to your first selected layer 🙃
 * addTrimPaths                         - Adds Trim Paths to selected shape layers
 * applyColourFileToColoristaFree       - Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free with the CDL
 * applyPseudoEffect                    - Write ffx binary string to disk and apply to layer, adaptation of same from @rendertom
