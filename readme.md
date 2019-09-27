@@ -1,7 +1,7 @@
 zl_Scriptlets
 zack@zacklovatt.com
 
-Copyright (c) 2018 Zack Lovatt. All rights reserved.
+Copyright (c) 2019 Zack Lovatt. All rights reserved.
 
 -----------------------
 #### Description
@@ -16,6 +16,7 @@ Series of small, simple utilities for ft-toolbar or any other script launcher.
 * Create Nulls From Paths - Responsive - A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
 * defaultFolders-v2.0                  - Creates a number of folders (or, if ran as a window, lets you customzie folder names to create)
 * deleteKeysAtTime                     - Delete all keys at current time
+* disableAllCompExpressions            - Disables all expressions in active comp
 * findAllPresetFiles                   - Returns array of all preset ffx files installed
 * forceLegacySkin                      - Tries to force 'use legacy skin' to ON for specific script passed by filename
 * forceLegacySkinForAllScripts         - Tries to force 'use legacy skin' to ON for all installed scriptUI panels
