@@ -8,6 +8,23 @@ zack@zacklovatt.com
 
 Copyright (c) 2019 Zack Lovatt. All rights reserved.
 
+## TO RUN THESE SCRIPTS
+
+### via Github:
+
+- Click on any of the script names _below_.
+- In the top right corner of the code block, press the 'Raw' button to view the actual .jsx script file
+- Save (cmd/ctrl+s) this file somewhere on your computer
+- In AE: File > Script > Run Script File... and choose this script!
+
+### via Bitbucket:
+
+- Click on any of the filenames _above_.
+- In the top right corner of the code block, press the '...' button
+- Choose 'Open Raw' to view the actual .jsx script file
+- Save (cmd/ctrl+s) this file somewhere on your computer
+- In AE: File > Script > Run Script File... and choose this script!
+
 ---
 
 ## [Add Random Effect](Add&#32;Random&#32;Effect.jsx)
