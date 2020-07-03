@@ -1,74 +1,66 @@
-/**********************************************************************************************
-	loopSelectedLayers
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Enables time remapping on selected layers, and adds a loopOut("cycle") to loop the layer.
+ *
+ * Modifiers:
+ *   - Hold CTRL to loop IN instead of loop OUT
+ *   - Hold SHIFT to PINGPONG instead of CYCLE
+ *   - Hold both to loop IN, with PINGPONG
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function loopSelectedLayers() {
+  /**
+   * Loops selected layer
+   *
+   * @param {string} direction Loop type, one of 'loopIn' or 'loopOut'
+   * @param {string} method    Loop method, one of 'cycle'/'pingpong'
+   */
+  function loopSelected(direction, method) {
+    var loopExpression = direction + "('" + method + "');";
 
-	Name: Loop Selected Layers
-	Version: 0.2
+    var comp = app.project.activeItem;
+    var layers = comp.selectedLayers;
 
-	For use w/ ft-toolbar or other script runners.
+    for (var ii = 0, il = layers.length; ii < il; ii++) {
+      var curLayer = layers[ii];
 
-	This will run through all selected layers, enable time remap,
-	and add cycle loop -- all in one click.
+      if (curLayer.canSetTimeRemapEnabled !== true) {
+        alert(curLayer.name + ' can not be looped!');
+        continue;
+      }
 
-	If the wrong thing is selected or layer can't be remapped,
-	user will be alerted of the fact.
+      // Enable time remap, set it to the expression
+      curLayer.timeRemapEnabled = true;
+      curLayer.timeRemap.expression = loopExpression;
 
-			MODIFIERS
-						Hold CTRL to loop IN instead of loop OUT
-						Hold SHIFT to PINGPONG instead of CYCLE
+      // Add new key, remove last key
+      curLayer.timeRemap.addKey(
+        curLayer.timeRemap.keyTime(2) - comp.frameDuration
+      );
+      curLayer.timeRemap.removeKey(3);
 
-						Combine ctrl w/ shift to merge alternatives.
+      curLayer.outPoint = comp.duration;
+    }
+  }
 
+  var direction = 'loopOut';
+  var method = 'cycle';
 
-	Originally requested by Andrew Embury (aembury.com)
+  // If ctrl, loopIn instead of loopOut.
+  if (
+    ScriptUI.environment.keyboardState.ctrlKey ||
+    ScriptUI.environment.keyboardState.metaKey
+  ) {
+    direction = 'loopIn';
+  }
 
-	This script is provided "as is," without warranty of any kind, expressed
-	or implied. In no event shall the author be held liable for any damages
-	arising in any way from the use of this script.
-**********************************************************************************************/
+  // Shift = pingpong
+  if (ScriptUI.environment.keyboardState.shiftKey) {
+    method = 'pingpong';
+  }
 
-(function loopSelectedLayers () {
-	function loopSelected (loopOption, loopFunction){
-
-		var loopExpression = loopOption + "('" + loopFunction + "');";
-		var thisComp = app.project.activeItem;
-		var userLayers = thisComp.selectedLayers;
-
-		for (var i = 0; i < userLayers.length; i++) {
-			var curLayer = userLayers[i];
-
-			if(curLayer.canSetTimeRemapEnabled === true){
-				// Enable time remap, set it to the expression
-				curLayer.timeRemapEnabled = true;
-				curLayer.timeRemap.expression = loopExpression;
-
-				// Add new key, remove last key
-				curLayer.timeRemap.addKey(curLayer.timeRemap.keyTime(2)-thisComp.frameDuration);
-				curLayer.timeRemap.removeKey(3);
-
-				curLayer.outPoint = thisComp.duration;
-			} else {
-				alert (curLayer.name + " can not be looped!");
-			} // end if canSetTimeRemap
-		} // end for numLayers
-	} // end function loopOutSelected
-
-
-	app.beginUndoGroup("Loop Selected Layer");
-
-	var loopOption = "loopOut";
-	var loopFunction = "cycle";
-
-	// If ctrl, loopIn instead of loopOut.
-	if ((ScriptUI.environment.keyboardState.ctrlKey) || (ScriptUI.environment.keyboardState.metaKey))
-		loopOption = "loopIn";
-
-	// Shift = pingpong
-	if (ScriptUI.environment.keyboardState.shiftKey)
-		loopFunction = "pingpong";
-
-	loopSelected(loopOption, loopFunction);
-
-	app.endUndoGroup();
+  app.beginUndoGroup('Loop Selected Layers');
+  loopSelected(direction, method);
+  app.endUndoGroup();
 })();

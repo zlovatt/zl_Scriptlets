@@ -1,39 +1,33 @@
-/**********************************************************************************************
-	newTextLayer
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Makes a new empty text layer.
+ *
+ * Modifiers:
+ *   - Hold SHIFT to create a paragraph text layer instead of point text.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.1.2
+ */
+(function newTextLayer() {
+  var makeParagraphText = ScriptUI.environment.keyboardState.shiftKey;
 
-	Name: New Text layer
-	Version: 1.1
+  var comp = app.project.activeItem;
 
-	Description:
-		Makes a new empty text layer.
-		If you want a paragraph text layer, set makeParagraphText to true
-		Otherwise, will be point text
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Please select a composition!');
+    return;
+  }
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+  var newTextLayer;
 
-(function newTextLayer () {
-	var makeParagraphText = false;
+	app.beginUndoGroup('New Text Layer');
 
-	app.beginUndoGroup("New Text Layer");
+  if (makeParagraphText) {
+    newTextLayer = comp.layers.addBoxText();
+  } else {
+    newTextLayer = comp.layers.addText();
+  }
 
-	var thisComp = app.project.activeItem;
-	if (thisComp === null || !(thisComp instanceof CompItem)){
-		alert("Please select a composition!");
-	} else {
-		var newTextLayer;
+  newTextLayer.selected = true;
 
-		if (makeParagraphText)
-			newTextLayer = thisComp.layers.addBoxText();
-		else
-			newTextLayer = thisComp.layers.addText();
-
-		newTextLayer.selected = true;
-	}
-
-	app.endUndoGroup();
+  app.endUndoGroup();
 })();

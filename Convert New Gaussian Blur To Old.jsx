@@ -1,62 +1,70 @@
+/**
+ * Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy).
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 1.0.1
+ */
 (function convertNewGBlurToOld() {
-	var comp = app.project.activeItem;
-	var layers = comp.selectedLayers;
+  function getBlurData(effect) {
+    return {
+      blurIdx: effect.propertyIndex,
+      blurName: effect.name,
+      blurVal: effect.property(1).value,
+      blurDir: effect.property(2).value,
+    };
+  }
 
-	function checkEffect (effect) {
-		if (effect.matchName == "ADBE Gaussian Blur 2")
-			return true;
-		return false;
-	}
+  function removeOldBlurs(layerEffects, blurDataArray) {
+    for (var i = blurDataArray.length - 1; i >= 0; i--) {
+      var thisIdx = blurDataArray[i].blurIdx;
+      layerEffects.property(thisIdx).remove();
+    }
+  }
 
-	function getBlurData (effect) {
-		return {
-			blurIdx: effect.propertyIndex,
-			blurName: effect.name,
-			blurVal: effect.property(1).value,
-			blurDir: effect.property(2).value
-		};
-	}
+  function buildNewEffects(layerEffects, blurDataArray) {
+    for (var ii = 0, il = blurDataArray.length; ii < il; ii++) {
+      var newBlur = layerEffects.addProperty('ADBE Gaussian Blur');
+      newBlur.property(1).setValue(blurDataArray[ii].blurVal);
+      newBlur.property(2).setValue(blurDataArray[ii].blurDir);
+      newBlur.name = blurDataArray[ii].blurName;
+      newBlur.moveTo(blurDataArray[ii].blurIdx);
+    }
+  }
 
-	function removeOldBlurs (layerEffects, blurDataArray) {
-		for (var i = blurDataArray.length-1; i >= 0; i--) {
-			var thisIdx = blurDataArray[i].blurIdx;
-			layerEffects.property(thisIdx).remove();
-		}
-	}
+  function iterateThroughEffects(layer) {
+    var layerEffects = layer.property('Effects');
+    var blurDataArray = [];
 
-	function buildNewEffects (layerEffects, blurDataArray) {
-		for (var i = 0, il = blurDataArray.length; i < il; i++) {
-			var newBlur = layerEffects.addProperty("ADBE Gaussian Blur");
-				newBlur.property(1).setValue(blurDataArray[i].blurVal);
-				newBlur.property(2).setValue(blurDataArray[i].blurDir);
-				newBlur.name = blurDataArray[i].blurName;
-				newBlur.moveTo(blurDataArray[i].blurIdx);
-		}
-	}
+    for (var ii = 1, il = layerEffects.numProperties; ii <= il; ii++) {
+      var effect = layerEffects(ii);
+      if (effect.matchName !== 'ADBE Gaussian Blur 2') {
+        continue;
+      }
 
-	function iterateThroughEffects (layer) {
-		var layerEffects  = layer.property("Effects");
-		var blurDataArray = [];
+      blurDataArray.push(getBlurData(effect));
+    }
 
-		for (var i = 1, il = layerEffects.numProperties; i <= il; i++) {
-			var effect = layerEffects(i);
-			if (!checkEffect(effect)) continue;
+    removeOldBlurs(layerEffects, blurDataArray);
+    buildNewEffects(layerEffects, blurDataArray);
+  }
 
-			blurDataArray.push(getBlurData(effect));
-		}
+  function iterateThroughSelectedLayers(layers) {
+    for (var ii = 0, il = layers.length; ii < il; ii++) {
+      var layer = layers[ii];
+      iterateThroughEffects(layer);
+    }
+  }
 
-		removeOldBlurs (layerEffects, blurDataArray);
-		buildNewEffects (layerEffects, blurDataArray);
-	}
+  var comp = app.project.activeItem;
 
-	function iterateThroughSelectedLayers (layers) {
-		for (var i = 0, il = layers.length; i < il; i++) {
-			var layer = layers[i];
-			iterateThroughEffects(layer);
-		}
-	}
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Open a comp!');
+    return;
+  }
 
-	app.beginUndoGroup("New Blur to Old Blur");
-	iterateThroughSelectedLayers(layers);
-	app.endUndoGroup();
+  var layers = comp.selectedLayers;
+
+  app.beginUndoGroup('New Blur to Old Blur');
+  iterateThroughSelectedLayers(layers);
+  app.endUndoGroup();
 })();

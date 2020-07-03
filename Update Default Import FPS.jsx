@@ -1,31 +1,56 @@
+/**
+ * Updates the default 'Import As' frame rate
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
 (function updateDefaultImportFPS() {
-	var prefs = app.preferences,
-		appVersion = parseFloat(app.version),
-		lastFPS = 30.0;
+  var prefs = app.preferences;
+  var appVersion = parseFloat(app.version);
+  var lastFPS = 30.0;
 
-	if (appVersion >= 12.0)
-		if (prefs.havePref("Import Options Preference Section", "Import Options Default Sequence FPS", PREFType.PREF_Type_MACHINE_INDEPENDENT))
-			lastFPS = prefs.getPrefAsLong("Import Options Preference Section", "Import Options Default Sequence FPS", PREFType.PREF_Type_MACHINE_INDEPENDENT);
-	else
-		if (prefs.havePref("Import Options Preference Section", "Import Options Default Sequence FPS"))
-			lastFPS = prefs.getPrefAsLong("Import Options Preference Section", "Import Options Default Sequence FPS");
+  var prefInfo = {
+    section: 'Import Options Preference Section',
+    key: 'Import Options Default Sequence FPS',
+    file: PREFType.PREF_Type_MACHINE_INDEPENDENT,
+  };
 
-	var newFPS = parseFloat(prompt("Enter a new framerate", lastFPS));
+  if (appVersion >= 12.0) {
+    if (prefs.havePref(prefInfo.section, prefInfo.key, prefInfo.file)) {
+      lastFPS = prefs.getPrefAsLong(
+        prefInfo.section,
+        prefInfo.key,
+        prefInfo.file
+      );
+    }
+  } else {
+    if (prefs.havePref(prefInfo.section, prefInfo.key)) {
+      lastFPS = prefs.getPrefAsLong(prefInfo.section, prefInfo.key);
+    }
+  }
 
-	if (!isNaN(newFPS)) {
-		try {
-			// Toggle the pref, save to disk, and reload so it's active in the current session
-			if (appVersion >= 12.0)
-				app.preferences.savePrefAsLong("Import Options Preference Section", "Import Options Default Sequence FPS", newFPS, PREFType.PREF_Type_MACHINE_INDEPENDENT);
-			else
-				app.preferences.savePrefAsLong("Import Options Preference Section", "Import Options Default Sequence FPS", newFPS);
+  var newFPS = parseFloat(prompt('Enter a new framerate', lastFPS));
 
-			app.preferences.saveToDisk();
-			app.preferences.reload();
-		} catch (e) {
-			alert(e);
-		}
-	} else {
-		alert("No FPS entered!");
-	}
+  if (isNaN(newFPS)) {
+    alert('No FPS entered!');
+    return;
+  }
+
+  try {
+    if (appVersion >= 12.0) {
+      app.preferences.savePrefAsLong(
+        prefInfo.section,
+        prefInfo.key,
+        newFPS,
+        prefInfo.file
+      );
+    } else {
+      app.preferences.savePrefAsLong(prefInfo.section, prefInfo.key, newFPS);
+    }
+
+    app.preferences.saveToDisk();
+    app.preferences.reload();
+  } catch (e) {
+    alert(e);
+  }
 })();

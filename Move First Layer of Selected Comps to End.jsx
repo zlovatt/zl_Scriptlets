@@ -1,41 +1,52 @@
-﻿/*
-    1) Select comps in project panel
-    2) Run script
+﻿/**
+ * Moves first layer of selected comps to end of that comp
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.0
+ */
+(function moveFirstLayerOfSelectedCompsToEnd() {
+  var comps = app.project.selection;
 
-    First layer in each comp will now be aligned to the end of each comp.
-*/
+  if (comps.length < 1) {
+    alert('Select some comps!');
+    return;
+  }
 
-(function moveFirstLayerOfSelectedCompsToEnd () {
-    var comps = app.project.selection;
+  app.beginUndoGroup('Move first layer to end of comp');
 
-    app.beginUndoGroup("Move first layer to end of comp");
+  for (var ii = 0, il = comps.length; ii < il; ii++) {
+    moveCompFirstLayerToEnd(comps[ii]);
+  }
 
-    for (var i = 0, il = comps.length; i < il; i++)
-        moveCompFirstLayerToEnd(comps[i]);
+  app.endUndoGroup();
 
-    app.endUndoGroup();
-
-
-    function moveCompFirstLayerToEnd (comp) {
-        if (!isValidComp(comp))
-            return;
-
-        var layer = comp.layer(1);
-        moveLayerToEnd(comp, layer);
+  /**
+   * Moves first layer of comp to end of comp
+   *
+   * @param {CompItem} comp Comp to shift layer in
+   */
+  function moveCompFirstLayerToEnd(comp) {
+    if (!(comp && comp instanceof CompItem)) {
+      return;
     }
 
-    function moveLayerToEnd (comp, layer) {
-        var layerDuration = layer.outPoint - layer.inPoint;
-
-        layer.startTime = comp.duration - layerDuration;
+    if (comp.numLayers === 0) {
+      return;
     }
 
-    function isValidComp (comp) {
-        if (!(comp instanceof CompItem))
-            return false;
-        if (comp.numLayers === 0)
-            return false;
+    var layer = comp.layer(1);
+    moveLayerToEnd(layer);
+  }
 
-        return true;
-    }
+  /**
+   * Moves a given layer to end of comp
+   *
+   * @param {Layer} layer Layer to move
+   */
+  function moveLayerToEnd(layer) {
+    var comp = layer.containingComp;
+    var layerDuration = layer.outPoint - layer.inPoint;
+
+    layer.startTime = comp.duration - layerDuration;
+  }
 })();

@@ -1,3 +1,9 @@
+/**
+ * Disable all expressions in all comps (and precomps)
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.0
+ */
 (function() {
   /**
    * Recursively loops through all properties and disables found expressions
@@ -5,8 +11,8 @@
    * @param {PropertyGroup} propertyGroup Property group to loop through
    */
   function recursiveDisableExpressions(propertyGroup) {
-    for (var i = 1; i <= propertyGroup.numProperties; i++) {
-      var property = propertyGroup.property(i);
+    for (var ii = 1; ii <= propertyGroup.numProperties; ii++) {
+      var property = propertyGroup.property(ii);
 
       if (property instanceof PropertyGroup) {
         recursiveDisableExpressions(property);
@@ -23,12 +29,17 @@
     }
   }
 
-  app.beginUndoGroup("Disable All Comp Expressions");
+  app.beginUndoGroup('Disable All Comp Expressions');
 
   var comp = app.project.activeItem;
 
-  for (var i = 1; i <= comp.numLayers; i++) {
-    var layer = comp.layer(i);
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Open a comp!');
+    return;
+  }
+
+  for (var ii = 1; ii <= comp.numLayers; ii++) {
+    var layer = comp.layer(ii);
 
     recursiveDisableExpressions(layer);
   }

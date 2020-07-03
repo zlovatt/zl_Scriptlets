@@ -1,5 +1,8 @@
 /**
- * This will write the names of layers in your comp to a file
+ * Write layer names in comp to a file
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
  */
 (function writeLayerNamesToFile() {
   /**
@@ -13,7 +16,7 @@
   function writeFile(path, contents) {
     var fileObj = path instanceof File ? path : new File(path);
 
-    fileObj.open("w");
+    fileObj.open('w');
     fileObj.write(contents);
     fileObj.close();
   }
@@ -21,30 +24,31 @@
   var comp = app.project.activeItem;
 
   if (!(comp && comp instanceof CompItem)) {
-    alert("Can't find comp!");
+    alert('Open a comp!');
     return;
   }
 
   var layers = comp.layers;
   var layerNames = [];
 
-  for (var i = 1, il = layers.length; i <= il; i++) {
-    layerNames.push(layers[i].name);
+  for (var ii = 1, il = layers.length; ii <= il; ii++) {
+    layerNames.push(layers[ii].name);
   }
 
-  var defaultPath = Folder.desktop.fullName + "/Layer Names.txt";
+  var defaultPath = Folder.desktop.fullName + '/Layer Names.txt';
   var outputFile = new File(defaultPath).saveDlg(
-    "Choose output file",
-    "txt:*.txt;"
+    'Choose output file',
+    'txt:*.txt;'
   );
 
   if (!outputFile) {
-    alert("Output canceled!");
+    alert('Output canceled!');
+    return;
   }
 
   try {
-    writeFile(outputFile, layerNames.join("\n"));
-    alert("Saved file to " + String(outputFile));
+    writeFile(outputFile, layerNames.join('\n'));
+    alert('Saved file to ' + String(outputFile));
   } catch (e) {
     alert(e);
   }

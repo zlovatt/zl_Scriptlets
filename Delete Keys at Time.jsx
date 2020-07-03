@@ -1,113 +1,85 @@
-/**********************************************************************************************
-	deleteKeysAtTime
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
-
-	Name: deleteKeysAtTime
-	Version: 0.2
-
-	Description:
-		Delete all keys at current time.
-
-		Originally requested by Andrew Embury.
-
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-
-**********************************************************************************************/
-
+/**
+ * Delete all keys at current time.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
 (function deleteKeysAtTime() {
+  /**
+   * Deletes keys at given time in a comp
+   *
+   * @param {CompItem} thisComp Comp to delete keys in
+   */
+  function deleteKeysAtTime(thisComp) {
+    var userLayers = [];
+    var ii;
 
-	var deleteKeysAtTime_scriptName = "deleteKeysAtTime";
-	var deleteKeysAtTime_versionNumber = "v0.1";
+    if (thisComp.selectedLayers.length !== 0) {
+      for (ii = 0; ii < thisComp.selectedLayers.length; ii++) {
+        userLayers.push(thisComp.selectedLayers[ii]);
+      }
+    } else {
+      for (ii = 1; ii <= thisComp.layers.length; ii++) {
+        userLayers.push(thisComp.layers[ii]);
+      }
+    }
 
-	/******************************
-		deleteKeysAtTime()
+    if (userLayers.length === 0) {
+      alert('No layers to delete keys from!');
+      return;
+    }
 
-		Description:
-		This function contains the main logic for this script.
+    for (ii = 0; ii < userLayers.length; ii++) {
+      var layer = userLayers[ii];
+      var wasSelected = layer.selected;
 
-		Parameters:
-		thisComp - current comp to bake
+      for (var jj = 1; jj <= layer.numProperties; jj++) {
+        deleteKeys(thisComp.time, layer, layer.property(jj).name);
+      }
 
-		Returns:
-		Nothing.
-	******************************/
-	function deleteKeysAtTime (thisComp) {
-		var userLayers = [],
-			i;
+      layer.selected = wasSelected;
+    }
+  }
 
-		// 1: Build layer set
-		if (thisComp.selectedLayers.length !== 0)
-			for (i = 0; i < thisComp.selectedLayers.length; i++)
-				userLayers.push(thisComp.selectedLayers[i]);
-		else
-			for (i = 1; i <= thisComp.layers.length; i++)
-				userLayers.push(thisComp.layers[i]);
+  /**
+   * Deletes keys with data
+   *
+   * @param {number} curTime   Current time to delete on
+   * @param {Layer} curLayer   Layer or prop group to run through
+   * @param {string} propGroup Current prop group / layer
+   */
+  function deleteKeys(time, layer, propGroup) {
+    var thisPropGroup = layer.property(propGroup);
+    var numProps;
 
-		// 3: Bake
-		if (userLayers.length !== 0) {
-			for (i = 0; i < userLayers.length; i++) {
-				var thisLayer = userLayers[i];
-				var wasSelected = thisLayer.selected;
+    try {
+      numProps = thisPropGroup.numProperties;
+    } catch (err) {}
 
-				for (var j = 1; j <= thisLayer.numProperties; j++)
-					deleteKeysAtTime_deleteKeys(thisComp.time, thisLayer, thisLayer.property(j).name);
+    if (!numProps) {
+      return;
+    }
 
-				thisLayer.selected = wasSelected;
-			}
-		} else {
-			alert("No layers to delete keys from!");
-		}
-	} // end function deleteKeysAtTime
+    for (var ii = 1; ii < numProps + 1; ii++) {
+      var curProp = thisPropGroup.property(ii);
+      if (curProp.numProperties !== undefined) {
+        deleteKeys(time, thisPropGroup, curProp.name);
+      } else if (curProp.numKeys !== 0) {
+        if (curProp.keyTime(curProp.nearestKeyIndex(time)) == time) {
+          curProp.removeKey(curProp.nearestKeyIndex(time));
+        }
+      }
+    }
+  }
 
+  var comp = app.project.activeItem;
 
-   /******************************
-		deleteKeysAtTime_deleteKeys()
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Open a comp!');
+    return;
+  }
 
-		Description:
-		Handles recursion & prop conversion
-
-		Parameters:
-		curTime - Current time to delete on
-		curLayer - Layer or prop group to run through
-		curPropGroup - Current prop group / layer
-
-		Returns:
-		Nothing.
-	******************************/
-	function deleteKeysAtTime_deleteKeys (curTime, curLayer, curPropGroup) {
-		var thisPropGroup = curLayer.property(curPropGroup);
-		var numProps;
-
-		try {
-			numProps = thisPropGroup.numProperties;
-		} catch (err) {}
-
-		if (numProps !== undefined)
-			for (var p = 1; p < numProps + 1; p++) {
-				var curProp = thisPropGroup.property(p);
-				if (curProp.numProperties !== undefined)
-					deleteKeysAtTime_deleteKeys(curTime, thisPropGroup, curProp.name);
-				else
-					if (curProp.numKeys !== 0)
-						if (curProp.keyTime(curProp.nearestKeyIndex(curTime)) == curTime)
-							curProp.removeKey(curProp.nearestKeyIndex(curTime));
-			} // end for
-	} // end function deleteKeys
-
-
-	// RUN!
-	var proj = (app.project) ? app.project: app.newProject();
-	var thisComp = proj.activeItem;
-
-	if (thisComp !== null && (thisComp instanceof CompItem)) {
-		app.beginUndoGroup(deleteKeysAtTime_scriptName);
-		deleteKeysAtTime(thisComp);
-		app.endUndoGroup();
-	} else {
-		alert("Select an active comp!", deleteKeysAtTime_scriptName);
-	}
-
+  app.beginUndoGroup('Delete Keys at Time');
+  deleteKeysAtTime(comp);
+  app.endUndoGroup();
 })();

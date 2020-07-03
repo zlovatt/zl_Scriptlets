@@ -1,42 +1,48 @@
-/**********************************************************************************************
-	recursiveEnableMoblur
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Recursively enables motion blur on layers in selected comps,
+ * and all precomps within.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function recursiveEnableMoblur() {
+  /**
+   * Enabled motion blur on all layers
+   *
+   * @param {CompItem} comp Comp to enable moblur in
+   */
+  function enableMoblur(comp) {
+    var layers = comp.layers;
 
-	Name: Recursive Enable Moblur
-	Version: 0.2
+    for (var ii = 1, il = layers.length; ii <= il; ii++) {
+      var layer = layers[ii];
 
-	Description:
-		Recursively enables motion blur on select comps and all precomps within.
+      try {
+        layer.motionBlur = true;
+      } catch (e) {}
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+      if (layer.source instanceof CompItem) {
+        enableMoblur(layer.source);
+      }
+    }
+  }
 
-(function recursiveEnableMoblur () {
-	function enableMoblur (targetComp) {
-		var layers = targetComp.layers;
-		for (var i = 1; i <= layers.length; i++) {
-			var thisLayer = layers[i];
+  /**
+   * Enables motion blur in selected comps
+   */
+  function blurSelectedComps() {
+    var items = app.project.items;
 
-			try { thisLayer.motionBlur = true; } catch(e) {}
+    for (var ii = 1; ii <= items.length; ii++) {
+      var item = items[ii];
 
-			if (thisLayer.source instanceof CompItem)
-				enableMoblur(thisLayer.source);
-		}
-	}
+      if (item.selected && item instanceof CompItem) {
+        enableMoblur(item);
+      }
+    }
+  }
 
-	function blurSelectedComps () {
-		var projectItems = app.project.items;
-		for (var i = 1; i <= projectItems.length; i++) {
-			var thisItem = projectItems[i];
-			if (thisItem.selected === true && thisItem instanceof CompItem)
-				enableMoblur(thisItem);
-		}
-	}
-
-	app.beginUndoGroup("Recursive Enable Moblur");
-	blurSelectedComps();
-	app.endUndoGroup();
+  app.beginUndoGroup('Recursive Enable Moblur');
+  blurSelectedComps();
+  app.endUndoGroup();
 })();

@@ -1,125 +1,162 @@
-(function selectKeys () {
-    var addToSelection = false; // set to TRUE if you want to add to selection, vs overwrite
+/**
+ * Selects all keyframes in the work area
+ *
+ * Modifiers:
+ *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function selectKeys() {
+  var addToSelection = ScriptUI.environment.keyboardState.shiftKey;
 
+  var comp = app.project.activeItem;
 
-	app.beginUndoGroup("Select Keys In Work Area");
-	selectKeysInWorkArea();
-	app.endUndoGroup();
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Please select a composition!');
+    return;
+  }
 
-	function selectKeysInWorkArea() {
-	    var comp = getActiveComp();
-	    var targetProps = [];
+  var targetProps = [];
 
-        var timeRange = {
-            start: comp.workAreaStart,
-            end: comp.workAreaStart + comp.workAreaDuration,
-        };
+  var timeRange = {
+    start: comp.workAreaStart,
+    end: comp.workAreaStart + comp.workAreaDuration,
+  };
 
-	    forAllSelectedLayersElseAll (comp, function(layer) {
-	       targetProps = targetProps.concat(getKeyedProp(layer));
-	    });
+  forAllSelectedLayersElseAll(comp, function (layer) {
+    targetProps = targetProps.concat(getKeyedProp(layer));
+  });
 
-	    forAllItemsInArray (targetProps, function(prop) {
-            if (prop.isSeparationLeader && prop.dimensionsSeparated)
-                return;
-                
-            if (!addToSelection)
-                deselectKeys(prop);
+  app.beginUndoGroup('Select Keys In Work Area');
 
-            var keyIndexStart = prop.nearestKeyIndex(timeRange.start);
-            if (prop.keyTime(keyIndexStart) < timeRange.start)
-                keyIndexStart++;
+  forAllItemsInArray(targetProps, function (prop) {
+    if (prop.isSeparationLeader && prop.dimensionsSeparated) {
+      return;
+    }
 
-            var keyIndexEnd = prop.nearestKeyIndex(timeRange.end);
-            if (prop.keyTime(keyIndexEnd) > timeRange.end)
-                keyIndexEnd--;
+    if (!addToSelection) {
+      deselectKeys(prop);
+    }
 
-            for (var i = keyIndexStart; i <= keyIndexEnd; i++)
-                prop.setSelectedAtKey(i, true);
-	    });
-	}
+    var keyIndexStart = prop.nearestKeyIndex(timeRange.start);
+    if (prop.keyTime(keyIndexStart) < timeRange.start) {
+      keyIndexStart++;
+    }
 
+    var keyIndexEnd = prop.nearestKeyIndex(timeRange.end);
+    if (prop.keyTime(keyIndexEnd) > timeRange.end) {
+      keyIndexEnd--;
+    }
 
-	function getKeyedProp(sourcePropGroup) {
-		var arr = [];
+    for (var ii = keyIndexStart; ii <= keyIndexEnd; ii++) {
+      prop.setSelectedAtKey(ii, true);
+    }
+  });
 
-	    forAllPropsInGroup(sourcePropGroup, function(prop) {
-	        if (isPropGroup(prop))
-	            arr = arr.concat(getKeyedProp(prop));
-	        else if (isKeyed(prop))
-	            arr.push(prop);
-	    });
+  app.endUndoGroup();
 
-	    return arr;
-	}
+  function getKeyedProp(sourcePropGroup) {
+    var arr = [];
 
+    forAllPropsInGroup(sourcePropGroup, function (prop) {
+      if (isPropGroup(prop)) {
+        arr = arr.concat(getKeyedProp(prop));
+      } else if (isKeyed(prop)) {
+        arr.push(prop);
+      }
+    });
 
-	/*** Generic Utilities ***/
+    return arr;
+  }
 
-	function isComp (item) {
-		return item instanceof CompItem;
-	}
+  /**
+   * Checks whether a property is a prop group
+   *
+   * @param {PropertyGroup | Property} prop Property to check
+   * @returns {boolean}                     Whether prop is a group
+   */
+  function isPropGroup(prop) {
+    return (
+      prop.propertyType === PropertyType.INDEXED_GROUP ||
+      prop.propertyType === PropertyType.NAMED_GROUP
+    );
+  }
 
-	function isPrecomp(layer){
-		return layer.source instanceof CompItem;
-	}
+  /**
+   * Checks whether a property has keys
+   *
+   * @param {Property} prop Property to check
+   * @returns {boolean}     Whether property has keys
+   */
+  function isKeyed(prop) {
+    return (
+      prop.propertyType === PropertyType.PROPERTY &&
+      prop.isTimeVarying &&
+      prop.numKeys > 0
+    );
+  }
 
-	function isPropGroup(prop) {
-	    if (prop.propertyType === PropertyType.INDEXED_GROUP || prop.propertyType === PropertyType.NAMED_GROUP)
-	        return true;
-	    return false;
-	}
+  /**
+   * Deselects keys on a property
+   *
+   * @param {Property} prop Property to check
+   */
+  function deselectKeys(prop) {
+    for (var ii = 1, il = prop.numKeys; ii <= il; ii++) {
+      prop.setSelectedAtKey(ii, false);
+    }
+  }
 
-	function isKeyed (prop) {
-	    if (prop.propertyType === PropertyType.PROPERTY &&
-	        prop.isTimeVarying &&
-	        prop.numKeys > 0)
-	        return true;
+  /**
+   * Runs a function on all properties in a group
+   *
+   * @param {PropertyGroup} propGroup Property group to run callback on
+   * @param {function} callback       Callback function
+   */
+  function forAllPropsInGroup(propGroup, callback) {
+    for (var ii = 1, il = propGroup.numProperties; ii <= il; ii++) {
+      var thisProp = propGroup.property(ii);
+      callback(thisProp);
+    }
+  }
+  /**
+   * Runs a function on all selected (or all layers) in a comp
+   *
+   * @param {CompItem} comp     Comp to run callback on
+   * @param {function} callback Callback function
+   */
+  function forAllSelectedLayersElseAll(comp, callback) {
+    if (comp.selectedLayers.length === 0) {
+      forAllLayersOfComp(comp, callback);
+    } else {
+      forAllItemsInArray(comp.selectedLayers, callback);
+    }
+  }
 
-	    return false;
-	}
+  /**
+   * Runs a function on all items in an array
+   *
+   * @param {any[]} array       Array to run callback on
+   * @param {function} callback Callback function
+   */
+  function forAllItemsInArray(array, callback) {
+    for (var ii = 0, il = array.length; ii < il; ii++) {
+      var thisItem = array[ii];
+      callback(thisItem);
+    }
+  }
 
-	function deselectKeys (prop) {
-	    for (var i = 1, il = prop.numKeys; i <= il; i++) {
-	        prop.setSelectedAtKey(i, false);
-	    }
-	}
-
-	function forAllPropsInGroup (propGroup, doSomething) {
-	    for (var i = 1, il = propGroup.numProperties; i <= il; i++){
-	        var thisProp = propGroup.property(i);
-	        doSomething(thisProp);
-	    }
-	}
-
-	function getActiveComp () {
-		var thisComp = app.project.activeItem;
-		if (thisComp === null || !(isComp(thisComp))){
-			alert("Please select a composition!");
-			return null;
-		}
-		return thisComp;
-	}
-
-	function forAllSelectedLayersElseAll (thisComp, doSomething) {
-		if (thisComp.selectedLayers.length === 0)
-			forAllLayersOfComp(thisComp, doSomething);
-		else
-			forAllItemsInArray(thisComp.selectedLayers, doSomething);
-	}
-
-	function forAllItemsInArray (itemArray, doSomething) {
-		for (var i = 0, il = itemArray.length; i < il; i++){
-			var thisItem = itemArray[i];
-			doSomething(thisItem);
-		}
-	}
-
-	function forAllLayersOfComp (thisComp, doSomething) {
-	    for (var i = 1, il = thisComp.layers.length; i <= il; i++){
-	        var thisLayer = thisComp.layers[i];
-	        doSomething(thisLayer);
-	    }
-	}
-
+  /**
+   * Runs a function on all layers in an comp
+   *
+   * @param {CompItem} comp     Comp to run callback on
+   * @param {function} callback Callback function
+   */
+  function forAllLayersOfComp(comp, callback) {
+    for (var ii = 1, il = comp.layers.length; ii <= il; ii++) {
+      var thisLayer = comp.layers[ii];
+      callback(thisLayer);
+    }
+  }
 })();

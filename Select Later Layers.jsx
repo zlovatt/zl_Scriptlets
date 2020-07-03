@@ -1,45 +1,39 @@
-/**********************************************************************************************
-	selectLaterLayers
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Selects all layers in your comp that start after the selected layer.
+ *
+ * Modifiers:
+ *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function selectLaterLayers() {
+  var comp = app.project.activeItem;
 
-	Name: Select Later Layers
-	Version: 0.2
+  if (!(comp && comp instanceof CompItem)) {
+    alert("Please select a composition!");
+    return;
+  }
 
-	Description:
-		Selects all layers in your comp that start after the selected layer.
+  var layers = thisComp.layers;
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+  if (layers.length === 0) {
+    alert("Select a layer!");
+    return;
+  }
 
-(function selectLaterLayers () {
-	app.beginUndoGroup("Select Later Layers");
+  app.beginUndoGroup("Select Later Layers");
 
-	var thisComp = app.project.activeItem;
-	var compLayers = thisComp.layers;
+  var layer = thisComp.selectedLayers[0];
+  layer.selected = false;
 
-	if (compLayers.length > 0) {
-		var targetLayer = thisComp.selectedLayers[0];
+  for (var ii = 1; ii <= layers.length; ii++) {
+    var curLayer = layers[ii];
 
-		if (targetLayer !== undefined){
-			targetLayer.selected = false;
+    if (curLayer.inPoint > layer.inPoint) {
+      curLayer.selected = true;
+    }
+  }
 
-			for (var i = 1; i <= compLayers.length; i++){
-				var curLayer = compLayers[i];
-				if (curLayer.inPoint > targetLayer.inPoint)
-					curLayer.selected = true;
-			}
-
-			if (thisComp.selectedLayers.length === 0)
-				alert("No later layers!");
-		} else {
-			alert("No layer selected!");
-		}
-	} else {
-		alert("Comp has no layers!");
-	}
-
-	app.endUndoGroup();
+  app.endUndoGroup();
 })();

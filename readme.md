@@ -35,13 +35,17 @@ Adds a random layer effect to your first selected layer 🙃
 
 ## [Add Trim Paths](Add&#32;Trim&#32;Paths.jsx)
 
-Adds Trim Paths to selected shape layers
+Adds Trim Paths to selected shape layers, including a keyframe to start and one to end the animation.
+
+Modifiers:
+
+  - Hold SHIFT when running the script to _not_ add keyframes.
 
 ---
 
 ## [Apply Colour File To Colorista Free](Apply&#32;Colour&#32;File&#32;To&#32;Colorista&#32;Free.jsx)
 
-Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free with the CDL
+Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free, using settings from the CDL.
 
 ---
 
@@ -59,7 +63,9 @@ A responsive layout version of the native "Create Nulls from Paths" panel (as of
 
 ## [Default Folders v2.0](Default&#32;Folders&#32;v2.0.jsx)
 
-Creates a number of folders (or, if ran as a window, lets you customzie folder names to create)
+Creates a number of folders (or, if ran as a window, lets you customzie folder names to create).
+
+Based on [DefaultFolders by Impudent1](http://aenhancers.com/viewtopic.php?t=37).
 
 ---
 
@@ -93,7 +99,9 @@ Looks at your keyframes and keeps every # of them.
 
 By default, will keep every 2nd keyframe, and delete the rest. Note that the first and last keyframes are always kept.
 
-Hold SHIFT when running the script to specify the interval.
+Modifiers:
+
+  - Hold SHIFT when running the script to specify the interval.
 
 Examples, starting with 10 keyframes: 🔷
 
@@ -112,7 +120,13 @@ Intended for use with baked expressions, such as when exporting with Bodymovin.
 
 ## [Loop Selected Layers](Loop&#32;Selected&#32;Layers.jsx)
 
-Loop out ('cycle') selected layers
+Enables time remapping on selected layers, and adds a loopOut("cycle") to loop the layer.
+
+Modifiers:
+
+  - Hold CTRL to loop IN instead of loop OUT
+  - Hold SHIFT to PINGPONG instead of CYCLE
+  - Hold both to loop IN, with PINGPONG
 
 ---
 
@@ -130,7 +144,11 @@ Moves the first layer of each selected comp in project panel to the end of each 
 
 ## [New Text Layer](New&#32;Text&#32;Layer.jsx)
 
-Creates a new text layer
+Makes a new empty text layer.
+
+Modifiers:
+
+  - Hold SHIFT to create a paragraph text layer instead of point text.
 
 ---
 
@@ -156,7 +174,7 @@ Randomize order of selected shape groups
 
 ## [Recursive Enable Moblur](Recursive&#32;Enable&#32;Moblur.jsx)
 
-Recursively enable motion blur on selected comps
+Recursively enable motion blur on selected comps, including all layers & precomps
 
 ---
 
@@ -180,7 +198,9 @@ Reverse shape group order in a shape layer
 
 ## [Select Duplicate Source Layers](Select&#32;Duplicate&#32;Source&#32;Layers.jsx)
 
-Select all layers that are multiple instances of the same file source
+Select all layers that are multiple instances of the same file source.
+
+So-- if you have two instances of the same movie file, this will select them both.
 
 ---
 
@@ -188,7 +208,9 @@ Select all layers that are multiple instances of the same file source
 
 Select all keys at current time indicator.
 
-Set flag to `true` to append selection, `false` to overwrite
+Modifiers:
+
+  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
 
 ---
 
@@ -196,25 +218,25 @@ Set flag to `true` to append selection, `false` to overwrite
 
 Select all keys under the work area.
 
-Set flag to `true` to append selection, `false` to overwrite
+Modifiers:
+
+  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
 
 ---
 
 ## [Select Later Layers](Select&#32;Later&#32;Layers.jsx)
 
-Select all layers that start after current time
+Selects all layers in your comp that start after the selected layer.
 
 ---
 
 ## [Set to Average Position (Expression)](Set&#32;to&#32;Average&#32;Position&#32;(Expression).jsx)
 
-Select three layers; third layer will be expression-set to average position of first two
+Select three layers; the first layer will be expression-set to average position of last two.
 
----
+Modifiers:
 
-## [Set to Average Position (Fixed)](Set&#32;to&#32;Average&#32;Position&#32;(Fixed).jsx)
-
-Select three layers; third layer will be set to average position of first two at current time
+  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
 
 ---
 
@@ -222,7 +244,7 @@ Select three layers; third layer will be set to average position of first two at
 
 Separates a layer's position dimensions, preserving easing if keyframes exist.
 
-Note: If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... a very very hard task.
+Note: If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... hard.
 
 ---
 
@@ -238,26 +260,34 @@ Toggles Javascript debugger enabled/disabled
 
 ---
 
-## [Toggle Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
+## [Enable Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
 
-Toggles Continuous on selected keys.
+Enables Continuous on selected keys.
 
-Run to enable, hold SHIFT to disable.
+Modifiers:
+
+  - Hold SHIFT to disable, not enable.
 
 ---
 
 ## [Ungroup Selected Shape Groups](Ungroup&#32;Selected&#32;Shape&#32;Groups.jsx)
 
-Ungroup the selected shape groups
+Ungroups all selected shape groups.
+
+Note: This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
+
+I know this isn't great, buuut it's a start! 🤷‍♀️
 
 ---
 
 ## [Update Default Import FPS](Update&#32;Default&#32;Import&#32;FPS.jsx)
 
-Prompts the user for to update default import FPS
+Prompts the user for to update default import FPS.
+
+This is used when importing image sequences, the fps that AE interprets it as.
 
 ---
 
 ## [Write Layer Names to File](Write&#32;Layer&#32;Names&#32;to&#32;File.jsx)
 
-Writes layer names to a file, separated by a new line
+Writes layer names to a file, one layer name per line.

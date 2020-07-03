@@ -1,28 +1,23 @@
-/**********************************************************************************************
-	parentEachToAbove
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Parents each selected layer to the layer above it.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function parentEachToAbove() {
+  var comp = app.project.activeItem;
 
-	Name: Parent Each to Above
-	Version: 0.2
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Please select a composition!');
+    return;
+  }
 
-	Description:
-		Parents each selected layer to the layer above it.
+  app.beginUndoGroup('Parent Selected to Above');
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+  for (var ii = 0; ii < comp.selectedLayers.length; ii++) {
+    var layer = comp.selectedLayers[ii];
+    layer.parent = comp.layer(layer.index - 1);
+  }
 
-(function parentEachToAbove () {
-	app.beginUndoGroup("Parent Selected to Above");
-
-	var thisComp = app.project.activeItem;
-
-	for (var i = 0; i < thisComp.selectedLayers.length; i++){
-		curLayer = thisComp.selectedLayers[i];
-		curLayer.parent = thisComp.layer(curLayer.index-1);
-	}
-
-	app.endUndoGroup();
+  app.endUndoGroup();
 })();

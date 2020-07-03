@@ -1,66 +1,63 @@
-﻿/**********************************************************************************************
-	randomizeShapeGroupOrder
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+﻿/**
+ * Randomly sort the selected shape groups in a shape layer
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function randomizeShapeGroupOrder() {
+  var comp = app.project.activeItem;
 
-	Name: Randomize Shape Group Order
-	Version: 0.2
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Open a comp!');
+    return;
+  }
 
-	Description:
-		This will randomly sort selected shape groups in a shape layer.
+  var layers = comp.selectedLayers;
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+  if (layers.length === 0) {
+    alert('Select a shape layer!');
+    return;
+  }
 
-(function randomizeShapeGroupOrder () {
-	app.beginUndoGroup("Randomize Shape Group Order");
+  var ii;
 
-	var proj = (app.project) ? app.project: app.newProject();
-	var thisComp = app.project.activeItem;
-	var userLayers = thisComp.selectedLayers;
+  app.beginUndoGroup('Randomize Shape Group Order');
 
-	if (userLayers.length > 0) {
-		var i;
+  for (ii = 0; ii < layers.length; ii++) {
+    var layer = layers[ii];
 
-		for (i = 0; i < userLayers.length; i++) {
-			var thisLayer = userLayers[i];
+    if (!(layer instanceof ShapeLayer)) {
+      alert('Select a shape layer!');
+      continue;
+    }
 
-			if (!(thisLayer instanceof ShapeLayer)) {
-				alert("Select a shape layer!");
-			} else {
-				var vecGroup = thisLayer.selectedProperties,
-					numGroups = vecGroup.length;
+    var vecGroup = layer.selectedProperties;
+    var numGroups = vecGroup.length;
 
-				var myIndexArray = [];
-				for (i = 0; i < numGroups; i++){
-					myIndexArray[i] = vecGroup[i].propertyIndex;
-				}
+    var myIndexArray = [];
+    for (ii = 0; ii < numGroups; ii++) {
+      myIndexArray[ii] = vecGroup[ii].propertyIndex;
+    }
 
-				var idx;
-				var temp;
-				for (i = 0; i < numGroups; i++){
-					idx = i + Math.floor(Math.random()*(myIndexArray.length - i));
-					temp = myIndexArray[i];
-					myIndexArray[i] = myIndexArray[idx];
-					myIndexArray[idx] = temp;
-				}
+    var idx;
+    var temp;
+    for (ii = 0; ii < numGroups; ii++) {
+      idx = ii + Math.floor(Math.random() * (myIndexArray.length - ii));
+      temp = myIndexArray[ii];
+      myIndexArray[ii] = myIndexArray[idx];
+      myIndexArray[idx] = temp;
+    }
 
-				var shapeArrayByName = [];
-				for (i = 0; i < numGroups; i++)
-					shapeArrayByName.push(vecGroup[i].name);
+    var shapeArrayByName = [];
+    for (ii = 0; ii < numGroups; ii++) {
+      shapeArrayByName.push(vecGroup[ii].name);
+    }
 
-				for (i = 0; i < numGroups; i++) {
-					var theseProps = thisLayer.property("ADBE Root Vectors Group");
-					theseProps.property(shapeArrayByName[i]).moveTo(myIndexArray[i]);
-				}
+    for (ii = 0; ii < numGroups; ii++) {
+      var theseProps = layer.property('ADBE Root Vectors Group');
+      theseProps.property(shapeArrayByName[ii]).moveTo(myIndexArray[ii]);
+    }
+  }
 
-			} // end else
-		} // end for
-	} else {
-		alert("Select a shape layer!");
-	}
-
-	app.endUndoGroup();
+  app.endUndoGroup();
 })();

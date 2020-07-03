@@ -1,6 +1,8 @@
 ﻿/**
  * Reveals current AEP in your OS file browser.
- * Mostly an abridged version of the aequery method of doing this.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.0
  */
 (function revealCurrentFile() {
   /**

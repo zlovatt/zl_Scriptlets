@@ -1,11 +1,13 @@
 /**
- * DefaultFolders v2.0
+ * Creates a number of folders (or, if ran as a window, lets you customzie folder names to create)
  *
- * Based on DefaultFolders by Impudent1 from
- * http://aenhancers.com/viewtopic.php?t=37
+ * Based on DefaultFolders by Impudent1 from http://aenhancers.com/viewtopic.php?t=37
  *
  * If run via `Window`, Shows a UI to set folder names
  * If run via `File > Script`, creates folders from preferences
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 2.0.1
  */
 (function defaultFolders(thisObj) {
   var defaultFolderNames = [

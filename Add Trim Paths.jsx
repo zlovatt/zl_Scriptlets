@@ -1,56 +1,55 @@
-/**********************************************************************************************
-    addTrimPaths
-    Copyright (c) 2017 Zack Lovatt. All rights reserved.
-    zack@zacklovatt.com
+/**
+ * Adds Trim Paths to selected shape layers, including a keyframe to start and one to end the animation.
+ *
+ * Hold SHIFT when running the script to _not_ add keyframes.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 1.3.0
+ */
+(function addTrimPaths() {
+  var addKeys = !ScriptUI.environment.keyboardState.shiftKey;
 
-    Name: Add 'Trim Paths'
-    Version: 1.2
+  var comp = app.project.activeItem;
 
-    Description:
-        Adds 'Trim Paths' to any selected shape layers.
+  if (!(comp && comp instanceof CompItem)) {
+    alert("Please select a composition!");
+    return;
+  }
 
-        If you don't want keyframes, set addKeys to false.
+  var layers = comp.selectedLayers;
 
-        This script is provided "as is," without warranty of any kind, expressed
-        or implied. In no event shall the author be held liable for any damages
-        arising in any way from the use of this script.
-**********************************************************************************************/
+  if (layers.length === 0) {
+    alert("Please select some layers!");
+    return;
+  }
 
-(function addTrimPaths () {
-	var addKeys = true;
+  app.beginUndoGroup("Add Trim Paths");
 
-	app.beginUndoGroup("Add Trim Paths");
+  for (var i = 0, il = layers.length; i < il; i++) {
+    var layer = layers[i];
 
-	var thisComp = app.project.activeItem;
-	if (thisComp === null || !(thisComp instanceof CompItem)){
-		alert("Please select a composition!");
-	} else {
-		var userLayers = thisComp.selectedLayers;
-		if (userLayers.length > 0) {
-			for (var i = 0, il = userLayers.length; i < il; i++) {
-				var thisLayer = userLayers[i];
+    if (layer.matchName !== "ADBE Vector Layer") {
+      continue;
+    }
 
-				if (thisLayer.matchName == "ADBE Vector Layer") {
-					var thisContentsGrp = thisLayer.property("ADBE Root Vectors Group");
+    var contents = layer.property("ADBE Root Vectors Group");
 
-					if (thisContentsGrp.canAddProperty("ADBE Vector Filter - Trim")) {
-						var trimProp = thisContentsGrp.addProperty("ADBE Vector Filter - Trim");
+    if (!contents.canAddProperty("ADBE Vector Filter - Trim")) {
+      continue;
+    }
+    var trimProp = contents.addProperty("ADBE Vector Filter - Trim");
 
-						if (addKeys) {
-							var trimEndProp = trimProp.property("ADBE Vector Trim End");
+    if (!addKeys) {
+      continue;
+    }
 
-							var trimTimes = [thisLayer.inPoint, thisLayer.inPoint+1];
-							var trimValues = [0, 100];
+    var trimEnd = trimProp.property("ADBE Vector Trim End");
 
-							trimEndProp.setValuesAtTimes(trimTimes, trimValues);
-						}
-					}
-				}
-			}
-		} else {
-			alert("Please select some layers!");
-		}
-	}
+    var trimTimes = [layer.inPoint, layer.inPoint + 1];
+    var trimValues = [0, 100];
 
-	app.endUndoGroup();
+    trimEnd.setValuesAtTimes(trimTimes, trimValues);
+  }
+
+  app.endUndoGroup();
 })();

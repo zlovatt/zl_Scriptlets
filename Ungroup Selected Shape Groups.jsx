@@ -1,46 +1,45 @@
-/**********************************************************************************************
-	ungroupSelectedShapeGroups
-	Copyright (c) 2017 Zack Lovatt. All rights reserved.
-	zack@zacklovatt.com
+/**
+ * Ungroups all selected shape groups.
+ *
+ * Note: This assumes that each group ONLY has a 'path' within it.
+ * If there's more, it'll fail.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.2.1
+ */
+(function ungroupSelectedShapeGroups() {
+  var comp = app.project.activeItem;
 
-	Name: Ungroup Selected Shape Groups
-	Version: 0.2
+  if (!(comp && comp instanceof CompItem)) {
+    alert('Please select a composition!');
+    return;
+  }
 
-	Description:
-		Ungroup all selected shape groups.
-		This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
-		Better than nothing!
+  var props = comp.selectedProperties;
+  var parentProp = props[0].propertyGroup();
+  var idxList = [];
+  var ii, il;
 
-		This script is provided "as is," without warranty of any kind, expressed
-		or implied. In no event shall the author be held liable for any damages
-		arising in any way from the use of this script.
-**********************************************************************************************/
+  // Build list of indices
+  for (ii = 0, il = props.length; ii < il; ii++) {
+    idxList.push(props[ii].propertyIndex);
+  }
 
-(function ungroupSelectedShapeGroups () {
-	app.beginUndoGroup("Ungroup Selected Shape Groups");
+  app.beginUndoGroup('Ungroup Selected Shape Groups');
 
-		var thisComp = app.project.activeItem;
-		var selectedProps = thisComp.selectedProperties;
-		var parentProp = selectedProps[0].propertyGroup();
-		var idxList = [];
-		var i, il;
+  app.executeCommand(2004); // Deselect all
 
-		// Build list of indices
-		for (i = 0, il = selectedProps.length; i < il; i++) {
-			idxList.push(selectedProps[i].propertyIndex);
-		}
+  // Deselect them
+  for (ii = 0, il = idxList.length; ii < il; ii++) {
+    var prop = parentProp.property(idxList[ii]);
+    prop.selected = true;
 
-		app.executeCommand(2004); // Deselect all
+    try {
+      app.executeCommand(3742);
+    } catch (e) {}
 
-		// Deselect them
-		for (i = 0, il = idxList.length; i < il; i++) {
-			var thisProp = parentProp.property(idxList[i]);
-			thisProp.selected = true;
-			try {
-				app.executeCommand(3742);
-			} catch(e) {}
-			parentProp.property(idxList[i]).selected = false;
-		}
+    parentProp.property(idxList[ii]).selected = false;
+  }
 
-	app.endUndoGroup();
+  app.endUndoGroup();
 })();
