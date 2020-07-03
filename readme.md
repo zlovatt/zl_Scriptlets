@@ -87,6 +87,29 @@ Tries to force 'use legacy skin' to ON for all installed scriptUI panels
 
 ---
 
+## [Keep Every N Keys](Keep&#32;Every&#32;N&#32;Keys.jsx)
+
+Looks at your keyframes and keeps every # of them.
+
+By default, will keep every 2nd keyframe, and delete the rest. Note that the first and last keyframes are always kept.
+
+Hold SHIFT when running the script to specify the interval.
+
+Examples, starting with 10 keyframes: 🔷
+
+| Interval      | Result              |
+|---------------|---------------------|
+| 1 (no change) | 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 |
+| 2 (default)   | 🔷 ✖️ 🔷 ✖️ 🔷 ✖️ 🔷 ✖️ 🔷 🔷 |
+| 3             | 🔷 ✖️ ✖️ 🔷 ✖️ ✖️ 🔷 ✖️ ✖️ 🔷 |
+| 4             | 🔷 ✖️ ✖️ ✖️ 🔷 ✖️ ✖️ ✖️ 🔷 🔷 |
+| 5             | 🔷 ✖️ ✖️ ✖️ ✖️ 🔷 ✖️ ✖️ ✖️ 🔷 |
+
+
+Intended for use with baked expressions, such as when exporting with Bodymovin.
+
+---
+
 ## [Loop Selected Layers](Loop&#32;Selected&#32;Layers.jsx)
 
 Loop out ('cycle') selected layers
