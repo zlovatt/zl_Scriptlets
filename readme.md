@@ -93,6 +93,26 @@ Tries to force 'use legacy skin' to ON for all installed scriptUI panels
 
 ---
 
+## [Generate Font Weight Selector](Generate&#32;Font&#32;Weight&#32;Selector.jsx)
+
+Looks at an existing text layer, and tries to create an expression to select
+font weight, based on the existing text layer's font.
+
+TO USE:
+
+ - Select a text layer
+ - Run script
+ - It will create a slider on the text layer, and an expression on sourceText
+ - The expression will list all available font weights it can detect!
+ - Animate / play with the slider, from 1 -> # of font weights in the list
+
+NOTES:
+
+ - this may not work in every case. Fonts are weird.
+ - this relies on CC 2019+.
+
+---
+
 ## [Keep Every N Keys](Keep&#32;Every&#32;N&#32;Keys.jsx)
 
 Looks at your keyframes and keeps every # of them.
