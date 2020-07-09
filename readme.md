@@ -103,13 +103,14 @@ TO USE:
  - Select a text layer
  - Run script
  - It will create a slider on the text layer, and an expression on sourceText
+ - The slider will animate from 1 to the # of weights found
  - The expression will list all available font weights it can detect!
- - Animate / play with the slider, from 1 -> # of font weights in the list
 
 NOTES:
 
  - this may not work in every case. Fonts are weird.
  - this relies on CC 2019+.
+ - Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
 
 ---
 

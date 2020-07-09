@@ -13,8 +13,17 @@
  *  - this may not work in every case. Fonts are weird.
  *  - this relies on CC 2019+.
  *
+ * Font PSName from https://github.com/ten-A/Extend_Script_experimentals,
+ * licensed under MIT:
+ *
+ *    The MIT License (MIT)
+ *    Copyright (c) 2016 Ten
+ *    Permission is hereby granted, free of charge, to any person obtaining a copy of those softwares and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.2.0
  */
 (function generateFontWeightSelector() {
   if (parseFloat(app.version) < 16.0) {
@@ -47,7 +56,7 @@
   // Force new expression engine
   app.expressionEngine = "javascript-1.0";
 
-  buildWeightSlider(layer);
+  buildWeightSlider(layer, weights.length);
   buildWeightSliderExpression(sourceText, weights);
 
   app.endUndoGroup();
@@ -55,9 +64,11 @@
   /**
    * Builds a slider on a layer
    *
-   * @param {Layer} layer Layer to build slider on
+   * @param {Layer} layer       Layer to build slider on
+   * @param {number} numWeights Number of found weights
    */
-  function buildWeightSlider(layer) {
+  function buildWeightSlider(layer, numWeights) {
+    var comp = layer.containingComp;
     var effects = layer.property('ADBE Effect Parade');
 
     if (effects.numProperties > 0) {
@@ -71,7 +82,14 @@
 
     var weightSlider = effects.addProperty('ADBE Slider Control');
     weightSlider.name = 'Weight Selection';
-    weightSlider.property(1).setValue(1);
+    weightSlider.property(1).setValuesAtTimes([
+      0,
+      comp.duration - 1 / comp.frameRate
+    ],
+    [
+      1,
+      numWeights
+    ]);
     // weightSlider.property(1).expression = 'clamp(Math.floor(value), 1, ' + weights.length + ');';
   }
 
@@ -111,28 +129,51 @@
   }
 
   /**
-   * Gets stripped filenames of files in a folder
+   * Gets PS names from fonts in a folder
    *
    * @param {Folder} folder Folder to search
    * @param {string} filter File filter
-   * @returns {string[]}    Array of files matching filter
+   * @returns {string[]}    Array of font PS names
    */
-  function getFilenamesFromRoot(folder, filter) {
-    var filenames = [];
+  function getPSNamesFromFolder(folder, filter) {
+    var psNames = [];
 
     var files = folder.getFiles(filter);
 
     for (var ii = 0, il = files.length; ii < il; ii++) {
-      var filename = files[ii].displayName;
-      var strippedFilename = filename.substr(
-        0,
-        filename.lastIndexOf('.')
-      );
-
-      filenames.push(strippedFilename);
+      var file = files[ii];
+      var psName = getFontPSName(file);
+      psNames.push(psName);
     }
 
-    return filenames;
+    return psNames;
+  }
+
+  /**
+   * Gets font PS name from a file
+   *
+   * @author Ten <https://github.com/ten-A/Extend_Script_experimentals>
+   * @copyright 2016 Ten
+   * @param {File} fontFile        Font file to get info from
+   * @returns {string | undefined} PS Name for file
+   */
+  function getFontPSName(fontFile) {
+    function getPSName(r){function e(r){var e=256*r.readch().charCodeAt(0);return e+=r.readch().charCodeAt(0)}function a(r){for(var e=0,a=16777216,t=0;t<4;t++)e+=r.readch().charCodeAt(0)*a,a/=256;return e}function t(r){var e=r.readch().charCodeAt(0),a=e<<8;return a+=e=r.readch().charCodeAt(0)}try{var c=function(e){for(j=0;j<e;j++){for(dat=["",0,0,0],i=0;i<4;i++)dat[0]+=r.readch();if(dat[1]=a(r),dat[2]=a(r),dat[3]=a(r),"name"==dat[0])return dat}}(function(){var e,a=["",0,0,0,0],c=r.readch();if("O"==c)for(a[0]=c,i=0;i<3;i++)a[0]+=r.readch();else for(a[0]="0x0"+c.charCodeAt(0).toString(16),i=0;i<3;i++)1==(e=(c=r.readch()).charCodeAt(0).toString(16)).length&&(e="0"+e),a[0]+=e;return a[1]=t(r),a[2]=t(r),a[3]=t(r),a[4]=t(r),a}()[1]);r.seek(c[2]);for(var d=[],h="",o=0,n=(e(r),e(r)),f=e(r),i=0;i<n&&6!=(d=[e(r),e(r),e(r),e(r),e(r),e(r)+f+c[2]])[3];i++);if(r.seek(d[5]),0==(h+=r.readch()).charCodeAt(0))for(h=r.readch(),o=1;o<d[4]/2;o++)r.readch(),h+=r.readch(),$.writeln(h.charCodeAt(o));else for(o=0;o<d[4] - 1;o++)h+=r.readch();return h}catch(r){alert(r)}}
+
+    var psName;
+
+    fontFile.encoding = 'BINARY';
+
+    try {
+      if (fontFile.open('r')) {
+        psName = getPSName(fontFile);
+      }
+    } catch (e) {
+    } finally {
+      fontFile.close();
+    }
+
+    return psName;
   }
 
   /**
@@ -152,7 +193,7 @@
     }
 
     var filter = root + delimiter + '*';
-    var filenames = getFilenamesFromRoot(folder, filter);
+    var filenames = getPSNamesFromFolder(folder, filter);
 
     return filenames;
   }
