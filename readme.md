@@ -187,6 +187,14 @@ This was developed before the official "Paths to Nulls" panel 😅
 
 ---
 
+## [Phone a Friend](Phone&#32;A&#32;Friend.jsx)
+
+Generates Touch Tone noises for your input in AE!
+
+Uses markers & expressions-- move markers & change text to change audio!
+
+---
+
 ## [Randomize Shape Group Order](Randomize&#32;Shape&#32;Group&#32;Order.jsx)
 
 Randomize order of selected shape groups
