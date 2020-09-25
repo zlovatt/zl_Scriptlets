@@ -2,9 +2,11 @@
  * Reverses the selected shape group order in a shape layer
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function reverseShapeGroupOrder() {
+  var comp = app.project.activeItem;
+
   if (!(comp && comp instanceof CompItem)) {
     return;
   }
