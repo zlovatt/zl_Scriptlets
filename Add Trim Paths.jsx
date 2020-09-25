@@ -4,7 +4,7 @@
  * Hold SHIFT when running the script to _not_ add keyframes.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 1.3.0
+ * @version 1.3.1
  */
 (function addTrimPaths() {
   var addKeys = !ScriptUI.environment.keyboardState.shiftKey;
@@ -25,8 +25,8 @@
 
   app.beginUndoGroup("Add Trim Paths");
 
-  for (var i = 0, il = layers.length; i < il; i++) {
-    var layer = layers[i];
+  for (var ii = 0, il = layers.length; ii < il; ii++) {
+    var layer = layers[ii];
 
     if (layer.matchName !== "ADBE Vector Layer") {
       continue;

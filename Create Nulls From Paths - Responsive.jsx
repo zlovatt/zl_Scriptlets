@@ -36,20 +36,20 @@
     }
 
     function forEachLayer(targetLayerArray, doSomething) {
-        for (var i = 0, ii = targetLayerArray.length; i < ii; i++){
-            doSomething(targetLayerArray[i]);
+        for (var ii = 0, il = targetLayerArray.length; ii < il; ii++){
+            doSomething(targetLayerArray[ii]);
         }
     }
 
     function forEachProperty(targetProps, doSomething){
-        for (var i = 0, ii = targetProps.length; i < ii; i++){
-            doSomething(targetProps[i]);
+        for (var ii = 0, il = targetProps.length; ii < il; ii++){
+            doSomething(targetProps[ii]);
         }
     }
 
     function forEachEffect(targetLayer, doSomething){
-        for (var i = 1, ii = targetLayer.property("ADBE Effect Parade").numProperties; i <= ii; i++) {
-            doSomething(targetLayer.property("ADBE Effect Parade").property(i));
+        for (var ii = 1, il = targetLayer.property("ADBE Effect Parade").numProperties; ii <= il; ii++) {
+            doSomething(targetLayer.property("ADBE Effect Parade").property(ii));
         }
     }
 
@@ -142,14 +142,14 @@
             var pathPath = getPropPath(path, pathHierarchy);
             // Do things with the path points
             var pathPoints = getPathPoints(path);
-            for (var i = 0, ii = pathPoints.length; i < ii; i++){
-                var nullName = selectedLayer.name + ": " + path.parentProperty.name + " [" + pathHierarchy.join(".") + "." + i + "]";
+            for (var ii = 0, il = pathPoints.length; ii < il; ii++){
+                var nullName = selectedLayer.name + ": " + path.parentProperty.name + " [" + pathHierarchy.join(".") + "." + ii + "]";
                 if(comp.layer(nullName) == undefined){
                     var newNull = createNull(comp);
-                    newNull.position.setValue(pathPoints[i]);
+                    newNull.position.setValue(pathPoints[ii]);
                     newNull.position.expression =
                             "var srcLayer = thisComp.layer(\"" + selectedLayer.name + "\"); \r" +
-                            "var srcPath = srcLayer" + pathPath + ".points()[" + i + "]; \r" +
+                            "var srcPath = srcLayer" + pathPath + ".points()[" + ii + "]; \r" +
                             "srcLayer.toComp(srcPath);";
                     newNull.name = nullName;
                     newNull.label = 10;
@@ -170,8 +170,8 @@
             var nullSet = [];
             // Do things with the path points
             var pathPoints = getPathPoints(path);
-            for (var i = 0, ii = pathPoints.length; i < ii; i++){ //For each path point
-                var nullName = selectedLayer.name + ": " + path.parentProperty.name + " [" + pathHierarchy.join(".") + "." + i + "]";
+            for (var ii = 0, il = pathPoints.length; ii < il; ii++){ //For each path point
+                var nullName = selectedLayer.name + ": " + path.parentProperty.name + " [" + pathHierarchy.join(".") + "." + ii + "]";
                 nullSet.push(nullName);
 
                 // Get names of nulls that don't exist yet and create them
@@ -184,10 +184,10 @@
                     newNull.label = 11;
 
                     // Set position using layer space transforms, then remove expressions
-                    newNull.position.setValue(pathPoints[i]);
+                    newNull.position.setValue(pathPoints[ii]);
                     newNull.position.expression =
                             "var srcLayer = thisComp.layer(\"" + selectedLayer.name + "\"); \r" +
-                            "var srcPath = srcLayer" + pathPath + ".points()[" + i + "]; \r" +
+                            "var srcPath = srcLayer" + pathPath + ".points()[" + ii + "]; \r" +
                             "srcLayer.toComp(srcPath);";
                     newNull.position.setValue(newNull.position.value);
                     newNull.position.expression = '';

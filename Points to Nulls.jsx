@@ -97,7 +97,7 @@
 				ctr = 1,
 				resultStr = "",
 				offsetStr = "",
-				i;
+				ii;
 
 			while (parentGrp) {
 				if (parentGrp.name !== 'Contents')
@@ -106,11 +106,11 @@
 				parentGrp = parentGrp.propertyGroup();
 			}
 
-			for (i = itemNames.length - 2; i >= 1; i--)
-				resultStr += 'var grp' + ctr + ' = ' + 'grp' + (ctr++ -1) + itemNames[i] + ';\n';
+			for (ii = itemNames.length - 2; ii >= 1; ii--)
+				resultStr += 'var grp' + ctr + ' = ' + 'grp' + (ctr++ -1) + itemNames[ii] + ';\n';
 
-			for (i = 1, il = ctr; i < il - 1; i++)
-				offsetStr += 'grp' + i + '.transform.position - grp' + i + '.transform.anchorPoint + ';
+			for (ii = 1, il = ctr; ii < il - 1; ii++)
+				offsetStr += 'grp' + ii + '.transform.position - grp' + ii + '.transform.anchorPoint + ';
 
 			resultStr = resultStr.replace('grp0', 'layer');
 			resultStr += parentToSource ? '' : 'layer.toComp(';
@@ -249,15 +249,15 @@
 	 * @param {{backwards: Boolean}} [options] Options object to recurse forward or backward
 	 */
 	function forAllItemsInArray (array, func, options) {
-		var i, il;
+		var ii, il;
 		options = options || {};
 
 		if (options.backwards === true)
-			for (i = array.length - 1; i >= 0; i--)
-				func(array[i], i);
+			for (ii = array.length - 1; ii >= 0; ii--)
+				func(array[ii], ii);
 		else
-			for (i = 0, il = array.length; i < il; i++)
-				func(array[i], i);
+			for (ii = 0, il = array.length; ii < il; ii++)
+				func(array[ii], ii);
 	}
 
 	/**
@@ -268,15 +268,15 @@
 	 * @param {{backwards: Boolean}} [options] Options object to recurse forward or backward
 	 */
 	function forAllPropsInGroup (group, func, options) {
-		var i, il;
+		var ii, il;
 		options = options || {};
 
 		if (options.backwards === true)
-			for (i = group.numProperties; i > 0; i--)
-				func(group.property(i), i);
+			for (ii = group.numProperties; ii > 0; ii--)
+				func(group.property(ii), ii);
 		else
-			for (i = 1, il = group.numProperties; i <= il; i++)
-				func(group.property(i), i);
+			for (ii = 1, il = group.numProperties; ii <= il; ii++)
+				func(group.property(ii), ii);
 	}
 
 	/**
@@ -287,14 +287,14 @@
 	 * @param {{backwards: Boolean}} [options] Options object to recurse forward or backward
 	 */
 	function forAllLayersOfComp (comp, func, options) {
-		var i, il;
+		var ii, il;
 		options = options || {};
 
 		if (options.backwards === true)
-			for (i = comp.layers.length - 1; i >= 0; i--)
-				func(comp.layers[i], i);
+			for (ii = comp.layers.length - 1; ii >= 0; ii--)
+				func(comp.layers[ii], ii);
 		else
-			for (i = 1, il = comp.layers.length; i <= il; i++)
-				func(comp.layers[i], i);
+			for (ii = 1, il = comp.layers.length; ii <= il; ii++)
+				func(comp.layers[ii], ii);
 	}
 })();

@@ -7,7 +7,7 @@
  * If run via `File > Script`, creates folders from preferences
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 2.0.1
+ * @version 2.0.2
  */
 (function defaultFolders(thisObj) {
   var defaultFolderNames = [
@@ -25,8 +25,8 @@
    * @param {String[]} folderNames Array of folder names to create
    */
   function createFolders(folderNames) {
-    for (var i = 0, il = folderNames.length; i < il; i++) {
-      var folderName = folderNames[i];
+    for (var ii = 0, il = folderNames.length; ii < il; ii++) {
+      var folderName = folderNames[ii];
 
       if (folderName === "") continue;
 
@@ -61,8 +61,8 @@
    * @param {String[]} Array of folder names
    */
   function setFolderNames(folderNames) {
-    for (var i = 0, il = folderNames.length; i < il; i++) {
-      app.settings.saveSetting("DefaultFolderPrefs", "Folder" + (i + 1), folderNames[i]);
+    for (var ii = 0, il = folderNames.length; ii < il; ii++) {
+      app.settings.saveSetting("DefaultFolderPrefs", "Folder" + (ii + 1), folderNames[ii]);
     }
   }
 
@@ -81,8 +81,8 @@
     grpFolders.orientation = "column";
 
     var folderNames = getFolderNames();
-    for (var i = 0, il = folderNames.length; i < il; i++) {
-      var folderName = folderNames[i];
+    for (var ii = 0, il = folderNames.length; ii < il; ii++) {
+      var folderName = folderNames[ii];
 
       var etFolder = grpFolders.add(
         "edittext",
@@ -101,8 +101,8 @@
       app.beginUndoGroup("Default Folder Maker");
 
       var uiFolderNames = [];
-      for (var i = 0, il = grpFolders.children.length; i < il; i++) {
-        uiFolderNames.push(grpFolders.children[i].text);
+      for (var ii = 0, il = grpFolders.children.length; ii < il; ii++) {
+        uiFolderNames.push(grpFolders.children[ii].text);
       }
 
       setFolderNames(uiFolderNames);
@@ -112,9 +112,9 @@
 
     var btnReset = grpMeta.add("button", undefined, "Reset");
     btnReset.onClick = function() {
-      for (var i = 0, il = grpFolders.children.length; i < il; i++) {
-        var etFolder = grpFolders.children[i];
-        etFolder.text = defaultFolderNames[i];
+      for (var ii = 0, il = grpFolders.children.length; ii < il; ii++) {
+        var etFolder = grpFolders.children[ii];
+        etFolder.text = defaultFolderNames[ii];
       }
     }
 

@@ -2,7 +2,7 @@
  * Forces Legacy Skin for all installed scripts
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.0
+ * @version 0.2.1
  */
 (function forceLegacySkinForAllScripts() {
   // Quickly close & open _EVERY INSTALLED SCRIPT_ to update
@@ -13,8 +13,8 @@
 
   var scriptUIFiles = getScriptUIFiles();
 
-  for (var i = 0, il = scriptUIFiles.length; i < il; i++) {
-    var script = scriptUIFiles[i];
+  for (var ii = 0, il = scriptUIFiles.length; ii < il; ii++) {
+    var script = scriptUIFiles[ii];
     var scriptFileName = script.displayName;
     var success = forceLegacySkin(scriptFileName);
 

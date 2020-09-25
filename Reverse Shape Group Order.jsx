@@ -2,7 +2,7 @@
  * Reverses the selected shape group order in a shape layer
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.2
+ * @version 0.2.3
  */
 (function reverseShapeGroupOrder() {
   var comp = app.project.activeItem;
@@ -22,7 +22,7 @@
 
   app.beginUndoGroup("Reverse Shape Group Order");
 
-  for (var ii = 0, il = layers.length; i < il; i++) {
+  for (var ii = 0, il = layers.length; ii < il; ii++) {
     var layer = layers[ii];
 
     if (!(layer instanceof ShapeLayer)) {

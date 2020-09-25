@@ -3,7 +3,7 @@
  * attempting to preserve easing
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function separateDimensionsPreserveEasing() {
   /**
@@ -15,20 +15,20 @@
   function buildPropTemporalEaseArray(property) {
     var propTemporalEases = [];
 
-    for (var i = 1, il = property.numKeys; i <= il; i++) {
-      var ite = property.keyInTemporalEase(i)[0];
+    for (var ii = 1, il = property.numKeys; ii <= il; ii++) {
+      var ite = property.keyInTemporalEase(ii)[0];
 
       if (
-        property.keyInInterpolationType(i) == KeyframeInterpolationType.HOLD ||
-        property.keyInInterpolationType(i) == KeyframeInterpolationType.LINEAR
+        property.keyInInterpolationType(ii) == KeyframeInterpolationType.HOLD ||
+        property.keyInInterpolationType(ii) == KeyframeInterpolationType.LINEAR
       )
         ite = new KeyframeEase(0, 10);
 
-      var ote = property.keyOutTemporalEase(i)[0];
+      var ote = property.keyOutTemporalEase(ii)[0];
 
       if (
-        property.keyOutInterpolationType(i) == KeyframeInterpolationType.HOLD ||
-        property.keyOutInterpolationType(i) == KeyframeInterpolationType.LINEAR
+        property.keyOutInterpolationType(ii) == KeyframeInterpolationType.HOLD ||
+        property.keyOutInterpolationType(ii) == KeyframeInterpolationType.LINEAR
       )
         ote = new KeyframeEase(0, 10);
 
@@ -57,13 +57,13 @@
       transformGroup("ADBE Position_2"),
     ];
 
-    for (var i = 0, il = posProps.length; i < il; i++) {
-      var property = posProps[i];
+    for (var ii = 0, il = posProps.length; ii < il; ii++) {
+      var property = posProps[ii];
 
-      for (var j = 1, jl = property.numKeys; j <= jl; j++) {
-        var temporalEaseObject = propTemporalEases[j - 1];
+      for (var jj = 1, jl = property.numKeys; jj <= jl; jj++) {
+        var temporalEaseObject = propTemporalEases[jj - 1];
         property.setTemporalEaseAtKey(
-          j,
+          jj,
           [temporalEaseObject.ite],
           [temporalEaseObject.ote]
         );

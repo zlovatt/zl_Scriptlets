@@ -3,7 +3,7 @@
  * and select layers that have duplicate file sources.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function selectDuplicateSourceLayers() {
 	function arrayIndexOf (arr, searchElement, fromIndex) { var k; if (arr === null) throw new TypeError('"this" is null or not defined'); var o = Object(arr); var len = o.length >>> 0; if (len === 0) return -1; var n = fromIndex | 0; if (n >= len) return -1; k = Math.max(n >= 0 ? n : len - Math.abs(n), 0); while (k < len) { if (k in o && o[k] === searchElement) return k; k++; } return -1; };
@@ -17,8 +17,8 @@
   var layers = comp.layers;
   var sourceIDs = [];
 
-  for (var i = 1, il = layers.length; i <= il; i++) {
-    var layer = layers[i];
+  for (var ii = 1, il = layers.length; ii <= il; ii++) {
+    var layer = layers[ii];
     layer.selected = false;
 
     var source = layer.source;
