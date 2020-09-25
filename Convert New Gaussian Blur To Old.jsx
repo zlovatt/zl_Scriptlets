@@ -2,7 +2,7 @@
  * Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy).
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 1.0.1
+ * @version 1.0.2
  */
 (function convertNewGBlurToOld() {
   function getBlurData(effect) {
@@ -15,8 +15,8 @@
   }
 
   function removeOldBlurs(layerEffects, blurDataArray) {
-    for (var i = blurDataArray.length - 1; i >= 0; i--) {
-      var thisIdx = blurDataArray[i].blurIdx;
+    for (var ii = blurDataArray.length - 1; ii >= 0; ii--) {
+      var thisIdx = blurDataArray[ii].blurIdx;
       layerEffects.property(thisIdx).remove();
     }
   }

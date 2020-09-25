@@ -47,7 +47,7 @@
 			*
 			* @param {PropertyGroup} shapeGrp Shape property group to look in
 			*/
-			forAllPropsInGroup(shapeGrp, function (shapeItem, i) {
+			forAllPropsInGroup(shapeGrp, function (shapeItem, ii) {
 				if (shapeItem.matchName.indexOf('Group') > -1) {
 					recurseFindShapes(shapeItem);
 				} else if (shapeItem.matchName == 'ADBE Vector Shape') {
@@ -64,9 +64,9 @@
 					*
 					* @param {Point[]} vertices Array of vertices
 					*/
-					forAllItemsInArray(vertices, function (vertex, j) {
+					forAllItemsInArray(vertices, function (vertex, jj) {
 						var vertexNull = addNull(layer.containingComp);
-							vertexNull.name = layer.name + ' : ' + shapeItem.propertyGroup(3).name + ' : ' + (j+1) + '/' + vertices.length;
+							vertexNull.name = layer.name + ' : ' + shapeItem.propertyGroup(3).name + ' : ' + (jj+1) + '/' + vertices.length;
 							vertexNull.label = layer.label;
 							vertexNull.moveBefore(layer);
 
@@ -76,7 +76,7 @@
 						var vertexPos = vertexNull.property('ADBE Transform Group').property('ADBE Position');
 							vertexPos.expression =
 								'var layer = thisComp.layer("' + layer.name + '");\n' +
-								shapeNamePath + '[' + j + ']' +
+								shapeNamePath + '[' + jj + ']' +
 								(parentToSource ? '' : ')');
 
 						createdNulls.push(vertexNull);
@@ -149,9 +149,9 @@
 			*
 			* @param {Point[]} vertices Array of vertices
 			*/
-			forAllItemsInArray(vertices, function (vertex, i) {
+			forAllItemsInArray(vertices, function (vertex, ii) {
 				var vertexNull = addNull(layer.containingComp);
-					vertexNull.name = layer.name + ' : ' + mask.name + ' : ' + (i+1) + '/' + vertices.length;
+					vertexNull.name = layer.name + ' : ' + mask.name + ' : ' + (ii+1) + '/' + vertices.length;
 					vertexNull.label = layer.label;
 					vertexNull.moveBefore(layer);
 
@@ -162,7 +162,7 @@
 					vertexPos.expression =
 						'var layer = thisComp.layer("' + layer.name + '");\n' +
 						(parentToSource ? '' : 'layer.toComp(') +
-						'layer.mask("' + mask.name + '").maskPath.points()[' + i + ']' +
+						'layer.mask("' + mask.name + '").maskPath.points()[' + ii + ']' +
 						(parentToSource ? '' : ')');
 
 				createdNulls.push(vertexNull);
