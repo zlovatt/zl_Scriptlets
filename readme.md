@@ -187,6 +187,12 @@ This was developed before the official "Paths to Nulls" panel 😅
 
 ---
 
+## [Quick Rename Layers](Quick&#32;Rename&#32;Layers.jsx)
+
+Quickly renames all selected layers to text of your choice, adding an incrementer # to the end of the layer name.
+
+---
+
 ## [Phone a Friend](Phone&#32;A&#32;Friend.jsx)
 
 Generates Touch Tone noises for your input in AE!
