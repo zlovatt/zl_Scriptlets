@@ -65,12 +65,6 @@ Modifiers:
 
 ---
 
-## [Create Nulls From Paths - Responsive](Create&#32;Nulls&#32;From&#32;Paths&#32;-&#32;Responsive.jsx)
-
-A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
-
----
-
 ## [Default Folders v2.0](Default&#32;Folders&#32;v2.0.jsx)
 
 Creates a number of folders (or, if ran as a window, lets you customzie folder names to create).
