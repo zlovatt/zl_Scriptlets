@@ -55,6 +55,16 @@ Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 
 ---
 
+## [Create Average Position Null](Create&#32;Average&#32;Position&#32;Null.jsx)
+
+Select some layers; a new null will be created at the average position of them.
+
+Modifiers:
+
+  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
+
+---
+
 ## [Create Nulls From Paths - Responsive](Create&#32;Nulls&#32;From&#32;Paths&#32;-&#32;Responsive.jsx)
 
 A responsive layout version of the native "Create Nulls from Paths" panel (as of 2018/04/27)
@@ -187,17 +197,17 @@ This was developed before the official "Paths to Nulls" panel 😅
 
 ---
 
-## [Quick Rename Layers](Quick&#32;Rename&#32;Layers.jsx)
-
-Quickly renames all selected layers to text of your choice, adding an incrementer # to the end of the layer name.
-
----
-
 ## [Phone a Friend](Phone&#32;A&#32;Friend.jsx)
 
 Generates Touch Tone noises for your input in AE!
 
 Uses markers & expressions-- move markers & change text to change audio!
+
+---
+
+## [Quick Rename Layers](Quick&#32;Rename&#32;Layers.jsx)
+
+Quickly renames all selected layers to text of your choice, adding an incrementer # to the end of the layer name.
 
 ---
 
@@ -262,16 +272,6 @@ Modifiers:
 ## [Select Later Layers](Select&#32;Later&#32;Layers.jsx)
 
 Selects all layers in your comp that start after the selected layer.
-
----
-
-## [Set to Average Position (Expression)](Set&#32;to&#32;Average&#32;Position&#32;(Expression).jsx)
-
-Select three layers; the first layer will be expression-set to average position of last two.
-
-Modifiers:
-
-  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
 
 ---
 
