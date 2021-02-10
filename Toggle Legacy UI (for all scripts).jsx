@@ -1,15 +1,15 @@
 ﻿/**
- * Toggles 'Legacy Skin' for all installed scripts.
+ * Toggles 'Use Legacy UI' for all installed scripts.
  *
- * Set line 11 to 'enableLegacy = true' to ENABLE LEGACY SKIN.
- * Set line 11 to 'enableLegacy = false' to DISABLE LEGACY SKIN.
+ * Set line 13 to 'enableLegacy = true' to ENABLE LEGACY UI.
+ * Set line 13 to 'enableLegacy = false' to DISABLE LEGACY UI.
  *
  * Note that you'll need to close & relaunch your ScriptUI panels.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.3.0
+ * @version 0.3.1
  */
-(function toggleLegacySkinForAllScripts() {
+(function toggleLegacyUIForAllScripts() {
   var enableLegacy = false;
 
   /**
@@ -73,7 +73,7 @@
    * @param {string} scriptFileName JSX Filename
    * @returns {boolean}             Whether operation succeeded
    */
-  function toggleLegacySkin(scriptFileName) {
+  function toggleLegacyUI(scriptFileName) {
     var prefSection = "Pref_SUI_PANEL_USES_LEGACY_SKIN";
     var prefKey = "Adobe Scripting-" + scriptFileName;
     var prefFile = PREFType.PREF_Type_MACHINE_INDEPENDENT;
@@ -83,17 +83,12 @@
         return false;
       }
 
-      if (
-        app.preferences.getPrefAsBool(prefSection, prefKey, prefFile) ===
-        !enableLegacy
-      ) {
-        app.preferences.savePrefAsBool(
-          prefSection,
-          prefKey,
-          enableLegacy,
-          prefFile
-        );
-      }
+      app.preferences.savePrefAsBool(
+        prefSection,
+        prefKey,
+        enableLegacy,
+        prefFile
+      );
     } catch (e) {
       alert(e);
       return false;
@@ -108,7 +103,7 @@
     var script = scriptUIFiles[ii];
     var scriptFileName = script.displayName;
 
-    toggleLegacySkin(scriptFileName);
+    toggleLegacyUI(scriptFileName);
   }
 
   app.preferences.saveToDisk();

@@ -277,9 +277,9 @@ Toggles Javascript debugger enabled/disabled
 
 ---
 
-## [Toggle Legacy Skin (for all scripts)](Toggle&#32;Legacy&#32;Skin&#32;(for&#32;all&#32;scripts).jsx)
+## [Toggle Legacy UI (for all scripts)](Toggle&#32;Legacy&#32;UI&#32;(for&#32;all&#32;scripts).jsx)
 
-Toggles 'Use Legacy Skin' to either ON or OFF (depending on your tastes) for all all installed scriptUI panels
+Toggles 'Use Legacy UI' to either ON or OFF (depending on your tastes) for all installed scriptUI panels
 
 ---
 
