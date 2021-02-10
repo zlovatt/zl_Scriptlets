@@ -85,18 +85,6 @@ Disables all expressions in active comp
 
 ---
 
-## [Force Legacy Skin](Force&#32;Legacy&#32;Skin.jsx)
-
-Tries to force 'use legacy skin' to ON for specific script passed by filename
-
----
-
-## [Force Legacy Skin (for all scripts)](Force&#32;Legacy&#32;Skin&#32;(for&#32;all&#32;scripts).jsx)
-
-Tries to force 'use legacy skin' to ON for all installed scriptUI panels
-
----
-
 ## [Generate Font Weight Selector](Generate&#32;Font&#32;Weight&#32;Selector.jsx)
 
 Looks at an existing text layer, and tries to create an expression to select
@@ -289,9 +277,15 @@ Toggles Javascript debugger enabled/disabled
 
 ---
 
-## [Enable Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
+## [Toggle Legacy Skin (for all scripts)](Toggle&#32;Legacy&#32;Skin&#32;(for&#32;all&#32;scripts).jsx)
 
-Enables Continuous on selected keys.
+Toggles 'Use Legacy Skin' to either ON or OFF (depending on your tastes) for all all installed scriptUI panels
+
+---
+
+## [Toggles Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
+
+Toggles Continuous on selected keys.
 
 Modifiers:
 
