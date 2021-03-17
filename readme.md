@@ -283,6 +283,12 @@ Toggles Javascript debugger enabled/disabled
 
 ---
 
+## [Toggle Layer Expressions](Toggle&#32;Layer&#32;Expressions.jsx)
+
+Disables all enabled expressions on selected layers & enables all disabled expressions.
+
+---
+
 ## [Toggle Legacy UI (for all scripts)](Toggle&#32;Legacy&#32;UI&#32;(for&#32;all&#32;scripts).jsx)
 
 Toggles 'Use Legacy UI' to either ON or OFF (depending on your tastes) for all installed scriptUI panels
