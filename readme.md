@@ -265,6 +265,12 @@ Note: If you've adjusted the spatial interpolation (by changing bezier handles i
 
 ---
 
+## [Swap Item Names](Swap&#32;Item&#32;Names.jsx)
+
+Swaps the names of 2 selected project items.
+
+---
+
 ## [Toggle AE Brightness](Toggle&#32;AE&#32;Brightness.jsx)
 
 Toggles AE brightness between min and max
