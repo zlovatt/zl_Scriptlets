@@ -6,7 +6,7 @@ Note that these all worked at the time they were developed; as AE has evolved, s
 
 zack@zacklovatt.com
 
-Copyright (c) 2019 Zack Lovatt. All rights reserved.
+Copyright (c) 2021 Zack Lovatt. All rights reserved.
 
 ## TO RUN THESE SCRIPTS
 
@@ -103,6 +103,12 @@ NOTES:
  - this may not work in every case. Fonts are weird.
  - this relies on CC 2019+.
  - Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
+
+---
+
+## [Get Property Value](Get&#32;Property&#32;Value.jsx)
+
+Displays the current value of the selected property, including expressions, letting you copy & paste it elsewhere.
 
 ---
 
