@@ -85,6 +85,16 @@ Disables all expressions in active comp
 
 ---
 
+## [Freeze Properties](Freeze&#32;Properties.jsx)
+
+Uses expressions to freeze selected properties (or layers) to current value.
+
+Run the script again to unfreeze selected properties/layers.
+
+Note: Skips properties that already have expressions.
+
+---
+
 ## [Generate Font Weight Selector](Generate&#32;Font&#32;Weight&#32;Selector.jsx)
 
 Looks at an existing text layer, and tries to create an expression to select
