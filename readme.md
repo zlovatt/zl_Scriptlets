@@ -118,7 +118,15 @@ NOTES:
 
 ## [Get Property Value](Get&#32;Property&#32;Value.jsx)
 
-Displays the current value of the selected property, including expressions, letting you copy & paste it elsewhere.
+![Get Property Value UI](./img/getPropertyValue.png)
+
+Displays the current value of the selected property (after expressions), letting you copy & paste it elsewhere.
+
+If run as a script (or from kbar), panel will display the value immediately.
+
+If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get values quickly.
+
+Note: The panel also includes an experimental 'copy to clipboard' function; it usually takes a few seconds to actually copy to clipboard, so be patient with it.
 
 ---
 
