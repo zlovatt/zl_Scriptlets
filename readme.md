@@ -347,6 +347,12 @@ This is used when importing image sequences, the fps that AE interprets it as.
 
 ---
 
+## [Write Item Uses To Comment](Write&#32;Item&#32;Uses&#32;To&#32;Comment.jsx)
+
+Counts the # of times a project item is used, and writes it to the item comment field (which can be sorted!).
+
+---
+
 ## [Write Layer Names to File](Write&#32;Layer&#32;Names&#32;to&#32;File.jsx)
 
 Writes layer names to a file, one layer name per line.
