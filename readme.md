@@ -15,6 +15,10 @@ Copyright (c) 2021 Zack Lovatt. All rights reserved.
 - Save (cmd/ctrl+s) this file somewhere on your computer
 - In AE: `File > Script > Run Script File...` and choose this script!
 
+## Adobe Illustrator Scripts
+
+See the [Illustrator](/illustrator/) folder for a few AI scripts.
+
 ---
 
 ## [Add Random Effect](Add&#32;Random&#32;Effect.jsx)
