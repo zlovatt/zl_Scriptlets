@@ -5,7 +5,7 @@
  *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function selectKeysAtCTI() {
   var addToSelection = ScriptUI.environment.keyboardState.shiftKey;
@@ -13,7 +13,7 @@
   var comp = app.project.activeItem;
 
   if (!(comp && comp instanceof CompItem)) {
-    alert('Please select a composition!');
+    alert("Please select a composition!");
     return;
   }
 
@@ -23,14 +23,21 @@
     targetProps = targetProps.concat(getKeyedProp(layer));
   });
 
-  app.beginUndoGroup('Select Keys at Current Time');
+  app.beginUndoGroup("Select Keys at Current Time");
 
   forAllItemsInArray(targetProps, function (prop) {
-    if (!addToSelection) {deselectKeys(prop);}
+    if (prop.isSeparationLeader && prop.dimensionsSeparated) {
+      return;
+    }
+
+    if (!addToSelection) {
+      deselectKeys(prop);
+    }
 
     var keyIndex = prop.nearestKeyIndex(comp.time);
-    if (prop.keyTime(keyIndex) == comp.time){
-      prop.setSelectedAtKey(keyIndex, true);}
+    if (prop.keyTime(keyIndex) == comp.time) {
+      prop.setSelectedAtKey(keyIndex, true);
+    }
   });
 
   app.endUndoGroup();
