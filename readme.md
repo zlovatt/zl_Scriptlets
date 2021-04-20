@@ -79,14 +79,6 @@ Disables all expressions in active comp
 
 ---
 
-## [Drunkeyframes](Drunkeyframes.jsx)
-
-Takes a pair of keyframes and adds extra randomly staggering keyframes between them.
-
-Helpful for making realistic progress bars, and probably not much else!
-
----
-
 ## [Freeze Properties](Freeze&#32;Properties.jsx)
 
 Uses expressions to freeze selected properties (or layers) to current value.
@@ -154,6 +146,18 @@ Examples, starting with 10 keyframes: 🔷
 
 
 Intended for use with baked expressions, such as when exporting with Bodymovin.
+
+---
+
+## [Key Stumbler](Key&#32;Stumbler.jsx)
+
+![Key Stumbler Example](./img/keyStumbler.gif)
+
+Takes a pair of keyframes and adds extra randomly stumbling, staggering keyframes between them.
+
+Helpful for making realistic progress bars, and probably not much else!
+
+Options for the # of keyframes to create, the chance of each keyframe being hold or bezier (vs linear, the default); the chance of bezier keyframes being autobezier or continuous, and the min # of frames to keep between keyframes.
 
 ---
 

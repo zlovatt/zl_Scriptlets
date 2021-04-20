@@ -1,12 +1,12 @@
 /**
- * Takes a pair of keyframes and adds extra randomly staggering keyframes between them.
+ * Takes a pair of keyframes and adds extra randomly stumbling, staggering keyframes between them.
  *
  * Helpful for making realistic progress bars, and probably not much else!
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
  * @version 0.1.0
  */
-(function drunkeyframes() {
+ (function keyStumbler(thisObj) {
   var NUM_KEYS = 20;
   var MIN_GAP_FRAMES = 2;
 
@@ -17,6 +17,143 @@
   // Only if IN and OUT are both bezier will these come into play:
   var AUTOBEZIER_CHANCE_PERCENT = 33;
   var CONTINUOUS_CHANCE_PERCENT = 33;
+
+    /**
+   * Draws UI
+   */
+     function createUI() {
+      var win =
+        thisObj instanceof Panel
+          ? thisObj
+          : new Window("palette", "Key Stumbler", undefined, {
+              resizeable: true
+            });
+      win.alignChildren = ["fill", "top"];
+      win.minimumSize = [50, 80];
+
+      var pnlOptions = win.add("panel", undefined, "Options");
+      pnlOptions.alignChildren = ["left", "top"];
+
+      var grpNumKeys = pnlOptions.add("group");
+      grpNumKeys.alignment = ["fill", "fill"];
+      grpNumKeys.alignChildren = ["fill", "top"];
+
+      var stNumKeys = grpNumKeys.add("statictext", undefined, "Number of Keys to Create:");
+      var etNumKeys = grpNumKeys.add("edittext", undefined, "20");
+      stNumKeys.helpTip = etNumKeys.helpTip = "How many keyframes should we make between your selected keys?";
+
+      var grpGap = pnlOptions.add("group");
+      grpGap.alignment = ["fill", "fill"];
+      grpGap.alignChildren = ["fill", "top"];
+
+      var stGap = grpGap.add("statictext", undefined, "Minimum # Frames between Keys:");
+      var etGap = grpGap.add("edittext", undefined, "2");
+      etGap.characters = 6;
+      stGap.helpTip = etGap.helpTip = "What's the minimum number of frames between keyframes?";
+
+      var pnlInterpolations = win.add("panel");
+      pnlInterpolations.alignChildren = ["left", "top"];
+      pnlInterpolations.add("statictext", undefined, "Chance of keyframes being HOLD or BEZIER:");
+
+      var grpHoldChance = pnlInterpolations.add("group");
+      grpHoldChance.alignment = ["fill", "fill"];
+      grpHoldChance.alignChildren = ["fill", "top"];
+
+      var stHoldChance = grpHoldChance.add("statictext", undefined, "Hold Chance %:");
+      var etHoldChance = grpHoldChance.add("edittext", undefined, "5");
+      stHoldChance.helpTip = etHoldChance.helpTip = "% chance for a keyframe to be HOLD";
+
+      var grpBezierChance = pnlInterpolations.add("group");
+      grpBezierChance.alignment = ["fill", "fill"];
+      grpBezierChance.alignChildren = ["fill", "top"];
+
+      var stBezierChance = grpBezierChance.add("statictext", undefined, "Bezier Chance %:");
+      var etBezierChance = grpBezierChance.add("edittext", undefined, "50");
+      stBezierChance.helpTip = etBezierChance.helpTip = "% chance for a keyframe to be BEZIER";
+
+      var pnlBezierMode = win.add("panel");
+      pnlBezierMode.alignChildren = ["left", "top"];
+      pnlBezierMode.add("statictext", undefined, "Chance of BEZIER keyframes being Autobezier or Continuous:");
+
+      var grpAutobezChance = pnlBezierMode.add("group");
+      grpAutobezChance.alignment = ["fill", "fill"];
+      grpAutobezChance.alignChildren = ["fill", "top"];
+
+      var stAutobezChance = grpAutobezChance.add("statictext", undefined, "Autobezier Chance %:");
+      var etAutobezChance = grpAutobezChance.add("edittext", undefined, "33");
+      stAutobezChance.helpTip = etAutobezChance.helpTip = "% chance for a BEZIER keyframe to be AUTOBEZIER";
+
+      var grpContChance = pnlBezierMode.add("group");
+      grpContChance.alignment = ["fill", "fill"];
+      grpContChance.alignChildren = ["fill", "top"];
+
+      var stContChance = grpContChance.add("statictext", undefined, "Continuous Chance %:");
+      var etContChance = grpContChance.add("edittext", undefined, "33");
+      stContChance.helpTip = etContChance.helpTip = "% chance for a BEZIER keyframe to be CONTINUOUS";
+
+      var grpBtns = win.add("group");
+      grpBtns.orientation = "row";
+      grpBtns.alignChildren = ["left", "top"];
+
+      var btnStumble = grpBtns.add("button", undefined, "Stumble!");
+      btnStumble.onClick = function () {
+        var numKeysInput = parseInt(etNumKeys.text, 10);
+        if (isNaN(numKeysInput)) {
+          throw new Error("Enter a valid Number of Keys!");
+        }
+
+        var gapInput = parseInt(etGap.text, 10);
+        if (isNaN(gapInput)) {
+          throw new Error("Enter a valid Gap Frame Amount!");
+        }
+
+        // The chance to have certain types of animation (out of 100)
+        var holdChanceInput = parseFloat(etHoldChance.text);
+        if (isNaN(holdChanceInput)) {
+          throw new Error("Enter a valid Hold Chance!");
+        }
+
+        var bezierChanceInput = parseFloat(etBezierChance.text);
+        if (isNaN(bezierChanceInput)) {
+          throw new Error("Enter a valid Bezier Chance!");
+        }
+
+        // Only if IN and OUT are both bezier will these come into play:
+        var autobezChanceInput = parseFloat(etAutobezChance.text);
+        if (isNaN(autobezChanceInput)) {
+          throw new Error("Enter a valid Autobezier Chance!");
+        }
+
+        var contChanceInput = parseFloat(etContChance.text);
+        if (isNaN(contChanceInput)) {
+          throw new Error("Enter a valid Continuous Chance!");
+        }
+
+        NUM_KEYS = numKeysInput;
+        MIN_GAP_FRAMES = gapInput;
+
+        // The chance to have certain types of animation (out of 100)
+        HOLD_CHANCE_PERCENT = holdChanceInput;
+        BEZIER_CHANCE_PERCENT = bezierChanceInput;
+
+        // Only if IN and OUT are both bezier will these come into play:
+        AUTOBEZIER_CHANCE_PERCENT = autobezChanceInput;
+        CONTINUOUS_CHANCE_PERCENT = contChanceInput;
+
+        stumble();
+      }
+
+      win.layout.layout();
+
+      win.onResizing = win.onResize = function () {
+        this.layout.resize();
+      };
+      return win;
+    }
+
+  function _getNumber(input) {
+    var num = parseFloat(input, )
+  }
 
   /**
    * Linear interpolation
@@ -59,7 +196,7 @@
   }
 
   /**
-   * Checks whether a property is able to be drunkeyframed
+   * Checks whether a property is able to be stumbled
    *
    * @param {Property} prop Property to check
    * @returns {boolean}     Whether property is supported
@@ -293,13 +430,13 @@
   }
 
   /**
-   * Generates drunkeyframes on the selected property
+   * Generates stumbled keyframes on the selected property
    *
    * @param {Property} prop  Property to generate keyframes on
    * @param {object} options Options about how to generate them
    * @param {object} chances Chances of different behaviours happening
    */
-  function _generateDrunkeyframes(prop, options, chances) {
+  function _generateStumbledKeys(prop, options, chances) {
     var selectedKeys = prop.selectedKeys;
 
     if (selectedKeys.length !== 2) {
@@ -381,45 +518,50 @@
     _setKeyEases(prop, keyIndices, chances);
   }
 
-  var options = {
-    numKeys: NUM_KEYS,
-    minGap: MIN_GAP_FRAMES,
-  };
+  function stumble() {
+    var options = {
+      numKeys: NUM_KEYS,
+      minGap: MIN_GAP_FRAMES,
+    };
 
-  var interpolationChanceData = {
-    hold: HOLD_CHANCE_PERCENT,
-    bezier: BEZIER_CHANCE_PERCENT,
-    autobezier: AUTOBEZIER_CHANCE_PERCENT,
-    continuous: CONTINUOUS_CHANCE_PERCENT,
-  };
+    var interpolationChanceData = {
+      hold: HOLD_CHANCE_PERCENT,
+      bezier: BEZIER_CHANCE_PERCENT,
+      autobezier: AUTOBEZIER_CHANCE_PERCENT,
+      continuous: CONTINUOUS_CHANCE_PERCENT,
+    };
 
-  app.beginUndoGroup("Generate Staggered Keyframes");
+    app.beginUndoGroup("Stumble Selected Keyframes");
 
-  try {
-    var comp = app.project.activeItem;
+    try {
+      var comp = app.project.activeItem;
 
-    if (!(comp && comp instanceof CompItem)) {
-      throw new Error("Select an animated property!");
-    }
-
-    var selectedProps = comp.selectedProperties;
-
-    for (var ii = 0, il = selectedProps.length; ii < il; ii++) {
-      var prop = selectedProps[ii];
-
-      if (!prop.canVaryOverTime) {
-        continue;
+      if (!(comp && comp instanceof CompItem)) {
+        throw new Error("Select an animated property!");
       }
 
-      if (!_isSupportedProperty(prop)) {
-        throw new Error("Property " + prop.name + " is not supported!");
-      }
+      var selectedProps = comp.selectedProperties;
 
-      _generateDrunkeyframes(prop, options, interpolationChanceData);
+      for (var ii = 0, il = selectedProps.length; ii < il; ii++) {
+        var prop = selectedProps[ii];
+
+        if (!prop.canVaryOverTime) {
+          continue;
+        }
+
+        if (!_isSupportedProperty(prop)) {
+          throw new Error("Property " + prop.name + " is not supported!");
+        }
+
+        _generateStumbledKeys(prop, options, interpolationChanceData);
+      }
+    } catch (e) {
+      alert(e);
+    } finally {
+      app.endUndoGroup();
     }
-  } catch (e) {
-    alert(e);
-  } finally {
-    app.endUndoGroup();
   }
-})();
+
+  createUI().show();
+
+})(this);
