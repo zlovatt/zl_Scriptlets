@@ -79,6 +79,14 @@ Disables all expressions in active comp
 
 ---
 
+## [Drunkeyframes](Drunkeyframes.jsx)
+
+Takes a pair of keyframes and adds extra randomly staggering keyframes between them.
+
+Helpful for making realistic progress bars, and probably not much else!
+
+---
+
 ## [Freeze Properties](Freeze&#32;Properties.jsx)
 
 Uses expressions to freeze selected properties (or layers) to current value.
