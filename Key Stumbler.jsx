@@ -4,7 +4,7 @@
  * Helpful for making realistic progress bars, and probably not much else!
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.1.1
  */
  (function keyStumbler(thisObj) {
   var NUM_KEYS = 20;
@@ -20,6 +20,8 @@
 
     /**
    * Draws UI
+   *
+   * @returns {Window} Created window
    */
      function createUI() {
       var win =
@@ -562,6 +564,12 @@
     }
   }
 
-  createUI().show();
+  var ui = createUI();
+
+  if (ui instanceof Window) {
+    ui.show();
+  } else {
+    ui.layout.layout(true);
+  }
 
 })(this);
