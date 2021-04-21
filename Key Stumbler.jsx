@@ -4,7 +4,7 @@
  * Helpful for making realistic progress bars, and probably not much else!
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.1
+ * @version 0.1.2
  */
  (function keyStumbler(thisObj) {
   var NUM_KEYS = 20;
@@ -459,6 +459,7 @@
 
     var startTime = prop.keyTime(keyIndices.start);
     var endTime = prop.keyTime(keyIndices.end);
+    var comp = prop.propertyGroup(prop.propertyDepth).containingComp;
     var frameRate = comp.frameRate;
 
     var spanFrameDuration = _timeToFrames(endTime - startTime, frameRate);
