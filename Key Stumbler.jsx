@@ -3,10 +3,14 @@
  *
  * Helpful for making realistic progress bars, and probably not much else!
  *
+ * Known Issues:
+ *  - Sometimes, Bezier keyframes overshoot a lot causing reverse animation
+ *  - The same speed/influence easing is used for all dimensions of a keyfrrame
+ *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.2
+ * @version 0.1.3
  */
- (function keyStumbler(thisObj) {
+(function keyStumbler(thisObj) {
   var NUM_KEYS = 20;
   var MIN_GAP_FRAMES = 2;
 
@@ -18,143 +22,177 @@
   var AUTOBEZIER_CHANCE_PERCENT = 33;
   var CONTINUOUS_CHANCE_PERCENT = 33;
 
-    /**
+  /**
    * Draws UI
    *
    * @returns {Window} Created window
    */
-     function createUI() {
-      var win =
-        thisObj instanceof Panel
-          ? thisObj
-          : new Window("palette", "Key Stumbler", undefined, {
-              resizeable: true
-            });
-      win.alignChildren = ["fill", "top"];
-      win.minimumSize = [50, 80];
+  function createUI() {
+    var win =
+      thisObj instanceof Panel
+        ? thisObj
+        : new Window("palette", "Key Stumbler", undefined, {
+            resizeable: true,
+          });
+    win.alignChildren = ["fill", "top"];
+    win.minimumSize = [50, 80];
 
-      var pnlOptions = win.add("panel", undefined, "Options");
-      pnlOptions.alignChildren = ["left", "top"];
+    var pnlOptions = win.add("panel", undefined, "Options");
+    pnlOptions.alignChildren = ["left", "top"];
 
-      var grpNumKeys = pnlOptions.add("group");
-      grpNumKeys.alignment = ["fill", "fill"];
-      grpNumKeys.alignChildren = ["fill", "top"];
+    var grpNumKeys = pnlOptions.add("group");
+    grpNumKeys.alignment = ["fill", "fill"];
+    grpNumKeys.alignChildren = ["fill", "top"];
 
-      var stNumKeys = grpNumKeys.add("statictext", undefined, "Number of Keys to Create:");
-      var etNumKeys = grpNumKeys.add("edittext", undefined, "20");
-      stNumKeys.helpTip = etNumKeys.helpTip = "How many keyframes should we make between your selected keys?";
+    var stNumKeys = grpNumKeys.add(
+      "statictext",
+      undefined,
+      "Number of Keys to Create:"
+    );
+    var etNumKeys = grpNumKeys.add("edittext", undefined, "20");
+    stNumKeys.helpTip = etNumKeys.helpTip =
+      "How many keyframes should we make between your selected keys?";
 
-      var grpGap = pnlOptions.add("group");
-      grpGap.alignment = ["fill", "fill"];
-      grpGap.alignChildren = ["fill", "top"];
+    var grpGap = pnlOptions.add("group");
+    grpGap.alignment = ["fill", "fill"];
+    grpGap.alignChildren = ["fill", "top"];
 
-      var stGap = grpGap.add("statictext", undefined, "Minimum # Frames between Keys:");
-      var etGap = grpGap.add("edittext", undefined, "2");
-      etGap.characters = 6;
-      stGap.helpTip = etGap.helpTip = "What's the minimum number of frames between keyframes?";
+    var stGap = grpGap.add(
+      "statictext",
+      undefined,
+      "Minimum # Frames between Keys:"
+    );
+    var etGap = grpGap.add("edittext", undefined, "2");
+    etGap.characters = 6;
+    stGap.helpTip = etGap.helpTip =
+      "What's the minimum number of frames between keyframes?";
 
-      var pnlInterpolations = win.add("panel");
-      pnlInterpolations.alignChildren = ["left", "top"];
-      pnlInterpolations.add("statictext", undefined, "Chance of keyframes being HOLD or BEZIER:");
+    var pnlInterpolations = win.add("panel");
+    pnlInterpolations.alignChildren = ["left", "top"];
+    pnlInterpolations.add(
+      "statictext",
+      undefined,
+      "Chance of keyframes being HOLD or BEZIER:"
+    );
 
-      var grpHoldChance = pnlInterpolations.add("group");
-      grpHoldChance.alignment = ["fill", "fill"];
-      grpHoldChance.alignChildren = ["fill", "top"];
+    var grpHoldChance = pnlInterpolations.add("group");
+    grpHoldChance.alignment = ["fill", "fill"];
+    grpHoldChance.alignChildren = ["fill", "top"];
 
-      var stHoldChance = grpHoldChance.add("statictext", undefined, "Hold Chance %:");
-      var etHoldChance = grpHoldChance.add("edittext", undefined, "5");
-      stHoldChance.helpTip = etHoldChance.helpTip = "% chance for a keyframe to be HOLD";
+    var stHoldChance = grpHoldChance.add(
+      "statictext",
+      undefined,
+      "Hold Chance %:"
+    );
+    var etHoldChance = grpHoldChance.add("edittext", undefined, "5");
+    stHoldChance.helpTip = etHoldChance.helpTip =
+      "% chance for a keyframe to be HOLD";
 
-      var grpBezierChance = pnlInterpolations.add("group");
-      grpBezierChance.alignment = ["fill", "fill"];
-      grpBezierChance.alignChildren = ["fill", "top"];
+    var grpBezierChance = pnlInterpolations.add("group");
+    grpBezierChance.alignment = ["fill", "fill"];
+    grpBezierChance.alignChildren = ["fill", "top"];
 
-      var stBezierChance = grpBezierChance.add("statictext", undefined, "Bezier Chance %:");
-      var etBezierChance = grpBezierChance.add("edittext", undefined, "50");
-      stBezierChance.helpTip = etBezierChance.helpTip = "% chance for a keyframe to be BEZIER";
+    var stBezierChance = grpBezierChance.add(
+      "statictext",
+      undefined,
+      "Bezier Chance %:"
+    );
+    var etBezierChance = grpBezierChance.add("edittext", undefined, "50");
+    stBezierChance.helpTip = etBezierChance.helpTip =
+      "% chance for a keyframe to be BEZIER";
 
-      var pnlBezierMode = win.add("panel");
-      pnlBezierMode.alignChildren = ["left", "top"];
-      pnlBezierMode.add("statictext", undefined, "Chance of BEZIER keyframes being Autobezier or Continuous:");
+    var pnlBezierMode = win.add("panel");
+    pnlBezierMode.alignChildren = ["left", "top"];
+    pnlBezierMode.add(
+      "statictext",
+      undefined,
+      "Chance of BEZIER keyframes being Autobezier or Continuous:"
+    );
 
-      var grpAutobezChance = pnlBezierMode.add("group");
-      grpAutobezChance.alignment = ["fill", "fill"];
-      grpAutobezChance.alignChildren = ["fill", "top"];
+    var grpAutobezChance = pnlBezierMode.add("group");
+    grpAutobezChance.alignment = ["fill", "fill"];
+    grpAutobezChance.alignChildren = ["fill", "top"];
 
-      var stAutobezChance = grpAutobezChance.add("statictext", undefined, "Autobezier Chance %:");
-      var etAutobezChance = grpAutobezChance.add("edittext", undefined, "33");
-      stAutobezChance.helpTip = etAutobezChance.helpTip = "% chance for a BEZIER keyframe to be AUTOBEZIER";
+    var stAutobezChance = grpAutobezChance.add(
+      "statictext",
+      undefined,
+      "Autobezier Chance %:"
+    );
+    var etAutobezChance = grpAutobezChance.add("edittext", undefined, "33");
+    stAutobezChance.helpTip = etAutobezChance.helpTip =
+      "% chance for a BEZIER keyframe to be AUTOBEZIER";
 
-      var grpContChance = pnlBezierMode.add("group");
-      grpContChance.alignment = ["fill", "fill"];
-      grpContChance.alignChildren = ["fill", "top"];
+    var grpContChance = pnlBezierMode.add("group");
+    grpContChance.alignment = ["fill", "fill"];
+    grpContChance.alignChildren = ["fill", "top"];
 
-      var stContChance = grpContChance.add("statictext", undefined, "Continuous Chance %:");
-      var etContChance = grpContChance.add("edittext", undefined, "33");
-      stContChance.helpTip = etContChance.helpTip = "% chance for a BEZIER keyframe to be CONTINUOUS";
+    var stContChance = grpContChance.add(
+      "statictext",
+      undefined,
+      "Continuous Chance %:"
+    );
+    var etContChance = grpContChance.add("edittext", undefined, "33");
+    stContChance.helpTip = etContChance.helpTip =
+      "% chance for a BEZIER keyframe to be CONTINUOUS";
 
-      var grpBtns = win.add("group");
-      grpBtns.orientation = "row";
-      grpBtns.alignChildren = ["left", "top"];
+    var grpBtns = win.add("group");
+    grpBtns.orientation = "row";
+    grpBtns.alignChildren = ["left", "top"];
 
-      var btnStumble = grpBtns.add("button", undefined, "Stumble!");
-      btnStumble.onClick = function () {
-        var numKeysInput = parseInt(etNumKeys.text, 10);
-        if (isNaN(numKeysInput)) {
-          throw new Error("Enter a valid Number of Keys!");
-        }
-
-        var gapInput = parseInt(etGap.text, 10);
-        if (isNaN(gapInput)) {
-          throw new Error("Enter a valid Gap Frame Amount!");
-        }
-
-        // The chance to have certain types of animation (out of 100)
-        var holdChanceInput = parseFloat(etHoldChance.text);
-        if (isNaN(holdChanceInput)) {
-          throw new Error("Enter a valid Hold Chance!");
-        }
-
-        var bezierChanceInput = parseFloat(etBezierChance.text);
-        if (isNaN(bezierChanceInput)) {
-          throw new Error("Enter a valid Bezier Chance!");
-        }
-
-        // Only if IN and OUT are both bezier will these come into play:
-        var autobezChanceInput = parseFloat(etAutobezChance.text);
-        if (isNaN(autobezChanceInput)) {
-          throw new Error("Enter a valid Autobezier Chance!");
-        }
-
-        var contChanceInput = parseFloat(etContChance.text);
-        if (isNaN(contChanceInput)) {
-          throw new Error("Enter a valid Continuous Chance!");
-        }
-
-        NUM_KEYS = numKeysInput;
-        MIN_GAP_FRAMES = gapInput;
-
-        // The chance to have certain types of animation (out of 100)
-        HOLD_CHANCE_PERCENT = holdChanceInput;
-        BEZIER_CHANCE_PERCENT = bezierChanceInput;
-
-        // Only if IN and OUT are both bezier will these come into play:
-        AUTOBEZIER_CHANCE_PERCENT = autobezChanceInput;
-        CONTINUOUS_CHANCE_PERCENT = contChanceInput;
-
-        stumble();
+    var btnStumble = grpBtns.add("button", undefined, "Stumble!");
+    btnStumble.onClick = function () {
+      var numKeysInput = parseInt(etNumKeys.text, 10);
+      if (isNaN(numKeysInput)) {
+        throw new Error("Enter a valid Number of Keys!");
       }
 
-      win.layout.layout();
+      var gapInput = parseInt(etGap.text, 10);
+      if (isNaN(gapInput)) {
+        throw new Error("Enter a valid Gap Frame Amount!");
+      }
 
-      win.onResizing = win.onResize = function () {
-        this.layout.resize();
-      };
-      return win;
-    }
+      // The chance to have certain types of animation (out of 100)
+      var holdChanceInput = parseFloat(etHoldChance.text);
+      if (isNaN(holdChanceInput)) {
+        throw new Error("Enter a valid Hold Chance!");
+      }
 
-  function _getNumber(input) {
-    var num = parseFloat(input, )
+      var bezierChanceInput = parseFloat(etBezierChance.text);
+      if (isNaN(bezierChanceInput)) {
+        throw new Error("Enter a valid Bezier Chance!");
+      }
+
+      // Only if IN and OUT are both bezier will these come into play:
+      var autobezChanceInput = parseFloat(etAutobezChance.text);
+      if (isNaN(autobezChanceInput)) {
+        throw new Error("Enter a valid Autobezier Chance!");
+      }
+
+      var contChanceInput = parseFloat(etContChance.text);
+      if (isNaN(contChanceInput)) {
+        throw new Error("Enter a valid Continuous Chance!");
+      }
+
+      NUM_KEYS = numKeysInput;
+      MIN_GAP_FRAMES = gapInput;
+
+      // The chance to have certain types of animation (out of 100)
+      HOLD_CHANCE_PERCENT = holdChanceInput;
+      BEZIER_CHANCE_PERCENT = bezierChanceInput;
+
+      // Only if IN and OUT are both bezier will these come into play:
+      AUTOBEZIER_CHANCE_PERCENT = autobezChanceInput;
+      CONTINUOUS_CHANCE_PERCENT = contChanceInput;
+
+      stumble();
+    };
+
+    win.layout.layout();
+
+    win.onResizing = win.onResize = function () {
+      this.layout.resize();
+    };
+    return win;
   }
 
   /**
@@ -205,15 +243,15 @@
    */
   function _isSupportedProperty(prop) {
     var supportedTypes = [
-      PropertyValueType.COLOR,
-      PropertyValueType.OneD,
-      PropertyValueType.ThreeD,
-      PropertyValueType.ThreeD_SPATIAL,
-      PropertyValueType.TwoD,
-      PropertyValueType.TwoD_SPATIAL,
+      PropertyValueType.COLOR.toString(),
+      PropertyValueType.OneD.toString(),
+      PropertyValueType.ThreeD.toString(),
+      PropertyValueType.ThreeD_SPATIAL.toString(),
+      PropertyValueType.TwoD.toString(),
+      PropertyValueType.TwoD_SPATIAL.toString(),
     ].join("|");
 
-    return supportedTypes.indexOf(prop.propertyValueType) > -1;
+    return supportedTypes.indexOf(prop.propertyValueType.toString()) > -1;
   }
 
   /**
@@ -343,16 +381,32 @@
    * @todo Fix overshoot
    *
    * @param {Property} prop     Property to generate ease on
-   * @param {number} valueDelta Difference in value during keyframe span
+   * @param {object} keyIndices Start/end keyframe info
    * @returns {KeyframeEase[]}  Array of eases
    */
-  function _generateBezierEase(prop, valueDelta) {
-    var speed = generateRandomNumber() * valueDelta;
-    var influence = Math.max(generateRandomNumber() * 100, 0.1);
+  function _generateBezierEase(prop, keyIndices) {
+    var firstValue = prop.keyValue(keyIndices.start);
+    var lastValue = prop.keyValue(keyIndices.end);
+
+    var numDimensions = 1;
+
+    if (prop.propertyValueType === PropertyValueType.OneD) {
+      firstValue = [firstValue];
+      lastValue = [lastValue];
+    } else if (prop.propertyValueType === PropertyValueType.TwoD) {
+      numDimensions = 2;
+    } else if (prop.propertyValueType === PropertyValueType.ThreeD) {
+      numDimensions = 3;
+    }
 
     var ease = [];
 
-    var numDimensions = prop.value instanceof Array ? prop.value.length : 1;
+    var animationDirection = firstValue[0] < lastValue[0] ? -1 : 1;
+    var valueDelta =
+      Math.abs(firstValue[0] - lastValue[0]) * animationDirection * -1;
+
+    var speed = generateRandomNumber() * valueDelta;
+    var influence = Math.max(generateRandomNumber() * 100, 0.1);
 
     for (var ii = 0, il = numDimensions; ii < il; ii++) {
       var dimensionEase = new KeyframeEase(speed, influence);
@@ -380,12 +434,6 @@
     var startIndex = keyIndices.start;
     var endIndex = keyIndices.end;
 
-    var firstValue = prop.keyValue(startIndex);
-    var lastValue = prop.keyValue(endIndex);
-
-    var animationDirection = firstValue < lastValue ? -1 : 1;
-    var valueDelta = Math.abs(firstValue - lastValue) * animationDirection * -1;
-
     for (var ii = startIndex + 1; ii <= endIndex - 1; ii++) {
       var inType = _getInterpolationType(interpolationTypeChances);
       var outType = _getInterpolationType(interpolationTypeChances);
@@ -396,11 +444,11 @@
       prop.setInterpolationTypeAtKey(ii, inType, outType);
 
       if (inType === KeyframeInterpolationType.BEZIER) {
-        inEase = _generateBezierEase(prop, valueDelta);
+        inEase = _generateBezierEase(prop, keyIndices);
       }
 
       if (outType === KeyframeInterpolationType.BEZIER) {
-        outEase = _generateBezierEase(prop, valueDelta);
+        outEase = _generateBezierEase(prop, keyIndices);
       }
 
       if (
@@ -572,5 +620,4 @@
   } else {
     ui.layout.layout(true);
   }
-
 })(this);
