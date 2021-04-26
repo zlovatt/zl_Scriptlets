@@ -301,6 +301,17 @@ Swaps the names of 2 selected project items.
 
 ---
 
+## [Time Stretch Layer](Time&#32;Stretch&#32;Layer.jsx)
+
+Uses Time Remap to stretch layers, prompting user to enter speed.
+
+Modifiers:
+
+  - Hold CTRL/CMD for HALF SPEED
+  - Hold SHIFT for DOUBLE SPEED
+
+---
+
 ## [Toggle AE Brightness](Toggle&#32;AE&#32;Brightness.jsx)
 
 Toggles AE brightness between min and max
