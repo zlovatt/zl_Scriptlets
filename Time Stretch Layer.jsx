@@ -1,12 +1,13 @@
 /**
  * Uses Time Remap to stretch layers, prompting user to enter speed.
+ * Also lengthens comp to fit, if necessary.
  *
  * Modifiers:
  *  - Hold CTRL/CMD for HALF SPEED
  *  - Hold SHIFT for DOUBLE SPEED
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.2.0
  */
 (function stretchLayer() {
   /**
@@ -94,11 +95,15 @@
 
   try {
     var speed = getSpeed();
+    var maxLength = comp.duration;
 
     for (var ii = 0, il = layers.length; ii < il; ii++) {
       var layer = layers[ii];
       timeStretchLayer(layer, speed);
+      maxLength = Math.max(maxLength, layer.outPoint);
     }
+
+    comp.duration = maxLength;
   } catch (e) {
     alert(e);
   } finally {

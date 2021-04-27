@@ -303,7 +303,7 @@ Swaps the names of 2 selected project items.
 
 ## [Time Stretch Layer](Time&#32;Stretch&#32;Layer.jsx)
 
-Uses Time Remap to stretch layers, prompting user to enter speed.
+Uses Time Remap to stretch layers, prompting user to enter speed. Also lengthens comp to fit, if necessary.
 
 Modifiers:
 
