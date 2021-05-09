@@ -159,6 +159,12 @@ Helpful for making realistic progress bars, and probably not much else!
 
 Options for the # of keyframes to create, the chance of each keyframe being hold or bezier (vs linear, the default); the chance of bezier keyframes being autobezier or continuous, and the min # of frames to keep between keyframes.
 
+## [Load Last Autosave](Load&#32;Last&#32;Autosave.jsx)
+
+Tries to find the last autosave project based on your current AEP, and open it.
+
+Note: Only works in English installs of AE at the moment.
+
 ---
 
 ## [Loop Selected Layers](Loop&#32;Selected&#32;Layers.jsx)
