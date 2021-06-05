@@ -1,3 +1,5 @@
+<div>
+
 # Zack Lovatt's Scriptlets
 
 A series of small, simple AE utilities for [kbar2](https://aescripts.com/kbar), [Tool Launcher](https://aescripts.com/tool-launcher/), [Quick Menu 2](https://aescripts.com/quick-menu/) or any other script file launcher.
@@ -10,107 +12,249 @@ Copyright (c) 2021 Zack Lovatt. All rights reserved.
 
 ## TO RUN THESE SCRIPTS
 
-- Click on any of the script names _below_.
-- In the top right corner of the code block, press the 'Raw' button to view the actual .jsx script file
-- Save (cmd/ctrl+s) this file somewhere on your computer
-- In AE: `File > Script > Run Script File...` and choose this script!
+  - Click on any of the script names _below_.
+  - In the top right corner of the code block, press the 'Raw' button to view the actual .jsx script file
+  - Save (cmd/ctrl+s) this file somewhere on your computer
+  - In AE: `File > Script > Run Script File...` and choose this script!
 
 ## Adobe Illustrator Scripts
 
 See the [Illustrator](/illustrator/) folder for a few AI scripts.
 
+</div>
+
 ---
 
-## [Add Random Effect](Add&#32;Random&#32;Effect.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Add Random Effect](Add&#32;Random&#32;Effect.jsx)
+
+  </div>
+  <div>
 
 Adds a random layer effect to your first selected layer 🙃
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Add Trim Paths](Add&#32;Trim&#32;Paths.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Add Trim Paths](Add&#32;Trim&#32;Paths.jsx)
+
+  </div>
+  <div>
 
 Adds Trim Paths to selected shape layers, including a keyframe to start and one to end the animation.
 
-Modifiers:
+| Modifier |        Effect         |
+| -------- | --------------------- |
+| SHIFT    | Skip adding keyframes |
 
-  - Hold SHIFT when running the script to _not_ add keyframes.
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Apply Colour File To Colorista Free](Apply&#32;Colour&#32;File&#32;To&#32;Colorista&#32;Free.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Apply Colour File To Colorista Free](Apply&#32;Colour&#32;File&#32;To&#32;Colorista&#32;Free.jsx)
+
+  </div>
+  <div>
 
 Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free, using settings from the CDL.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Convert New Gaussian Blur to Old](Convert&#32;New&#32;Gaussian&#32;Blur&#32;to&#32;Old.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Convert New Gaussian Blur to Old](Convert&#32;New&#32;Gaussian&#32;Blur&#32;to&#32;Old.jsx)
+
+  </div>
+  <div>
 
 Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Create Average Position Null](Create&#32;Average&#32;Position&#32;Null.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Create Average Position Null](Create&#32;Average&#32;Position&#32;Null.jsx)
+
+  </div>
+  <div>
 
 Select some layers; a new null will be created at the average position of them.
 
-Modifiers:
+| Modifier |                                    Effect                                    |
+| -------- | ---------------------------------------------------------------------------- |
+| SHIFT    | Set position to a fixed value at current time, vs using a dynamic expression |
 
-  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Default Folders v2.0](Default&#32;Folders&#32;v2.0.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Default Folders v2.0](Default&#32;Folders&#32;v2.0.jsx)
+
+  </div>
+  <div>
 
 Creates a number of folders (or, if ran as a window, lets you customzie folder names to create).
 
 Based on [DefaultFolders by Impudent1](http://aenhancers.com/viewtopic.php?t=37).
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Delete Keys at Time](Delete&#32;Keys&#32;at&#32;Time.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Delete Keys at Time](Delete&#32;Keys&#32;at&#32;Time.jsx)
+
+  </div>
+  <div>
 
 Delete all keys at current time
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Disable All Comp Expressions](Disable&#32;All&#32;Comp&#32;Expressions.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Disable All Comp Expressions](Disable&#32;All&#32;Comp&#32;Expressions.jsx)
+
+  </div>
+  <div>
 
 Disables all expressions in active comp
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Freeze Properties](Freeze&#32;Properties.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Freeze Properties](Freeze&#32;Properties.jsx)
+
+  </div>
+  <div>
 
 Uses expressions to freeze selected properties (or layers) to current value.
 
 Run the script again to unfreeze selected properties/layers.
 
-Note: Skips properties that already have expressions.
+##### Notes:
+
+  - Skips properties that already have expressions.
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Generate Font Weight Selector](Generate&#32;Font&#32;Weight&#32;Selector.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Generate Font Weight Selector](Generate&#32;Font&#32;Weight&#32;Selector.jsx)
+
+  </div>
+  <div>
 
 Looks at an existing text layer, and tries to create an expression to select
 font weight, based on the existing text layer's font.
 
-TO USE:
+##### To use:
 
- - Select a text layer
- - Run script
- - It will create a slider on the text layer, and an expression on sourceText
- - The slider will animate from 1 to the # of weights found
- - The expression will list all available font weights it can detect!
+  - Select a text layer
+  - Run script
+  - It will create a slider on the text layer, and an expression on sourceText
+  - The slider will animate from 1 to the # of weights found
+  - The expression will list all available font weights it can detect!
 
-NOTES:
+##### Notes:
 
- - this may not work in every case. Fonts are weird.
- - this relies on CC 2019+.
- - Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
+  - this may not work in every case. Fonts are weird.
+  - this relies on CC 2019+.
+  - Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Get Property Value](Get&#32;Property&#32;Value.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Get Property Value](Get&#32;Property&#32;Value.jsx)
+
+  </div>
+  <div>
 
 ![Get Property Value UI](./img/getPropertyValue.png)
 
@@ -120,21 +264,36 @@ If run as a script (or from kbar), panel will display the value immediately.
 
 If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get values quickly.
 
-Note: The panel also includes an experimental 'copy to clipboard' function; it usually takes a few seconds to actually copy to clipboard, so be patient with it.
+##### Notes:
+
+  - The panel also includes an experimental 'copy to clipboard' function; it usually takes a few seconds to actually copy to clipboard, so be patient with it.
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Keep Every N Keys](Keep&#32;Every&#32;N&#32;Keys.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Keep Every N Keys](Keep&#32;Every&#32;N&#32;Keys.jsx)
+
+  </div>
+  <div>
 
 Looks at your keyframes and keeps every # of them.
 
 By default, will keep every 2nd keyframe, and delete the rest. Note that the first and last keyframes are always kept.
 
-Modifiers:
+Intended for use with baked expressions, such as when exporting with Bodymovin.
 
-  - Hold SHIFT when running the script to specify the interval.
+##### Example:
 
-Examples, starting with 10 keyframes: 🔷
+Based on 10 keyframes (🔷)
 
 | Interval      | Result              |
 |---------------|---------------------|
@@ -145,11 +304,26 @@ Examples, starting with 10 keyframes: 🔷
 | 5             | 🔷 ✖️ ✖️ ✖️ ✖️ 🔷 ✖️ ✖️ ✖️ 🔷 |
 
 
-Intended for use with baked expressions, such as when exporting with Bodymovin.
+| Modifier |           Effect           |
+| -------- | -------------------------- |
+| SHIFT    | Specify the interval value |
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Key Stumbler](Key&#32;Stumbler.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Key Stumbler](Key&#32;Stumbler.jsx)
+
+  </div>
+  <div>
 
 ![Key Stumbler Example](./img/keyStumbler.gif)
 
@@ -159,223 +333,625 @@ Helpful for making realistic progress bars, and probably not much else!
 
 Options for the # of keyframes to create, the chance of each keyframe being hold or bezier (vs linear, the default); the chance of bezier keyframes being autobezier or continuous, and the min # of frames to keep between keyframes.
 
-## [Load Last Autosave](Load&#32;Last&#32;Autosave.jsx)
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Load Last Autosave](Load&#32;Last&#32;Autosave.jsx)
+
+  </div>
+  <div>
 
 Tries to find the last autosave project based on your current AEP, and open it.
 
-Note: Only works in English installs of AE at the moment.
+##### Notes:
+
+  - Only works in English installs of AE at the moment.
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Loop Selected Layers](Loop&#32;Selected&#32;Layers.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Loop Selected Layers](Loop&#32;Selected&#32;Layers.jsx)
+
+  </div>
+  <div>
 
 Enables time remapping on selected layers, and adds a loopOut("cycle") to loop the layer.
 
-Modifiers:
+| Modifier |          Effect           |
+| -------- | ------------------------- |
+| CTRL     | Loop IN instead of OUT    |
+| SHIFT    | PINGPONG instead of CYCLE |
+| BOTH     | Loop IN with PINGPONG     |
 
-  - Hold CTRL to loop IN instead of loop OUT
-  - Hold SHIFT to PINGPONG instead of CYCLE
-  - Hold both to loop IN, with PINGPONG
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Mistika VR to AE Null](Mistika&#32;VR&#32;to&#32;AE&#32;Null.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Mistika VR to AE Null](Mistika&#32;VR&#32;to&#32;AE&#32;Null.jsx)
+
+  </div>
+  <div>
 
 Translates a Mistika VR .grp file to null sliders for yaw/pitch/roll
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Move First Layer of Selected Comps to End](Move&#32;First&#32;Layer&#32;of&#32;Selected&#32;Comps&#32;to&#32;End.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Move First Layer of Selected Comps to End](Move&#32;First&#32;Layer&#32;of&#32;Selected&#32;Comps&#32;to&#32;End.jsx)
+
+  </div>
+  <div>
 
 Moves the first layer of each selected comp in project panel to the end of each comp
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [New Text Layer](New&#32;Text&#32;Layer.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [New Text Layer](New&#32;Text&#32;Layer.jsx)
+
+  </div>
+  <div>
 
 Makes a new empty text layer.
 
-Modifiers:
+| Modifier |                         Effect                          |
+| -------- | ------------------------------------------------------- |
+| SHIFT    | Create Paragraph (box) text layer instaed of Point text |
 
-  - Hold SHIFT to create a paragraph text layer instead of point text.
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Parent Each Layer to Layer Above](Parent&#32;Each&#32;Layer&#32;to&#32;Layer&#32;Above.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Parent Each Layer to Layer Above](Parent&#32;Each&#32;Layer&#32;to&#32;Layer&#32;Above.jsx)
+
+  </div>
+  <div>
 
 Parent each selected layer to above layer
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Points to Nulls](Points&#32;to&#32;Nulls.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Points to Nulls](Points&#32;to&#32;Nulls.jsx)
+
+  </div>
+  <div>
 
 Adds nulls to points of seleted shape layers or masks.
 
 This was developed before the official "Paths to Nulls" panel 😅
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Phone a Friend](Phone&#32;A&#32;Friend.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Phone a Friend](Phone&#32;A&#32;Friend.jsx)
+
+  </div>
+  <div>
 
 Generates Touch Tone noises for your input in AE!
 
 Uses markers & expressions-- move markers & change text to change audio!
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Quick Rename Layers](Quick&#32;Rename&#32;Layers.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Quick Rename Layers](Quick&#32;Rename&#32;Layers.jsx)
+
+  </div>
+  <div>
 
 Quickly renames all selected layers to text of your choice, adding an incrementer # to the end of the layer name.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Randomize Shape Group Order](Randomize&#32;Shape&#32;Group&#32;Order.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Randomize Shape Group Order](Randomize&#32;Shape&#32;Group&#32;Order.jsx)
+
+  </div>
+  <div>
 
 Randomize order of selected shape groups
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Recursive Enable Moblur](Recursive&#32;Enable&#32;Moblur.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Recursive Enable Moblur](Recursive&#32;Enable&#32;Moblur.jsx)
+
+  </div>
+  <div>
 
 Recursively enable motion blur on selected comps, including all layers & precomps
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Reveal Current File](Reveal&#32;Current&#32;File.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Reveal Current File](Reveal&#32;Current&#32;File.jsx)
+
+  </div>
+  <div>
 
 Opens a Finder/Explorer window to the current AEP
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Reveal Layer Source In Project](Reveal&#32;Layer&#32;Source&#32;In&#32;Project.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Reveal Layer Source In Project](Reveal&#32;Layer&#32;Source&#32;In&#32;Project.jsx)
+
+  </div>
+  <div>
 
 Reveals source of first selected layer in project
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Reverse Shape Group Order](Reverse&#32;Shape&#32;Group&#32;Order.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Reverse Shape Group Order](Reverse&#32;Shape&#32;Group&#32;Order.jsx)
+
+  </div>
+  <div>
 
 Reverse shape group order in a shape layer
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Select Duplicate Source Layers](Select&#32;Duplicate&#32;Source&#32;Layers.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Select Duplicate Source Layers](Select&#32;Duplicate&#32;Source&#32;Layers.jsx)
+
+  </div>
+  <div>
 
 Select all layers that are multiple instances of the same file source.
 
 So-- if you have two instances of the same movie file, this will select them both.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Select Keys at Current Time](Select&#32;Keys&#32;at&#32;Current&#32;Time.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Select Keys at Current Time](Select&#32;Keys&#32;at&#32;Current&#32;Time.jsx)
+
+  </div>
+  <div>
 
 Select all keys at current time indicator.
 
-Modifiers:
+| Modifier |                           Effect                           |
+| -------- | ---------------------------------------------------------- |
+| SHIFT    | Add keyframes to current selection, vs replacing selection |
 
-  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Select Keys in Work Area](Select&#32;Keys&#32;in&#32;Work&#32;Area.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Select Keys in Work Area](Select&#32;Keys&#32;in&#32;Work&#32;Area.jsx)
+
+  </div>
+  <div>
 
 Select all keys under the work area.
 
-Modifiers:
+| Modifier |                           Effect                           |
+| -------- | ---------------------------------------------------------- |
+| SHIFT    | Add keyframes to current selection, vs replacing selection |
 
-  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Select Later Layers](Select&#32;Later&#32;Layers.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Select Later Layers](Select&#32;Later&#32;Layers.jsx)
+
+  </div>
+  <div>
 
 Selects all layers in your comp that start after the selected layer.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Smart-Separate Dimensions](Smart&#32;Separate&#32;Dimensions.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Smart-Separate Dimensions](Smart&#32;Separate&#32;Dimensions.jsx)
+
+  </div>
+  <div>
 
 Separates a layer's position dimensions, preserving easing if keyframes exist.
 
-Note: If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... hard.
+##### Notes:
+
+  - If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... hard.
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Swap Item Names](Swap&#32;Item&#32;Names.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Swap Item Names](Swap&#32;Item&#32;Names.jsx)
+
+  </div>
+  <div>
 
 Swaps the names of 2 selected project items.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Time Stretch Layer](Time&#32;Stretch&#32;Layer.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Time Stretch Layer](Time&#32;Stretch&#32;Layer.jsx)
+
+  </div>
+  <div>
 
 Uses Time Remap to stretch layers, prompting user to enter speed. Also lengthens comp to fit, if necessary.
 
-Modifiers:
+| Modifier |           Effect           |
+| -------- | -------------------------- |
+| CTRL/CMD | Remap to half (0.5x) speed |
+| SHIFT    | Remap to double (2x) speed |
 
-  - Hold CTRL/CMD for HALF SPEED
-  - Hold SHIFT for DOUBLE SPEED
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Toggle AE Brightness](Toggle&#32;AE&#32;Brightness.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Toggle AE Brightness](Toggle&#32;AE&#32;Brightness.jsx)
+
+  </div>
+  <div>
 
 Toggles AE brightness between min and max
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Toggle JS Debugger](Toggle&#32;JS&#32;Debugger.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Toggle JS Debugger](Toggle&#32;JS&#32;Debugger.jsx)
+
+  </div>
+  <div>
 
 Toggles Javascript debugger enabled/disabled
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Toggle Layer Expressions](Toggle&#32;Layer&#32;Expressions.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Toggle Layer Expressions](Toggle&#32;Layer&#32;Expressions.jsx)
+
+  </div>
+  <div>
 
 Disables all enabled expressions on selected layers & enables all disabled expressions.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Toggle Legacy UI (for all scripts)](Toggle&#32;Legacy&#32;UI&#32;(for&#32;all&#32;scripts).jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Toggle Legacy UI (for all scripts)](Toggle&#32;Legacy&#32;UI&#32;(for&#32;all&#32;scripts).jsx)
+
+  </div>
+  <div>
 
 Toggles 'Use Legacy UI' to either ON or OFF (depending on your tastes) for all installed scriptUI panels
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Toggles Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Toggles Temporal Continuous](Toggle&#32;Temporal&#32;Continuous.jsx)
+
+  </div>
+  <div>
 
 Toggles Continuous on selected keys.
 
-Modifiers:
+| Modifier |                Effect                 |
+| -------- | ------------------------------------- |
+| SHIFT    | Disable Continuous, instead of Enable |
 
-  - Hold SHIFT to disable, not enable.
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Ungroup Selected Shape Groups](Ungroup&#32;Selected&#32;Shape&#32;Groups.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Ungroup Selected Shape Groups](Ungroup&#32;Selected&#32;Shape&#32;Groups.jsx)
+
+  </div>
+  <div>
 
 Ungroups all selected shape groups.
 
-Note: This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
+##### Notes:
 
-I know this isn't great, buuut it's a start! 🤷‍♀️
+  - This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
+  - I know this isn't great, buuut it's a start! 🤷‍♀️
+
+  </div>
+  </div>
+  </div>
+</div>
 
 ---
 
-## [Update Default Import FPS](Update&#32;Default&#32;Import&#32;FPS.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Update Default Import FPS](Update&#32;Default&#32;Import&#32;FPS.jsx)
+
+  </div>
+  <div>
 
 Prompts the user for to update default import FPS.
 
 This is used when importing image sequences, the fps that AE interprets it as.
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Write Item Uses To Comment](Write&#32;Item&#32;Uses&#32;To&#32;Comment.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Write Item Uses To Comment](Write&#32;Item&#32;Uses&#32;To&#32;Comment.jsx)
+
+  </div>
+  <div>
 
 Counts the # of times a project item is used, and writes it to the item comment field (which can be sorted!).
 
+  </div>
+  </div>
+  </div>
+</div>
+
 ---
 
-## [Write Layer Names to File](Write&#32;Layer&#32;Names&#32;to&#32;File.jsx)
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Write Layer Names to File](Write&#32;Layer&#32;Names&#32;to&#32;File.jsx)
+
+  </div>
+  <div>
 
 Writes layer names to a file, one layer name per line.
+
+  </div>
+  </div>
+  </div>
+</div>
