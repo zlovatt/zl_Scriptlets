@@ -6,15 +6,12 @@ A series of small, simple AE utilities for [kbar2](https://aescripts.com/kbar), 
 
 Note that these all worked at the time they were developed; as AE has evolved, some may stop working. I'm absotively not liable if anything breaks; run at your own discretion 💝
 
-zack@zacklovatt.com
-
 All tools © 2021 Zack Lovatt. All rights reserved.
 
 ## Installation Instructions
 
-  - Click on any of the script names below.
-  - In the top right corner of the code block, press the 'Raw' button to view the actual .jsx script file
-  - Save (cmd/ctrl+s) this file somewhere on your computer
+  - Click on the name of the scriptlet you'd like to download
+  - `File > Save` this to your computer, ensuring you're saving as "[filename].jsx"
   - In AE: `File > Script > Run Script File...` and choose this script!
 
 ## Adobe Illustrator Scripts
@@ -440,7 +437,7 @@ Makes a new empty text layer.
 
 | Modifier |                         Effect                          |
 | -------- | ------------------------------------------------------- |
-| SHIFT    | Create Paragraph (box) text layer instaed of Point text |
+| SHIFT    | Create Paragraph (box) text layer instead of Point text |
 
   </div>
   </div>
