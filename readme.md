@@ -256,7 +256,7 @@ font weight, based on the existing text layer's font.
   </div>
   <div>
 
-![Get Property Value UI](./img/getPropertyValue.png)
+![Get Property Value UI](https://github.com/zlovatt/zl_Scriptlets/raw/master/img/getPropertyValue.png)
 
 Displays the current value of the selected property (after expressions), letting you copy & paste it elsewhere.
 
@@ -325,7 +325,7 @@ Based on 10 keyframes (🔷)
   </div>
   <div>
 
-![Key Stumbler Example](./img/keyStumbler.gif)
+![Key Stumbler Example](https://github.com/zlovatt/zl_Scriptlets/raw/master/img/keyStumbler.gif)
 
 Takes a pair of keyframes and adds extra randomly stumbling, staggering keyframes between them.
 
