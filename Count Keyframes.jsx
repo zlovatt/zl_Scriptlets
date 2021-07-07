@@ -1,4 +1,13 @@
-(function () {
+/**
+ * Counts all of the keyframes (including markers) in selected comps,
+ * or the open comp if none selected.
+ *
+ * Will recurse into precomps.
+ *
+ * @author Zack Lovatt <zack@zacklovatt.com>
+ * @version 0.1.0
+ */
+(function countKeyframes () {
   /**
    * Recursively builds an array of child properties
    *

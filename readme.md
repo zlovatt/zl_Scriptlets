@@ -112,7 +112,7 @@ Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
   </div>
   <div>
 
-Counts all of the keyframes (including markers) in selected comps in project panel, or the open comp if none selected.
+Counts all of the keyframes (including markers) in selected comps in project panel, or the open comp if none selected. Will recurse into precomps.
 
   </div>
   </div>
