@@ -2,6 +2,7 @@
 
 _secretScripts
 _snippets
+typings
 
 .eslintrc.json
 jsconfig.json
