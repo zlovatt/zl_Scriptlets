@@ -107,6 +107,25 @@ Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
   <div>
   <div>
 
+#### [Count Keyframes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Count&#32;Keyframes.jsx)
+
+  </div>
+  <div>
+
+Counts all of the keyframes (including markers) in selected comps in project panel, or the open comp if none selected.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Create Average Position Null](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create&#32;Average&#32;Position&#32;Null.jsx)
 
   </div>
