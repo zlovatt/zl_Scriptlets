@@ -6,6 +6,11 @@ A series of small, simple AE utilities for [kbar2](https://aescripts.com/kbar), 
 
 Note that these all worked at the time they were developed; as AE has evolved, some may stop working. I'm absotively not liable if anything breaks; run at your own discretion 💝
 
+If these have really helped you out in some way, feel free to throw a bit of coffeebux my way!
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-yellow.svg)](https://buymeacoffee.com/zlovatt)
+
+
 All tools © 2021 Zack Lovatt. All rights reserved.
 
 ## Installation Instructions
