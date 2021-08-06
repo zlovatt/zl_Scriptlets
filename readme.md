@@ -365,6 +365,10 @@ The top button will SAVE selection, while the bottom button will LOAD that selec
 * Press the button to SAVE
 * Hold SHIFT to LOAD that selection.
 
+##### Notes:
+
+* If you add intermediate keyframes, delete layers or properties, add extra effects, etc., Key Sets may not be able to restore the full selection.
+
   </div>
   </div>
   </div>
