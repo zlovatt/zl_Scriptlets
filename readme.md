@@ -348,18 +348,20 @@ Based on 10 keyframes (🔷)
 
 ![Key Sets Example](https://github.com/zlovatt/zl_Scriptlets/raw/master/img/keySets.gif)
 
-Save & load sets of selected keyframes.
+Save & load sets of selected keyframes, even if the timing or value changes.
 
-You get 5 selection sets at a time. You can overwrite a selection by saving over an existing one.
+You can overwrite a selection by saving over an existing Key Set.
 
 The top button will SAVE selection, while the bottom button will LOAD that selection.
 
-Hold SHIFT when saving to specify the name for a set.
+| Modifier |           Effect           |
+| -------- | -------------------------- |
+| SHIFT    | Specify the name for a set |
 
-If run as a kbar Script button:
+##### If run as a kbar Script button:
 
 * Specify a unique Kbar Argument to save/restore that key set
-* You can have as many simultaneous sets, as long as each as a unique name
+* You can have infinitely many sets, as long as each has a unique name
 * Press the button to SAVE
 * Hold SHIFT to LOAD that selection.
 
