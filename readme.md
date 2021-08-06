@@ -341,6 +341,40 @@ Based on 10 keyframes (🔷)
   <div>
   <div>
 
+#### [Key Sets](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key&#32;Sets.jsx)
+
+  </div>
+  <div>
+
+![Key Sets Example](https://github.com/zlovatt/zl_Scriptlets/raw/master/img/keySets.gif)
+
+Save & load sets of selected keyframes.
+
+You get 5 selection sets at a time. You can overwrite a selection by saving over an existing one.
+
+The top button will SAVE selection, while the bottom button will LOAD that selection.
+
+Hold SHIFT when saving to specify the name for a set.
+
+If run as a kbar Script button:
+
+* Specify a unique Kbar Argument to save/restore that key set
+* You can have as many simultaneous sets, as long as each as a unique name
+* Press the button to SAVE
+* Hold SHIFT to LOAD that selection.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Key Stumbler](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key&#32;Stumbler.jsx)
 
   </div>
