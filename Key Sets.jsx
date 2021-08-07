@@ -13,7 +13,7 @@
  *  • Hold SHIFT to LOAD that selection.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.1.1
  */
 (function keySets(thisObj) {
   var NUM_SETS = 5;
@@ -42,7 +42,7 @@
    */
   function _quickKbarAction(cacheID) {
     if (ScriptUI.environment.keyboardState.shiftKey) {
-      loadSelection(cacheID);
+      restoreSelection(cacheID);
     } else {
       storeSelection(cacheID);
     }
