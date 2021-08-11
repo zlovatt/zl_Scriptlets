@@ -3,7 +3,7 @@
  * attempting to preserve easing
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.2
+ * @version 0.3.0
  */
 (function separateDimensionsPreserveEasing() {
   /**
@@ -73,10 +73,17 @@
 
   var comp = app.project.activeItem;
 
+  if (!(comp && comp instanceof CompItem)) {
+    alert("Open a comp!");
+    return;
+  }
+
   app.beginUndoGroup("Separate Dimensions & Preserve Easing");
 
-  for (var ii = 1, il = comp.numLayers; ii <= il; ii++) {
-    var layer = comp.layer(ii);
+  var selection = comp.selectedLayers;
+
+  for (var ii = 0, il = selection.length; ii < il; ii++) {
+    var layer = selection[ii];
 
     if (layer.locked) {
       continue;
