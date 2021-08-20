@@ -13,11 +13,11 @@
  *  • Hold SHIFT to LOAD that selection.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.1
+ * @version 0.1.2
  */
 (function keySets(thisObj) {
   var NUM_SETS = 5;
-  $._sskCache = $._sskCache || {};
+  $._keySetsCache = $._keySetsCache || {};
 
   var ui = createUI(thisObj);
 
@@ -98,7 +98,7 @@
         storeSelection(id);
 
         var setLoadBtn = pnl.children[1];
-        setLoadBtn.enabled = $._sskCache[id] && $._sskCache[id].length > 0;
+        setLoadBtn.enabled = $._keySetsCache[id] && $._keySetsCache[id].length > 0;
       };
 
       var btnLoad = pnl.add("button", undefined, "⤴");
@@ -138,7 +138,7 @@
       return;
     }
 
-    $._sskCache[cacheID] = selectedKeyframes;
+    $._keySetsCache[cacheID] = selectedKeyframes;
   }
 
   /**
@@ -149,7 +149,7 @@
   function restoreSelection(cacheID) {
     app.executeCommand(2004); // Deselect all
 
-    var cached = $._sskCache[cacheID];
+    var cached = $._keySetsCache[cacheID];
 
     if (!cached) {
       return;
