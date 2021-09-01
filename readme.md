@@ -74,6 +74,27 @@ Adds Trim Paths to selected shape layers, including a keyframe to start and one 
   <div>
   <div>
 
+#### [Add Wiggle Paths](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add&#32;Wiggle&#32;Paths.jsx)
+
+  </div>
+  <div>
+
+Adds Wiggle Paths to selected shape layers.
+
+Open the script and change wiggle Size, Detail, and Frequency numbers to automatically set those when running the script.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Apply Colour File To Colorista Free](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply&#32;Colour&#32;File&#32;To&#32;Colorista&#32;Free.jsx)
 
   </div>
