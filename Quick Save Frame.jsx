@@ -2,7 +2,7 @@
  * Quickly prompts to save current frame to a png.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.1.1
  */
 (function quickSaveFrame() {
   var comp = app.project.activeItem;
@@ -12,7 +12,7 @@
     return;
   }
 
-  var defaultLocation = new File(Folder.desktop + "/" + comp.name + ".png");
+  var defaultLocation = new File(Folder.desktop.fsName + "/" + comp.name + ".png");
   var location = defaultLocation.saveDlg("Choose save location", "*.png");
 
   if (!location) {
