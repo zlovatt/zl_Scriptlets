@@ -114,6 +114,31 @@ Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free, using 
   <div>
   <div>
 
+#### [Blink Selected Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Blink&#32;Selected&#32;Layers.jsx)
+
+  </div>
+  <div>
+
+Adds a scene blink controller & blinks selected layers by linking each layer's opacity to a central checkbox.
+
+When the checkbox is OFF, these layers are OFF. When the checkbox is ON, so are the layers.
+
+| Modifier |                          Effect                          |
+| -------- | -------------------------------------------------------- |
+| SHIFT    | Invert the blink expression (layer ON when checkbox OFF) |
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Convert New Gaussian Blur to Old](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert&#32;New&#32;Gaussian&#32;Blur&#32;to&#32;Old.jsx)
 
   </div>
