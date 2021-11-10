@@ -822,6 +822,25 @@ Select all keys under the work area.
   <div>
   <div>
 
+#### [Select Last Layer](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Last&#32;Layer.jsx)
+
+  </div>
+  <div>
+
+Selects the last layer in your comp, deselecting the rest.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Select Later Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Later&#32;Layers.jsx)
 
   </div>
