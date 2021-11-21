@@ -5,7 +5,7 @@
  *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function selectLaterLayers() {
   var comp = app.project.activeItem;
@@ -15,7 +15,7 @@
     return;
   }
 
-  var layers = thisComp.layers;
+  var layers = comp.layers;
 
   if (layers.length === 0) {
     alert("Select a layer!");
@@ -24,7 +24,7 @@
 
   app.beginUndoGroup("Select Later Layers");
 
-  var layer = thisComp.selectedLayers[0];
+  var layer = comp.selectedLayers[0];
   layer.selected = false;
 
   for (var ii = 1; ii <= layers.length; ii++) {
