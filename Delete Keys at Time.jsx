@@ -2,25 +2,25 @@
  * Delete all keys at current time.
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function deleteKeysAtTime() {
   /**
    * Deletes keys at given time in a comp
    *
-   * @param {CompItem} thisComp Comp to delete keys in
+   * @param {CompItem} comp Comp to delete keys in
    */
-  function deleteKeysAtTime(thisComp) {
+  function deleteKeysAtTime(comp) {
     var userLayers = [];
     var ii;
 
-    if (thisComp.selectedLayers.length !== 0) {
-      for (ii = 0; ii < thisComp.selectedLayers.length; ii++) {
-        userLayers.push(thisComp.selectedLayers[ii]);
+    if (comp.selectedLayers.length !== 0) {
+      for (ii = 0; ii < comp.selectedLayers.length; ii++) {
+        userLayers.push(comp.selectedLayers[ii]);
       }
     } else {
-      for (ii = 1; ii <= thisComp.layers.length; ii++) {
-        userLayers.push(thisComp.layers[ii]);
+      for (ii = 1; ii <= comp.layers.length; ii++) {
+        userLayers.push(comp.layers[ii]);
       }
     }
 
@@ -34,7 +34,7 @@
       var wasSelected = layer.selected;
 
       for (var jj = 1; jj <= layer.numProperties; jj++) {
-        deleteKeys(thisComp.time, layer, layer.property(jj).name);
+        deleteKeys(comp.time, layer, layer.property(jj).name);
       }
 
       layer.selected = wasSelected;
