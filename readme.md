@@ -187,6 +187,7 @@ Select some layers; a new null will be created at the average position of them.
 | Modifier |                                    Effect                                    |
 | -------- | ---------------------------------------------------------------------------- |
 | SHIFT    | Set position to a fixed value at current time, vs using a dynamic expression |
+| ALT      | Parent created layers to the new null                                        |
 
   </div>
   </div>

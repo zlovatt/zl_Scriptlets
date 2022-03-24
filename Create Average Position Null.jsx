@@ -5,10 +5,11 @@
  *  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.4.0
+ * @version 0.5.0
  */
 (function setToAvgPosition() {
   var useFixed = ScriptUI.environment.keyboardState.shiftKey;
+  var parentLayers = ScriptUI.environment.keyboardState.altKey;
 
   var comp = app.project.activeItem;
 
@@ -31,17 +32,23 @@
   avgNull.guideLayer = true;
   avgNull.label = 14;
 
-  if (useFixed) {
-    var sum = [0, 0];
+  var ii, il;
 
-    for (var ii = 0, il = layers.length; ii < il; ii++) {
+  if (useFixed) {
+    var sumX = 0;
+    var sumY = 0;
+
+    for (ii = 0, il = layers.length; ii < il; ii++) {
       var layer = layers[ii];
-      sum += layer.position.valueAtTime(comp.time, false);
+      var layerPos = layer.position.valueAtTime(comp.time, false);
+      sumX += layerPos[0];
+      sumY += layerPos[1];
     }
 
-    var avg = sum / layers.length;
+    var avgX = sumX / layers.length;
+    var avgY = sumY / layers.length;
 
-    avgNull.position.setValue(avg);
+    avgNull.position.setValue([avgX, avgY]);
   } else {
     var firstLayerIndex = layers[0].index;
     var lastLayerIndex = layers[layers.length - 1].index;
@@ -58,8 +65,14 @@
       "  sum += layer.position;",
       "}",
       "",
-      "sum / numLayers;",
+      "sum / numLayers;"
     ].join("\n");
+  }
+
+  if (parentLayers) {
+    for (ii = 0, il = layers.length; ii < il; ii++) {
+      layer[ii].parent = avgNull;
+    }
   }
 
   app.endUndoGroup();
