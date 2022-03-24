@@ -1,8 +1,8 @@
 /**
- * Toggles Javascript Debugger
+ * Calculates total file size on disk of selected project items
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.1.1
  */
 (function getTotalFileSize() {
   var fileSizes = [
@@ -63,8 +63,13 @@
         continue;
       }
 
-      var file = item.mainSource.file;
-      var fileSize = file.length;
+      var source = item.mainSource;
+
+      if (!(source instanceof FileSource)) {
+        continue;
+      }
+
+      var fileSize = source.file.length;
 
       sum += fileSize;
     }
