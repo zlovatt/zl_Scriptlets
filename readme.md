@@ -347,6 +347,25 @@ If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get v
   <div>
   <div>
 
+#### [Get Total File Size](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Total&#32;File&#32;Size.jsx)
+
+  </div>
+  <div>
+
+Calculates the total file size of selected project items. Useful for when you're trying to figure out just how beefy this baby is.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Keep Every N Keys](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Keep&#32;Every&#32;N&#32;Keys.jsx)
 
   </div>
