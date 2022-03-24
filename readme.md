@@ -903,6 +903,27 @@ Separates a layer's position dimensions, preserving easing if keyframes exist.
   <div>
   <div>
 
+#### [SRT to Text Layer Sequence](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/SRT&#32;to&#32;Text&#32;Layer&#32;Sequence.jsx)
+
+  </div>
+  <div>
+
+Takes a selected SRT file (or files), and creates a new comp per file with each line of text taking up exactly 1 frame.
+
+Very niche, but maybe it helps 🙃
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Swap Item Names](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Swap&#32;Item&#32;Names.jsx)
 
   </div>
