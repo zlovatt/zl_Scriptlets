@@ -114,6 +114,25 @@ Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free, using 
   <div>
   <div>
 
+#### [Apply Expression to Selection](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply&#32;Expression&#32;to&#32;Selection.jsx)
+
+  </div>
+  <div>
+
+Prompts user for an expression, and applies it to selected properties.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Blink Selected Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Blink&#32;Selected&#32;Layers.jsx)
 
   </div>
