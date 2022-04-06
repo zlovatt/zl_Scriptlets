@@ -794,6 +794,30 @@ Reverse shape group order in a shape layer
   <div>
   <div>
 
+#### [Select Alternating Keyframes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Alternating&#32;Keyframes.jsx)
+
+  </div>
+  <div>
+
+Selects every other keyframe on a given property.
+
+
+| Modifier |             Effect             |
+| -------- | ------------------------------ |
+| SHIFT    | Select EVEN keyframes, not ODD |
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Select Duplicate Source Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Duplicate&#32;Source&#32;Layers.jsx)
 
   </div>
