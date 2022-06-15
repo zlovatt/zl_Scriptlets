@@ -28,6 +28,10 @@
   for (var ii = 0, il = props.length; ii < il; ii++) {
     var prop = props[ii];
 
+    if (!prop.canSetExpression) {
+      continue;
+    }
+
     var jj, jl;
 
     // Deselect all keyframes

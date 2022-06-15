@@ -5,7 +5,7 @@
  *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function selectKeys() {
   var addToSelection = ScriptUI.environment.keyboardState.shiftKey;
@@ -32,6 +32,10 @@
 
   forAllItemsInArray(targetProps, function (prop) {
     if (prop.isSeparationLeader && prop.dimensionsSeparated) {
+      return;
+    }
+
+    if (!prop.canSetExpression) {
       return;
     }
 
