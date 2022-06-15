@@ -923,6 +923,25 @@ Selects all layers in your comp that start after the selected layer.
   <div>
   <div>
 
+#### [Select Orphan Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Orphan&#32;Layers.jsx)
+
+  </div>
+  <div>
+
+Selects unparented layers in current comp.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Smart-Separate Dimensions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart&#32;Separate&#32;Dimensions.jsx)
 
   </div>
