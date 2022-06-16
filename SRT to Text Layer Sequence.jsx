@@ -2,7 +2,7 @@
  * SRT to Text Layers
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.0
+ * @version 0.1.1
  */
 (function subtitleFileToTextLayerSequenceComp() {
   var compOptions = {
@@ -49,10 +49,10 @@
    * @return {{name: string, text: string[]}} Subtitle data for this file
    */
   function parseSubtitleFile(subtitleFile) {
+    var filenameNoExtension = subtitleFile.name.replace(/\.[^\/.]+$/, "")
+
     var subtitleData = {
-      name: subtitleFile.displayName.split(".")[
-        subtitleFile.displayName.split(".").length - 2
-      ],
+      name: filenameNoExtension,
       text: []
     };
 
