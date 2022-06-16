@@ -1,8 +1,8 @@
-﻿/**
+/**
  * Freezes (or unfreezes) selected properties
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.2.0
+ * @version 0.2.1
  */
 (function freezeSelectedProperties() {
   var frozenText = "// FROZEN";
@@ -141,15 +141,116 @@
   }
 
   /**
+   * Removes all redundant ancestor groups from a selection of properties
+   *
+   * @param {(Property|PropertyGroup)[]} props Props to prune
+   * @return {(Property|PropertyGroup)[]}      Pruned group
+   */
+  function pruneAncestorGroups(props) {
+    /**
+     * Converts a given property to an array of property indices
+     *
+     * @param {Property | PropertyGroup} prop Prop to get path from
+     * @return {number[]}                     Property index array
+     */
+    function getPropPath(prop) {
+      var propPath = [prop.propertyIndex];
+
+      var parentProp = prop.propertyGroup();
+
+      while (parentProp.propertyDepth > 1) {
+        propPath.unshift(parentProp.propertyIndex);
+        parentProp = parentProp.propertyGroup();
+      }
+
+      // Add layer index
+      propPath.unshift(prop.propertyGroup(prop.propertyDepth).index);
+
+      return propPath;
+    }
+
+    /**
+     * Checks whether an array is a subset of another array
+     *
+     * @param {number[]} arr1 Array to check
+     * @param {number[]} arr2 Array to check against
+     * @return {boolean}      Whether arr1 is a subset of arr2
+     */
+    function arrayIsSubsetOfArray(arr1, arr2) {
+      for (var ii = 0, il = arr1.length; ii < il; ii++) {
+        var propIndex = arr1[ii]; // [(1), 1]
+
+        var existingPropPathAtIndex = arr2[ii]; // [(1), 1, 2, 1, 6]
+
+        if (propIndex !== existingPropPathAtIndex) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    /**
+     * Checks whether an array is a subset of any array in a collection
+     *
+     * @param {number[]} array             Array to check
+     * @param {number[][]} arrayCollection Collection of arrays to check against
+     * @return {boolean}                   Whether array is a subset of anything in collection
+     */
+    function checkArrayIsSubsetInCollection(array, arrayCollection) {
+      for (var ii = 0, il = arrayCollection.length; ii < il; ii++) {
+        var collectionArray = arrayCollection[ii];
+
+        var isSubset = arrayIsSubsetOfArray(array, collectionArray);
+
+        if (isSubset) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    var allPropPaths = [];
+    var pruned = [];
+
+    // Reverse-sort by property depth
+    props.sort(function (a, b) {
+      if (a.propertyDepth > b.propertyDepth) {
+        return -1;
+      } else if (a.propertyDepth < b.propertyDepth) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    for (var ii = 0, il = props.length; ii < il; ii++) {
+      var prop = props[ii];
+      var propPath = getPropPath(prop);
+
+      var pathExists = checkArrayIsSubsetInCollection(propPath, allPropPaths);
+
+      if (!pathExists) {
+        allPropPaths.push(propPath);
+        pruned.push(prop);
+      }
+    }
+
+    return pruned;
+  }
+
+  /**
    * Gets selected properties, else all comp layers
    *
-   * @returns {Property|PropertyGroup[]} Items to freeze
+   * @returns {(Property|PropertyGroup)[]} Items to freeze
    */
   function getTarget(comp) {
     var props = comp.selectedProperties;
+    var pruned = pruneAncestorGroups(props);
 
-    if (props.length > 0) {
-      return props;
+    if (pruned.length > 0) {
+      return pruned;
     }
 
     return comp.selectedLayers;
