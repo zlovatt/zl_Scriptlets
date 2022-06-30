@@ -2,7 +2,7 @@
  * SRT to Text Layers
  *
  * @author Zack Lovatt <zack@zacklovatt.com>
- * @version 0.1.1
+ * @version 0.1.2
  */
 (function subtitleFileToTextLayerSequenceComp() {
   var compOptions = {
@@ -67,7 +67,8 @@
       contents.indexOf(subtitleDataStart) + subtitleDataStart.length,
       contents.indexOf(subtitleDataEnd)
     );
-    var contentsSplit = contentsCropped.replace(/\r/g, "\n").split("\n");
+
+    var contentsSplit = contentsCropped.split(/\s+^\d.+\s+/gm);
 
     var textRegexp = /^(\D+)/g;
 
