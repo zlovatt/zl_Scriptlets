@@ -942,6 +942,25 @@ Selects unparented layers in current comp.
   <div>
   <div>
 
+#### [Set Comp Duration to X Frames](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Set&#32;Comp&#32;Duration&#32;to&#32;X&#32;Frames.jsx)
+
+  </div>
+  <div>
+
+Sets the active comp's duration to a specified number of frames
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Smart-Separate Dimensions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart&#32;Separate&#32;Dimensions.jsx)
 
   </div>
