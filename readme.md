@@ -813,6 +813,38 @@ Reverse shape group order in a shape layer
   <div>
   <div>
 
+#### [Search Replace Fonts](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Search&#32;Replace&#32;Fonts.jsx)
+
+  </div>
+  <div>
+
+"Simple" utility to search & replace fonts in a project.
+
+TO USE:
+ - Open the panel & hit "Load Fonts" to get installed system fonts
+   - If a text layer is selected, it'll set the "Search" dropdown to this font
+ - Select a text layer and press "Get Selected Font" to set the "Search" font
+ - Change the "Replace" font
+ - Press "Replace" to replace all layers with "Search" font to the "Replace" font
+   - If you have layers selected, it will only search in these layers
+   - If you have no layers selected, it will search all layers in the comp
+
+##### Notes:
+
+  - this may not work in every case. Fonts are weird.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Select Alternating Keyframes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Alternating&#32;Keyframes.jsx)
 
   </div>
