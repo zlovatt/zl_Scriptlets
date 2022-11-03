@@ -3,7 +3,7 @@
  *
  * Set the values at the top of the script to automatically set those properties
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function addWigglePath() {

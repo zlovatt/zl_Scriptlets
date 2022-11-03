@@ -6,7 +6,7 @@
  *   - Hold SHIFT to PINGPONG instead of CYCLE
  *   - Hold both to loop IN, with PINGPONG
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function loopSelectedLayers() {

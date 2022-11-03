@@ -3,7 +3,7 @@
  *
  * Hold SHIFT when running the script to _not_ add keyframes.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 1.3.1
  */
 (function addTrimPaths() {

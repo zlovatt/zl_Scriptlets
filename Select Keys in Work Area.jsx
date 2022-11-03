@@ -4,7 +4,7 @@
  * Modifiers:
  *  - Hold SHIFT to add keys to already-selected keyframes, vs replacing selection
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.2
  */
 (function selectKeys() {

@@ -1,7 +1,7 @@
 /**
  * Sets the active comp's duration to a specified number of frames
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function setCompDurationToXFrames() {

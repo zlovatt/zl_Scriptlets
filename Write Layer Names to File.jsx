@@ -1,7 +1,7 @@
 /**
  * Write layer names in comp to a file
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function writeLayerNamesToFile() {

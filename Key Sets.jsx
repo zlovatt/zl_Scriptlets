@@ -12,7 +12,7 @@
  *  • Press the button to SAVE
  *  • Hold SHIFT to LOAD that selection.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.2
  */
 (function keySets(thisObj) {

@@ -1,7 +1,7 @@
 /**
  * Calculates total file size on disk of selected project items
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.1
  */
 (function getTotalFileSize() {

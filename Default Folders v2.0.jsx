@@ -6,7 +6,7 @@
  * If run via `Window`, Shows a UI to set folder names
  * If run via `File > Script`, creates folders from preferences
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 2.0.2
  */
 (function defaultFolders(thisObj) {

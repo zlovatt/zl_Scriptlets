@@ -4,7 +4,7 @@
  * Note: This assumes that each group ONLY has a 'path' within it.
  * If there's more, it'll fail.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function ungroupSelectedShapeGroups() {

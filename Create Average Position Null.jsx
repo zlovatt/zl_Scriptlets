@@ -4,7 +4,7 @@
  * Modifiers:
  *  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.5.0
  */
 (function setToAvgPosition() {

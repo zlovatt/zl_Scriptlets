@@ -1,7 +1,7 @@
 ﻿/**
  * Moves first layer of selected comps to end of that comp
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.0
  */
 (function moveFirstLayerOfSelectedCompsToEnd() {

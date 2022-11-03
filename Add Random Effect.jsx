@@ -1,7 +1,7 @@
 ﻿/**
  * Adds a random AE effect to selected layers.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 1.0.1
  */
 (function addRandomEffect() {

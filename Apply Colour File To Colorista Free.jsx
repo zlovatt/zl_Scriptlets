@@ -12,7 +12,7 @@
  *  - Applies Red Giant Colorista Free (http://redgiant.com/downloads/legacy-versions)
  *  - Applies the CDL/CCC as values to it.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 1.2.1
  */
 (function applyColourFileToColoristaFree() {

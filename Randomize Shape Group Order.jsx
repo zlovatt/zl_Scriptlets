@@ -1,7 +1,7 @@
 ﻿/**
  * Randomly sort the selected shape groups in a shape layer
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function randomizeShapeGroupOrder() {

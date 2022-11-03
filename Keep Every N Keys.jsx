@@ -6,7 +6,7 @@
  *
  * This doesn't delete the first or last keyframes on a property.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 1.0.0
  */
 (function keepEveryNKeys () {

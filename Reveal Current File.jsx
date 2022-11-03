@@ -1,7 +1,7 @@
 ﻿/**
  * Reveals current AEP in your OS file browser.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.0
  */
 (function revealCurrentFile() {

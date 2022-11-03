@@ -4,7 +4,7 @@
  * Modifiers:
  *  - Hold SHIFT to DISABLE temporal continuous
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function toggleTemporalContinuous() {

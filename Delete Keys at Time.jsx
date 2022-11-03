@@ -1,7 +1,7 @@
 /**
  * Delete all keys at current time.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.2
  */
 (function deleteKeysAtTime() {

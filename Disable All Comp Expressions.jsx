@@ -1,7 +1,7 @@
 /**
  * Disable all expressions in all comps (and precomps)
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.0
  */
 (function() {

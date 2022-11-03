@@ -2,7 +2,7 @@
  * Disables all enabled expressions on selected layers
  * & enables all disabled expressions
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function toggleLayerExpressions () {

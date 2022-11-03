@@ -4,7 +4,7 @@
  * Modifiers:
  *   - Hold SHIFT to create a paragraph text layer instead of point text.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.2
  */
 (function newTextLayer() {

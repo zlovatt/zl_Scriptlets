@@ -1,7 +1,7 @@
 /**
  * Prompts user for an expression, and applies it to selected properties
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.0
  */
 (function applyExpressionToSelection() {

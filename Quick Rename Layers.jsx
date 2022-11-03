@@ -3,7 +3,7 @@
  *
  * Change 'delimiter' from "-" to "_" to change the symbol between name & number
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function quickRenameLayers() {

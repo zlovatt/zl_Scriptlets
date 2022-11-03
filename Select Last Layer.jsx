@@ -1,7 +1,7 @@
 /**
  * Selects the last layer in your comp, deselecting the rest.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function selectLastLayer() {

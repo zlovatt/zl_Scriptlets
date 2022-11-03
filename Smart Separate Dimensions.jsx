@@ -2,7 +2,7 @@
  * Separates dimensions on ALL unlocked layers in current comp,
  * attempting to preserve easing
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.3.0
  */
 (function separateDimensionsPreserveEasing() {

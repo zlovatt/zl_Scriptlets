@@ -1,7 +1,7 @@
 /**
  * Counts the # of times a project item is used, and writes it to the item comment field
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function writeItemUsesToComment() {

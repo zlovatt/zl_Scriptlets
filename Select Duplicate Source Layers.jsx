@@ -2,7 +2,7 @@
  * This script will look at all of the layers in your current comp,
  * and select layers that have duplicate file sources.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.2
  */
 (function selectDuplicateSourceLayers() {

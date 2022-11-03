@@ -2,7 +2,7 @@
  * Prompts for start & end numbers, and creates in current artboard
  * a text item consisting of each #
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.0
  */
 (function createIncrementalTextItems() {

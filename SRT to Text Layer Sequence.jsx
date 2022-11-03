@@ -1,7 +1,7 @@
 /**
  * SRT to Text Layers
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.2
  */
 (function subtitleFileToTextLayerSequenceComp() {

@@ -1,7 +1,7 @@
 /**
  * Updates the default 'Import As' frame rate
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function updateDefaultImportFPS() {

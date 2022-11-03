@@ -11,7 +11,7 @@ If these have really helped you out in some way, feel free to throw a bit of cof
 [![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-yellow.svg)](https://buymeacoffee.com/zlovatt)
 
 
-All tools © 2021 Zack Lovatt. All rights reserved.
+All tools © 2022 Zack Lovatt. All rights reserved.
 
 ## Installation Instructions
 
@@ -980,7 +980,7 @@ Sets the active comp's duration to a specified number of frames
   <div>
   <div>
 
-#### [Smart-Separate Dimensions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart&#32;Separate&#32;Dimensions.jsx)
+#### [Smart Separate Dimensions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart&#32;Separate&#32;Dimensions.jsx)
 
   </div>
   <div>
@@ -1143,7 +1143,7 @@ Toggles 'Use Legacy UI' to either ON or OFF (depending on your tastes) for all i
   <div>
   <div>
 
-#### [Toggles Temporal Continuous](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Temporal&#32;Continuous.jsx)
+#### [Toggle Temporal Continuous](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Temporal&#32;Continuous.jsx)
 
   </div>
   <div>

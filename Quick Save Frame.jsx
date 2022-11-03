@@ -1,7 +1,7 @@
 /**
  * Quickly prompts to save current frame to a png.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.1
  */
 (function quickSaveFrame() {

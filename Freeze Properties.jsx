@@ -1,7 +1,7 @@
 /**
  * Freezes (or unfreezes) selected properties
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.1
  */
 (function freezeSelectedProperties() {
@@ -21,7 +21,7 @@
         throw new Error(
           [
             "Property " + property.name + " not supported!",
-            "Screenshot this and send to zack@zacklovatt.com",
+            "Screenshot this and send to zack@lova.tt",
             e
           ].join("\n")
         );

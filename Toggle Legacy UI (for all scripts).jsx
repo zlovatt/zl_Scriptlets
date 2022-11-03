@@ -6,7 +6,7 @@
  *
  * Note that you'll need to close & relaunch your ScriptUI panels.
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.3.1
  */
 (function toggleLegacyUIForAllScripts() {

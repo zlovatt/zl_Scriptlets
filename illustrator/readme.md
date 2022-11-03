@@ -4,9 +4,9 @@ A series of small, simple AI utilities to run via File > Scripts, or any other s
 
 Note that these all worked at the time they were developed; as AI has evolved, some may stop working. I'm absotively not liable if anything breaks; run at your own discretion 💝
 
-zack@zacklovatt.com
+zack@lova.tt
 
-Copyright (c) 2021 Zack Lovatt. All rights reserved.
+Copyright (c) 2022 Zack Lovatt. All rights reserved.
 
 ## TO RUN THESE SCRIPTS
 

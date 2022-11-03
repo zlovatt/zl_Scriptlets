@@ -1,7 +1,7 @@
 /**
  * Reverses the selected shape group order in a shape layer
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.2.4
  */
 (function reverseShapeGroupOrder() {

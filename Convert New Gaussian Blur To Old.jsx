@@ -1,7 +1,7 @@
 /**
  * Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy).
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 1.0.2
  */
 (function convertNewGBlurToOld() {

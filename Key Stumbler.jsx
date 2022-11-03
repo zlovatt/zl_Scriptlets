@@ -7,7 +7,7 @@
  *  - Sometimes, Bezier keyframes overshoot a lot causing reverse animation
  *  - The same speed/influence easing is used for all dimensions of a keyfrrame
  *
- * @author Zack Lovatt <zack@zacklovatt.com>
+ * @author Zack Lovatt <zack@lova.tt>
  * @version 0.1.3
  */
 (function keyStumbler(thisObj) {
