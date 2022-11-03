@@ -1003,6 +1003,25 @@ Separates a layer's position dimensions, preserving easing if keyframes exist.
   <div>
   <div>
 
+#### [Smarten Quotes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smarten&#32;Quotes.jsx)
+
+  </div>
+  <div>
+
+Convert flat to curly ("smart") quotes in your AE text layers.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [SRT to Text Layer Sequence](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/SRT&#32;to&#32;Text&#32;Layer&#32;Sequence.jsx)
 
   </div>
