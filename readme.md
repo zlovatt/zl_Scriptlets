@@ -367,6 +367,25 @@ If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get v
   <div>
   <div>
 
+#### [Get Selected File Paths](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Selected&#32;File&#32;Paths.jsx)
+
+  </div>
+  <div>
+
+Gets file paths of selected files in the project panel.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Get Total File Size](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Total&#32;File&#32;Size.jsx)
 
   </div>
