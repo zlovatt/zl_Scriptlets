@@ -153,6 +153,25 @@ When the checkbox is OFF, these layers are OFF. When the checkbox is ON, so are 
   <div>
   <div>
 
+#### [Change Selected Comps Background](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Change&#32;Selected&#32;Comps&#32;Background.jsx)
+
+  </div>
+  <div>
+
+Changes the background colour of all selected comps in the project panel to the specified hex value.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Convert New Gaussian Blur to Old](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert&#32;New&#32;Gaussian&#32;Blur&#32;to&#32;Old.jsx)
 
   </div>
