@@ -770,6 +770,25 @@ Recursively enable motion blur on selected comps, including all layers & precomp
   <div>
   <div>
 
+#### [Replace Items With Placeholders](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Replace&#32;Items&#32;With&#32;Placeholders.jsx)
+
+  </div>
+  <div>
+
+Replaces all eligible selected items with placeholders
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Reveal Current File](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reveal&#32;Current&#32;File.jsx)
 
   </div>
