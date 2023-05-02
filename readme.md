@@ -1170,6 +1170,25 @@ Toggles AE brightness between min and max
   <div>
   <div>
 
+#### [Toggle All Layer Effects](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;All&#32;Layer&#32;Effects.jsx)
+
+  </div>
+  <div>
+
+Toggles on/off all effects on layers in the project
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Toggle JS Debugger](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;JS&#32;Debugger.jsx)
 
   </div>
