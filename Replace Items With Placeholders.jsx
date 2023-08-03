@@ -2,7 +2,7 @@
  * Replaces all eligible selected items with placeholders
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.1.0
+ * @version 0.1.1
  */
 (function replaceItemsWithPlaceholders() {
   var items = app.project.selection;
@@ -18,12 +18,13 @@
       }
 
       var oldName = item.name;
+
       item.replaceWithPlaceholder(
         ii.toString(),
-        item.width,
-        item.height,
-        item.frameRate,
-        item.duration
+        clamp(item.width, 4, 30000),
+        clamp(item.height, 4, 30000),
+        clamp(item.frameRate, 1, 99),
+        clamp(item.duration, 0, 10800)
       );
       item.name = oldName;
     }
@@ -31,5 +32,16 @@
     alert(e, "Replace Items With Placeholders");
   } finally {
     app.endUndoGroup();
+  }
+
+  /**
+   * Clamps a value between min and max
+   *
+   * @param {number} value Number to clamp
+   * @param {number} min   Min value
+   * @param {number} max   Max value
+   */
+  function clamp(value, min, max) {
+    return Math.max(Math.min(value, max), min);
   }
 })();
