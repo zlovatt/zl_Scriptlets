@@ -2,7 +2,7 @@
  * Parents each selected layer to the layer above it.
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function parentEachToAbove() {
   var comp = app.project.activeItem;
@@ -16,7 +16,14 @@
 
   for (var ii = 0; ii < comp.selectedLayers.length; ii++) {
     var layer = comp.selectedLayers[ii];
-    layer.parent = comp.layer(layer.index - 1);
+
+    var parentIndex = layer.index - 1;
+
+    if (parentIndex < 1) {
+      continue;
+    }
+
+    layer.parent = comp.layer(parentIndex);
   }
 
   app.endUndoGroup();
