@@ -1007,6 +1007,25 @@ Selects all layers in your comp that start after the selected layer.
   <div>
   <div>
 
+#### [Select Mattes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Mattes.jsx)
+
+  </div>
+  <div>
+
+Selects all layers that are track mattes in the current comp.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Select Orphan Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Orphan&#32;Layers.jsx)
 
   </div>
