@@ -10,9 +10,9 @@ All tools © 2023 Zack Lovatt unless otherwise stated. All rights reserved.
 
 ## Installation Instructions
 
-  - Click on the name of the scriptlet you'd like to download
-  - `File > Save` this to your computer, ensuring you're saving as "[filename].jsx"
-  - In AE: `File > Script > Run Script File...` and choose this script!
+- Click on the name of the scriptlet you'd like to download
+- `File > Save` this to your computer, ensuring you're saving as "[filename].jsx"
+- In AE: `File > Script > Run Script File...` and choose this script!
 
 ## Adobe Illustrator Scripts
 
@@ -27,7 +27,7 @@ See the [Illustrator](/illustrator/) folder for a few AI scripts.
   <div>
   <div>
 
-#### [Add Random Effect](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add&#32;Random&#32;Effect.jsx)
+#### [Add Random Effect](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add Random Effect.jsx>)
 
   </div>
   <div>
@@ -46,14 +46,14 @@ Adds a random layer effect to your first selected layer 🙃
   <div>
   <div>
 
-#### [Add Trim Paths](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add&#32;Trim&#32;Paths.jsx)
+#### [Add Trim Paths](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add Trim Paths.jsx>)
 
   </div>
   <div>
 
 Adds Trim Paths to selected shape layers, including a keyframe to start and one to end the animation.
 
-| Modifier |        Effect         |
+| Modifier | Effect                |
 | -------- | --------------------- |
 | SHIFT    | Skip adding keyframes |
 
@@ -69,7 +69,7 @@ Adds Trim Paths to selected shape layers, including a keyframe to start and one 
   <div>
   <div>
 
-#### [Add Wiggle Paths](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add&#32;Wiggle&#32;Paths.jsx)
+#### [Add Wiggle Paths](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Add Wiggle Paths.jsx>)
 
   </div>
   <div>
@@ -90,7 +90,7 @@ Open the script and change wiggle Size, Detail, and Frequency numbers to automat
   <div>
   <div>
 
-#### [Apply Colour File To Colorista Free](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply&#32;Colour&#32;File&#32;To&#32;Colorista&#32;Free.jsx)
+#### [Apply Colour File To Colorista Free](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply Colour File To Colorista Free.jsx>)
 
   </div>
   <div>
@@ -109,7 +109,7 @@ Prompts user to select a CCC/CDL, creates an adj layer w/ Colorista Free, using 
   <div>
   <div>
 
-#### [Apply Expression to Selection](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply&#32;Expression&#32;to&#32;Selection.jsx)
+#### [Apply Expression to Selection](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Apply Expression to Selection.jsx>)
 
   </div>
   <div>
@@ -128,7 +128,7 @@ Prompts user for an expression, and applies it to selected properties.
   <div>
   <div>
 
-#### [Blink Selected Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Blink&#32;Selected&#32;Layers.jsx)
+#### [Blink Selected Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Blink Selected Layers.jsx>)
 
   </div>
   <div>
@@ -137,7 +137,7 @@ Adds a scene blink controller & blinks selected layers by linking each layer's o
 
 When the checkbox is OFF, these layers are OFF. When the checkbox is ON, so are the layers.
 
-| Modifier |                          Effect                          |
+| Modifier | Effect                                                   |
 | -------- | -------------------------------------------------------- |
 | SHIFT    | Invert the blink expression (layer ON when checkbox OFF) |
 
@@ -153,7 +153,7 @@ When the checkbox is OFF, these layers are OFF. When the checkbox is ON, so are 
   <div>
   <div>
 
-#### [Change Selected Comps Background](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Change&#32;Selected&#32;Comps&#32;Background.jsx)
+#### [Change Selected Comps Background](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Change Selected Comps Background.jsx>)
 
   </div>
   <div>
@@ -172,7 +172,7 @@ Changes the background colour of all selected comps in the project panel to the 
   <div>
   <div>
 
-#### [Convert New Gaussian Blur to Old](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert&#32;New&#32;Gaussian&#32;Blur&#32;to&#32;Old.jsx)
+#### [Convert New Gaussian Blur to Old](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert New Gaussian Blur to Old.jsx>)
 
   </div>
   <div>
@@ -191,7 +191,7 @@ Convert the new (CC 2015.3+) Gaussian Blur effect to Gaussian Blur (Legacy)
   <div>
   <div>
 
-#### [Count Keyframes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Count&#32;Keyframes.jsx)
+#### [Count Keyframes](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Count Keyframes.jsx>)
 
   </div>
   <div>
@@ -210,17 +210,17 @@ Counts all of the keyframes (including markers) in selected comps in project pan
   <div>
   <div>
 
-#### [Create Average Position Null](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create&#32;Average&#32;Position&#32;Null.jsx)
+#### [Create Average Position Null](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Average Position Null.jsx>)
 
   </div>
   <div>
 
-Select some layers; a new null will be created at the average position of them.
+Creates a new null at the center of selected layers (or all comp layers, if none selected), and set this null as those layers' parent.
 
-| Modifier |                                    Effect                                    |
-| -------- | ---------------------------------------------------------------------------- |
-| SHIFT    | Set position to a fixed value at current time, vs using a dynamic expression |
-| ALT      | Parent created layers to the new null                                        |
+| Modifier | Effect                                                              |
+| -------- | ------------------------------------------------------------------- |
+| SHIFT    | Don't parent the layers to the null                                 |
+| CTRL/CMD | Have the null's position be dynamically set to the center of layers |
 
   </div>
   </div>
@@ -234,7 +234,7 @@ Select some layers; a new null will be created at the average position of them.
   <div>
   <div>
 
-#### [Default Folders v2.0](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Default&#32;Folders&#32;v2.0.jsx)
+#### [Default Folders v2.0](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Default Folders v2.0.jsx>)
 
   </div>
   <div>
@@ -255,7 +255,7 @@ Based on [DefaultFolders by Impudent1](http://aenhancers.com/viewtopic.php?t=37)
   <div>
   <div>
 
-#### [Delete Keys at Time](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Delete&#32;Keys&#32;at&#32;Time.jsx)
+#### [Delete Keys at Time](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Delete Keys at Time.jsx>)
 
   </div>
   <div>
@@ -274,7 +274,7 @@ Delete all keys at current time
   <div>
   <div>
 
-#### [Freeze Properties](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Freeze&#32;Properties.jsx)
+#### [Freeze Properties](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Freeze Properties.jsx>)
 
   </div>
   <div>
@@ -285,7 +285,7 @@ Run the script again to unfreeze selected properties/layers.
 
 ##### Notes:
 
-  - Skips properties that already have expressions.
+- Skips properties that already have expressions.
 
   </div>
   </div>
@@ -299,7 +299,7 @@ Run the script again to unfreeze selected properties/layers.
   <div>
   <div>
 
-#### [Generate Font Weight Selector](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Generate&#32;Font&#32;Weight&#32;Selector.jsx)
+#### [Generate Font Weight Selector](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Generate Font Weight Selector.jsx>)
 
   </div>
   <div>
@@ -309,17 +309,17 @@ font weight, based on the existing text layer's font.
 
 ##### To use:
 
-  - Select a text layer
-  - Run script
-  - It will create a slider on the text layer, and an expression on sourceText
-  - The slider will animate from 1 to the # of weights found
-  - The expression will list all available font weights it can detect!
+- Select a text layer
+- Run script
+- It will create a slider on the text layer, and an expression on sourceText
+- The slider will animate from 1 to the # of weights found
+- The expression will list all available font weights it can detect!
 
 ##### Notes:
 
-  - this may not work in every case. Fonts are weird.
-  - this relies on CC 2019+.
-  - Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
+- this may not work in every case. Fonts are weird.
+- this relies on CC 2019+.
+- Font PostScript name logic from [Ten](https://github.com/ten-A/Extend_Script_experimentals) and licensed under MIT (included in the file)
 
   </div>
   </div>
@@ -333,7 +333,7 @@ font weight, based on the existing text layer's font.
   <div>
   <div>
 
-#### [Get Property Value](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Property&#32;Value.jsx)
+#### [Get Property Value](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get Property Value.jsx>)
 
   </div>
   <div>
@@ -348,7 +348,7 @@ If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get v
 
 ##### Notes:
 
-  - The panel also includes an experimental 'copy to clipboard' function; it usually takes a few seconds to actually copy to clipboard, so be patient with it.
+- The panel also includes an experimental 'copy to clipboard' function; it usually takes a few seconds to actually copy to clipboard, so be patient with it.
 
   </div>
   </div>
@@ -362,7 +362,7 @@ If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get v
   <div>
   <div>
 
-#### [Get Selected File Paths](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Selected&#32;File&#32;Paths.jsx)
+#### [Get Selected File Paths](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get Selected File Paths.jsx>)
 
   </div>
   <div>
@@ -381,7 +381,7 @@ Gets file paths of selected files in the project panel.
   <div>
   <div>
 
-#### [Get Total File Size](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get&#32;Total&#32;File&#32;Size.jsx)
+#### [Get Total File Size](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get Total File Size.jsx>)
 
   </div>
   <div>
@@ -400,7 +400,7 @@ Calculates the total file size of selected project items. Useful for when you're
   <div>
   <div>
 
-#### [Keep Every N Keys](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Keep&#32;Every&#32;N&#32;Keys.jsx)
+#### [Keep Every N Keys](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Keep Every N Keys.jsx>)
 
   </div>
   <div>
@@ -415,16 +415,15 @@ Intended for use with baked expressions, such as when exporting with Bodymovin.
 
 Based on 10 keyframes (🔷)
 
-| Interval      | Result              |
-|---------------|---------------------|
+| Interval      | Result                        |
+| ------------- | ----------------------------- |
 | 1 (no change) | 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷 |
 | 2 (default)   | 🔷 ✖️ 🔷 ✖️ 🔷 ✖️ 🔷 ✖️ 🔷 🔷 |
 | 3             | 🔷 ✖️ ✖️ 🔷 ✖️ ✖️ 🔷 ✖️ ✖️ 🔷 |
 | 4             | 🔷 ✖️ ✖️ ✖️ 🔷 ✖️ ✖️ ✖️ 🔷 🔷 |
 | 5             | 🔷 ✖️ ✖️ ✖️ ✖️ 🔷 ✖️ ✖️ ✖️ 🔷 |
 
-
-| Modifier |           Effect           |
+| Modifier | Effect                     |
 | -------- | -------------------------- |
 | SHIFT    | Specify the interval value |
 
@@ -440,7 +439,7 @@ Based on 10 keyframes (🔷)
   <div>
   <div>
 
-#### [Key Sets](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key&#32;Sets.jsx)
+#### [Key Sets](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key Sets.jsx>)
 
   </div>
   <div>
@@ -453,20 +452,20 @@ You can overwrite a selection by saving over an existing Key Set.
 
 The top button will SAVE selection, while the bottom button will LOAD that selection.
 
-| Modifier |           Effect           |
+| Modifier | Effect                     |
 | -------- | -------------------------- |
 | SHIFT    | Specify the name for a set |
 
 ##### If run as a kbar Script button:
 
-* Specify a unique Kbar Argument to save/restore that key set
-* You can have infinitely many sets, as long as each has a unique name
-* Press the button to SAVE
-* Hold SHIFT to LOAD that selection.
+- Specify a unique Kbar Argument to save/restore that key set
+- You can have infinitely many sets, as long as each has a unique name
+- Press the button to SAVE
+- Hold SHIFT to LOAD that selection.
 
 ##### Notes:
 
-* If you add intermediate keyframes, delete layers or properties, add extra effects, etc., Key Sets may not be able to restore the full selection.
+- If you add intermediate keyframes, delete layers or properties, add extra effects, etc., Key Sets may not be able to restore the full selection.
 
   </div>
   </div>
@@ -480,7 +479,7 @@ The top button will SAVE selection, while the bottom button will LOAD that selec
   <div>
   <div>
 
-#### [Key Stumbler](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key&#32;Stumbler.jsx)
+#### [Key Stumbler](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Key Stumbler.jsx>)
 
   </div>
   <div>
@@ -505,7 +504,7 @@ Options for the # of keyframes to create, the chance of each keyframe being hold
   <div>
   <div>
 
-#### [Load Last Autosave](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Load&#32;Last&#32;Autosave.jsx)
+#### [Load Last Autosave](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Load Last Autosave.jsx>)
 
   </div>
   <div>
@@ -514,7 +513,7 @@ Tries to find the last autosave project based on your current AEP, and open it.
 
 ##### Notes:
 
-  - Only works in English installs of AE at the moment.
+- Only works in English installs of AE at the moment.
 
   </div>
   </div>
@@ -528,14 +527,14 @@ Tries to find the last autosave project based on your current AEP, and open it.
   <div>
   <div>
 
-#### [Loop Selected Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Loop&#32;Selected&#32;Layers.jsx)
+#### [Loop Selected Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Loop Selected Layers.jsx>)
 
   </div>
   <div>
 
 Enables time remapping on selected layers, and adds a loopOut("cycle") to loop the layer.
 
-| Modifier |          Effect           |
+| Modifier | Effect                    |
 | -------- | ------------------------- |
 | CTRL     | Loop IN instead of OUT    |
 | SHIFT    | PINGPONG instead of CYCLE |
@@ -553,7 +552,7 @@ Enables time remapping on selected layers, and adds a loopOut("cycle") to loop t
   <div>
   <div>
 
-#### [Mistika VR to AE Null](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Mistika&#32;VR&#32;to&#32;AE&#32;Null.jsx)
+#### [Mistika VR to AE Null](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Mistika VR to AE Null.jsx>)
 
   </div>
   <div>
@@ -572,7 +571,7 @@ Translates a Mistika VR .grp file to null sliders for yaw/pitch/roll
   <div>
   <div>
 
-#### [Move First Layer of Selected Comps to End](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Move&#32;First&#32;Layer&#32;of&#32;Selected&#32;Comps&#32;to&#32;End.jsx)
+#### [Move First Layer of Selected Comps to End](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Move First Layer of Selected Comps to End.jsx>)
 
   </div>
   <div>
@@ -591,14 +590,14 @@ Moves the first layer of each selected comp in project panel to the end of each 
   <div>
   <div>
 
-#### [New Text Layer](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/New&#32;Text&#32;Layer.jsx)
+#### [New Text Layer](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/New Text Layer.jsx>)
 
   </div>
   <div>
 
 Makes a new empty text layer.
 
-| Modifier |                         Effect                          |
+| Modifier | Effect                                                  |
 | -------- | ------------------------------------------------------- |
 | SHIFT    | Create Paragraph (box) text layer instead of Point text |
 
@@ -614,7 +613,7 @@ Makes a new empty text layer.
   <div>
   <div>
 
-#### [Parent Each Layer to Layer Above](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Parent&#32;Each&#32;Layer&#32;to&#32;Layer&#32;Above.jsx)
+#### [Parent Each Layer to Layer Above](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Parent Each Layer to Layer Above.jsx>)
 
   </div>
   <div>
@@ -633,7 +632,7 @@ Parent each selected layer to above layer
   <div>
   <div>
 
-#### [Points to Nulls](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Points&#32;to&#32;Nulls.jsx)
+#### [Points to Nulls](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Points to Nulls.jsx>)
 
   </div>
   <div>
@@ -654,7 +653,7 @@ This was developed before the official "Paths to Nulls" panel 😅
   <div>
   <div>
 
-#### [Phone a Friend](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Phone&#32;A&#32;Friend.jsx)
+#### [Phone a Friend](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Phone A Friend.jsx>)
 
   </div>
   <div>
@@ -675,7 +674,7 @@ Uses markers & expressions-- move markers & change text to change audio!
   <div>
   <div>
 
-#### [Quick Rename Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick&#32;Rename&#32;Layers.jsx)
+#### [Quick Rename Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick Rename Layers.jsx>)
 
   </div>
   <div>
@@ -694,7 +693,7 @@ Quickly renames all selected layers to text of your choice, adding an incremente
   <div>
   <div>
 
-#### [Quick Save Frame](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick&#32;Save&#32;Frame.jsx)
+#### [Quick Save Frame](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick Save Frame.jsx>)
 
   </div>
   <div>
@@ -713,7 +712,7 @@ Quickly prompts to save current comp frame as a png file.
   <div>
   <div>
 
-#### [Randomize Shape Group Order](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Randomize&#32;Shape&#32;Group&#32;Order.jsx)
+#### [Randomize Shape Group Order](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Randomize Shape Group Order.jsx>)
 
   </div>
   <div>
@@ -732,7 +731,7 @@ Randomize order of selected shape groups
   <div>
   <div>
 
-#### [Recursive Enable Moblur](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Recursive&#32;Enable&#32;Moblur.jsx)
+#### [Recursive Enable Moblur](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Recursive Enable Moblur.jsx>)
 
   </div>
   <div>
@@ -751,7 +750,7 @@ Recursively enable motion blur on selected comps, including all layers & precomp
   <div>
   <div>
 
-#### [Replace Items With Placeholders](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Replace&#32;Items&#32;With&#32;Placeholders.jsx)
+#### [Replace Items With Placeholders](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Replace Items With Placeholders.jsx>)
 
   </div>
   <div>
@@ -770,7 +769,7 @@ Replaces all eligible selected items with placeholders
   <div>
   <div>
 
-#### [Reveal Current File](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reveal&#32;Current&#32;File.jsx)
+#### [Reveal Current File](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reveal Current File.jsx>)
 
   </div>
   <div>
@@ -789,7 +788,7 @@ Opens a Finder/Explorer window to the current AEP
   <div>
   <div>
 
-#### [Reveal Layer Source In Project](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reveal&#32;Layer&#32;Source&#32;In&#32;Project.jsx)
+#### [Reveal Layer Source In Project](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reveal Layer Source In Project.jsx>)
 
   </div>
   <div>
@@ -808,7 +807,7 @@ Reveals source of first selected layer in project
   <div>
   <div>
 
-#### [Reverse Shape Group Order](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reverse&#32;Shape&#32;Group&#32;Order.jsx)
+#### [Reverse Shape Group Order](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Reverse Shape Group Order.jsx>)
 
   </div>
   <div>
@@ -827,7 +826,7 @@ Reverse shape group order in a shape layer
   <div>
   <div>
 
-#### [Search Replace Fonts](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Search&#32;Replace&#32;Fonts.jsx)
+#### [Search Replace Fonts](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Search Replace Fonts.jsx>)
 
   </div>
   <div>
@@ -835,17 +834,18 @@ Reverse shape group order in a shape layer
 "Simple" utility to search & replace fonts in a project.
 
 TO USE:
- - Open the panel & hit "Load Fonts" to get installed system fonts
-   - If a text layer is selected, it'll set the "Search" dropdown to this font
- - Select a text layer and press "Get Selected Font" to set the "Search" font
- - Change the "Replace" font
- - Press "Replace" to replace all layers with "Search" font to the "Replace" font
-   - If you have layers selected, it will only search in these layers
-   - If you have no layers selected, it will search all layers in the comp
+
+- Open the panel & hit "Load Fonts" to get installed system fonts
+  - If a text layer is selected, it'll set the "Search" dropdown to this font
+- Select a text layer and press "Get Selected Font" to set the "Search" font
+- Change the "Replace" font
+- Press "Replace" to replace all layers with "Search" font to the "Replace" font
+  - If you have layers selected, it will only search in these layers
+  - If you have no layers selected, it will search all layers in the comp
 
 ##### Notes:
 
-  - this may not work in every case. Fonts are weird.
+- this may not work in every case. Fonts are weird.
 
   </div>
   </div>
@@ -859,15 +859,14 @@ TO USE:
   <div>
   <div>
 
-#### [Select Alternating Keyframes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Alternating&#32;Keyframes.jsx)
+#### [Select Alternating Keyframes](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Alternating Keyframes.jsx>)
 
   </div>
   <div>
 
 Selects every other keyframe on a given property.
 
-
-| Modifier |             Effect             |
+| Modifier | Effect                         |
 | -------- | ------------------------------ |
 | SHIFT    | Select EVEN keyframes, not ODD |
 
@@ -883,7 +882,7 @@ Selects every other keyframe on a given property.
   <div>
   <div>
 
-#### [Select Duplicate Source Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Duplicate&#32;Source&#32;Layers.jsx)
+#### [Select Duplicate Source Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Duplicate Source Layers.jsx>)
 
   </div>
   <div>
@@ -904,14 +903,14 @@ So-- if you have two instances of the same movie file, this will select them bot
   <div>
   <div>
 
-#### [Select Keys at Current Time](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Keys&#32;at&#32;Current&#32;Time.jsx)
+#### [Select Keys at Current Time](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Keys at Current Time.jsx>)
 
   </div>
   <div>
 
 Select all keys at current time indicator.
 
-| Modifier |                           Effect                           |
+| Modifier | Effect                                                     |
 | -------- | ---------------------------------------------------------- |
 | SHIFT    | Add keyframes to current selection, vs replacing selection |
 
@@ -927,14 +926,14 @@ Select all keys at current time indicator.
   <div>
   <div>
 
-#### [Select Keys in Work Area](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Keys&#32;in&#32;Work&#32;Area.jsx)
+#### [Select Keys in Work Area](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Keys in Work Area.jsx>)
 
   </div>
   <div>
 
 Select all keys under the work area.
 
-| Modifier |                           Effect                           |
+| Modifier | Effect                                                     |
 | -------- | ---------------------------------------------------------- |
 | SHIFT    | Add keyframes to current selection, vs replacing selection |
 
@@ -950,7 +949,7 @@ Select all keys under the work area.
   <div>
   <div>
 
-#### [Select Last Layer](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Last&#32;Layer.jsx)
+#### [Select Last Layer](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Last Layer.jsx>)
 
   </div>
   <div>
@@ -969,7 +968,7 @@ Selects the last layer in your comp, deselecting the rest.
   <div>
   <div>
 
-#### [Select Later Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Later&#32;Layers.jsx)
+#### [Select Later Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Later Layers.jsx>)
 
   </div>
   <div>
@@ -988,7 +987,7 @@ Selects all layers in your comp that start after the selected layer.
   <div>
   <div>
 
-#### [Select Mattes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Mattes.jsx)
+#### [Select Mattes](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Mattes.jsx>)
 
   </div>
   <div>
@@ -1007,7 +1006,7 @@ Selects all layers that are track mattes in the current comp.
   <div>
   <div>
 
-#### [Select Orphan Layers](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select&#32;Orphan&#32;Layers.jsx)
+#### [Select Orphan Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Select Orphan Layers.jsx>)
 
   </div>
   <div>
@@ -1026,7 +1025,7 @@ Selects unparented layers in current comp.
   <div>
   <div>
 
-#### [Set Comp Duration to X Frames](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Set&#32;Comp&#32;Duration&#32;to&#32;X&#32;Frames.jsx)
+#### [Set Comp Duration to X Frames](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Set Comp Duration to X Frames.jsx>)
 
   </div>
   <div>
@@ -1045,7 +1044,7 @@ Sets the active comp's duration to a specified number of frames
   <div>
   <div>
 
-#### [Smart Separate Dimensions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart&#32;Separate&#32;Dimensions.jsx)
+#### [Smart Separate Dimensions](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smart Separate Dimensions.jsx>)
 
   </div>
   <div>
@@ -1054,7 +1053,7 @@ Separates a layer's position dimensions, preserving easing if keyframes exist.
 
 ##### Notes:
 
-  - If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... hard.
+- If you've adjusted the spatial interpolation (by changing bezier handles in comp viewer), this won't maintain that. That's... hard.
 
   </div>
   </div>
@@ -1068,7 +1067,7 @@ Separates a layer's position dimensions, preserving easing if keyframes exist.
   <div>
   <div>
 
-#### [Smarten Quotes](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smarten&#32;Quotes.jsx)
+#### [Smarten Quotes](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Smarten Quotes.jsx>)
 
   </div>
   <div>
@@ -1087,7 +1086,7 @@ Convert flat to curly ("smart") quotes in your AE text layers.
   <div>
   <div>
 
-#### [SRT to Text Layer Sequence](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/SRT&#32;to&#32;Text&#32;Layer&#32;Sequence.jsx)
+#### [SRT to Text Layer Sequence](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/SRT to Text Layer Sequence.jsx>)
 
   </div>
   <div>
@@ -1108,7 +1107,7 @@ Very niche, but maybe it helps 🙃
   <div>
   <div>
 
-#### [Swap Item Names](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Swap&#32;Item&#32;Names.jsx)
+#### [Swap Item Names](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Swap Item Names.jsx>)
 
   </div>
   <div>
@@ -1127,14 +1126,14 @@ Swaps the names of 2 selected project items.
   <div>
   <div>
 
-#### [Time Stretch Layer](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Time&#32;Stretch&#32;Layer.jsx)
+#### [Time Stretch Layer](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Time Stretch Layer.jsx>)
 
   </div>
   <div>
 
 Uses Time Remap to stretch layers, prompting user to enter speed. Also lengthens comp to fit, if necessary.
 
-| Modifier |           Effect           |
+| Modifier | Effect                     |
 | -------- | -------------------------- |
 | CTRL/CMD | Remap to half (0.5x) speed |
 | SHIFT    | Remap to double (2x) speed |
@@ -1151,7 +1150,7 @@ Uses Time Remap to stretch layers, prompting user to enter speed. Also lengthens
   <div>
   <div>
 
-#### [Toggle AE Brightness](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;AE&#32;Brightness.jsx)
+#### [Toggle AE Brightness](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle AE Brightness.jsx>)
 
   </div>
   <div>
@@ -1170,7 +1169,7 @@ Toggles AE brightness between min and max
   <div>
   <div>
 
-#### [Toggle All Layer Effects](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;All&#32;Layer&#32;Effects.jsx)
+#### [Toggle All Layer Effects](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle All Layer Effects.jsx>)
 
   </div>
   <div>
@@ -1189,7 +1188,7 @@ Toggles on/off all effects on layers in the project
   <div>
   <div>
 
-#### [Toggle Expressions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Expressions.jsx)
+#### [Toggle Expressions](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle Expressions.jsx>)
 
   </div>
   <div>
@@ -1198,7 +1197,7 @@ Enables, disables, or toggles all expressions in current comp, disabling them by
 
 Operates on selected layers, or all layers in the comp if none are selected, recursing into precomps.
 
-| Modifier |                          Effect                           |
+| Modifier | Effect                                                    |
 | -------- | --------------------------------------------------------- |
 | SHIFT    | Enable all expressions, vs disable                        |
 | CTRL/CMD | Enable disabled expressions & disable enabled expressions |
@@ -1215,7 +1214,7 @@ Operates on selected layers, or all layers in the comp if none are selected, rec
   <div>
   <div>
 
-#### [Toggle JS Debugger](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;JS&#32;Debugger.jsx)
+#### [Toggle JS Debugger](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle JS Debugger.jsx>)
 
   </div>
   <div>
@@ -1234,7 +1233,7 @@ Toggles Javascript debugger enabled/disabled
   <div>
   <div>
 
-#### [Toggle Legacy UI (for all scripts)](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Legacy&#32;UI&#32;(for&#32;all&#32;scripts).jsx)
+#### [Toggle Legacy UI (for all scripts)](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle Legacy UI (for all scripts).jsx>)
 
   </div>
   <div>
@@ -1253,14 +1252,14 @@ Toggles 'Use Legacy UI' to either ON or OFF (depending on your tastes) for all i
   <div>
   <div>
 
-#### [Toggle Temporal Continuous](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Temporal&#32;Continuous.jsx)
+#### [Toggle Temporal Continuous](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle Temporal Continuous.jsx>)
 
   </div>
   <div>
 
 Toggles Continuous on selected keys.
 
-| Modifier |                Effect                 |
+| Modifier | Effect                                |
 | -------- | ------------------------------------- |
 | SHIFT    | Disable Continuous, instead of Enable |
 
@@ -1276,7 +1275,7 @@ Toggles Continuous on selected keys.
   <div>
   <div>
 
-#### [Ungroup Selected Shape Groups](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Ungroup&#32;Selected&#32;Shape&#32;Groups.jsx)
+#### [Ungroup Selected Shape Groups](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Ungroup Selected Shape Groups.jsx>)
 
   </div>
   <div>
@@ -1285,8 +1284,8 @@ Ungroups all selected shape groups.
 
 ##### Notes:
 
-  - This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
-  - I know this isn't great, buuut it's a start! 🤷‍♀️
+- This assumes that each group ONLY has a 'path' within it. If there's more, it'll fail.
+- I know this isn't great, buuut it's a start! 🤷‍♀️
 
   </div>
   </div>
@@ -1300,7 +1299,7 @@ Ungroups all selected shape groups.
   <div>
   <div>
 
-#### [Update Default Import FPS](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Update&#32;Default&#32;Import&#32;FPS.jsx)
+#### [Update Default Import FPS](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Update Default Import FPS.jsx>)
 
   </div>
   <div>
@@ -1321,7 +1320,7 @@ This is used when importing image sequences, the fps that AE interprets it as.
   <div>
   <div>
 
-#### [Write Item Uses To Comment](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Write&#32;Item&#32;Uses&#32;To&#32;Comment.jsx)
+#### [Write Item Uses To Comment](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Write Item Uses To Comment.jsx>)
 
   </div>
   <div>
@@ -1340,7 +1339,7 @@ Counts the # of times a project item is used, and writes it to the item comment 
   <div>
   <div>
 
-#### [Write Layer Names to File](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Write&#32;Layer&#32;Names&#32;to&#32;File.jsx)
+#### [Write Layer Names to File](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Write Layer Names to File.jsx>)
 
   </div>
   <div>

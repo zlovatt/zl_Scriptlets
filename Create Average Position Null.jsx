@@ -1,15 +1,23 @@
 /**
- * Creates a null positioned at the average position of all selected layers.
+ * Creates a null positioned at the average position of all selected layers,
+ * and parent all layers to it.
  *
  * Modifiers:
- *  - Hold SHIFT to set to a fixed average at current time, vs dynamic expression
+ *  - Hold SHIFT to NOT parent the layers to the null
+ *  - Hold CTRL / CMD to add an expression that keeps the null centered between those layers
+ *     (Note: this disables parenting)
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.5.0
+ * @version 0.6.0
  */
 (function setToAvgPosition() {
-  var useFixed = ScriptUI.environment.keyboardState.shiftKey;
-  var parentLayers = ScriptUI.environment.keyboardState.altKey;
+  var keepLayersOrphans = ScriptUI.environment.keyboardState.shiftKey;
+  var useDynamicPosition = false;
+
+  if (ScriptUI.environment.keyboardState.ctrlKey || ScriptUI.environment.keyboardState.metaKey) {
+    useDynamicPosition = true;
+    keepLayersOrphans = true;
+  }
 
   var comp = app.project.activeItem;
 
@@ -18,7 +26,7 @@
     return;
   }
 
-  var layers = comp.selectedLayers;
+  var layers = _getSelectedLayersOrAll(comp);
 
   if (layers.length < 2) {
     alert("Select at least 2 layers!");
@@ -34,22 +42,7 @@
 
   var ii, il;
 
-  if (useFixed) {
-    var sumX = 0;
-    var sumY = 0;
-
-    for (ii = 0, il = layers.length; ii < il; ii++) {
-      var layer = layers[ii];
-      var layerPos = layer.position.valueAtTime(comp.time, false);
-      sumX += layerPos[0];
-      sumY += layerPos[1];
-    }
-
-    var avgX = sumX / layers.length;
-    var avgY = sumY / layers.length;
-
-    avgNull.position.setValue([avgX, avgY]);
-  } else {
+  if (useDynamicPosition) {
     var firstLayerIndex = layers[0].index;
     var lastLayerIndex = layers[layers.length - 1].index;
 
@@ -67,13 +60,47 @@
       "",
       "sum / numLayers;"
     ].join("\n");
+  } else {
+    var sumX = 0;
+    var sumY = 0;
+
+    for (ii = 0, il = layers.length; ii < il; ii++) {
+      var layer = layers[ii];
+      var layerPos = layer.position.valueAtTime(comp.time, false);
+      sumX += layerPos[0];
+      sumY += layerPos[1];
+    }
+
+    var avgX = sumX / layers.length;
+    var avgY = sumY / layers.length;
+
+    avgNull.position.setValue([avgX, avgY]);
   }
 
-  if (parentLayers) {
+  if (!keepLayersOrphans) {
     for (ii = 0, il = layers.length; ii < il; ii++) {
-      layer[ii].parent = avgNull;
+      layers[ii].parent = avgNull;
     }
   }
 
   app.endUndoGroup();
+
+  /**
+   * Gets the selected layers in a given comp, or all
+   *
+   * @param {CompItem} comp Comp to get layers from
+   * @return {Layer[]}      Layers
+   */
+  function _getSelectedLayersOrAll(comp) {
+    var layers = comp.selectedLayers;
+
+    if (layers.length === 0) {
+      for (var ii = 1, il = comp.numLayers; ii <= il; ii++) {
+        var layer = comp.layer(ii);
+        layers.push(layer);
+      }
+    }
+
+    return layers;
+  }
 })();
