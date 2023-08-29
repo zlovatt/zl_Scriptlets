@@ -239,7 +239,7 @@ Select some layers; a new null will be created at the average position of them.
   </div>
   <div>
 
-Creates a number of folders (or, if ran as a window, lets you customzie folder names to create).
+Creates a number of folders (or, if ran as a window, lets you customize folder names to create).
 
 Based on [DefaultFolders by Impudent1](http://aenhancers.com/viewtopic.php?t=37).
 
@@ -638,7 +638,7 @@ Parent each selected layer to above layer
   </div>
   <div>
 
-Adds nulls to points of seleted shape layers or masks.
+Adds nulls to points of selected shape layers or masks.
 
 This was developed before the official "Paths to Nulls" panel 😅
 
