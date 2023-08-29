@@ -274,25 +274,6 @@ Delete all keys at current time
   <div>
   <div>
 
-#### [Disable All Comp Expressions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Disable&#32;All&#32;Comp&#32;Expressions.jsx)
-
-  </div>
-  <div>
-
-Disables all expressions in active comp
-
-  </div>
-  </div>
-  </div>
-</div>
-
----
-
-<div>
-  <div>
-  <div>
-  <div>
-
 #### [Freeze Properties](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Freeze&#32;Properties.jsx)
 
   </div>
@@ -1208,12 +1189,19 @@ Toggles on/off all effects on layers in the project
   <div>
   <div>
 
-#### [Toggle JS Debugger](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;JS&#32;Debugger.jsx)
+#### [Toggle Expressions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Expressions.jsx)
 
   </div>
   <div>
 
-Toggles Javascript debugger enabled/disabled
+Enables, disables, or toggles all expressions in current comp, disabling them by default (see modifiers below).
+
+Operates on selected layers, or all layers in the comp if none are selected, recursing into precomps.
+
+| Modifier |                          Effect                           |
+| -------- | --------------------------------------------------------- |
+| SHIFT    | Enable all expressions, vs disable                        |
+| CTRL/CMD | Enable disabled expressions & disable enabled expressions |
 
   </div>
   </div>
@@ -1227,12 +1215,12 @@ Toggles Javascript debugger enabled/disabled
   <div>
   <div>
 
-#### [Toggle Layer Expressions](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;Layer&#32;Expressions.jsx)
+#### [Toggle JS Debugger](https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Toggle&#32;JS&#32;Debugger.jsx)
 
   </div>
   <div>
 
-Disables all enabled expressions on selected layers & enables all disabled expressions.
+Toggles Javascript debugger enabled/disabled
 
   </div>
   </div>
