@@ -72,6 +72,16 @@
       }
     }
 
+    layers.sort(function (layerA, layerB) {
+      if (layerA.index < layerB.index) {
+        return -1;
+      } else if (layerA.index > layerB.index) {
+        return 1;
+      }
+
+      return 0;
+    });
+
     return layers;
   }
 })();
