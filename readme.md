@@ -217,10 +217,9 @@ Counts all of the keyframes (including markers) in selected comps in project pan
 
 Creates a new null at the center of selected layers (or all comp layers, if none selected), and set this null as those layers' parent.
 
-| Modifier | Effect                                                              |
-| -------- | ------------------------------------------------------------------- |
-| SHIFT    | Don't parent the layers to the null                                 |
-| CTRL/CMD | Have the null's position be dynamically set to the center of layers |
+| Modifier | Effect                              |
+| -------- | ----------------------------------- |
+| SHIFT    | Don't parent the layers to the null |
 
   </div>
   </div>

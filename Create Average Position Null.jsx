@@ -4,20 +4,12 @@
  *
  * Modifiers:
  *  - Hold SHIFT to NOT parent the layers to the null
- *  - Hold CTRL / CMD to add an expression that keeps the null centered between those layers
- *     (Note: this disables parenting)
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.6.0
+ * @version 0.7.0
  */
 (function setToAvgPosition() {
   var keepLayersOrphans = ScriptUI.environment.keyboardState.shiftKey;
-  var useDynamicPosition = false;
-
-  if (ScriptUI.environment.keyboardState.ctrlKey || ScriptUI.environment.keyboardState.metaKey) {
-    useDynamicPosition = true;
-    keepLayersOrphans = true;
-  }
 
   var comp = app.project.activeItem;
 
@@ -39,43 +31,22 @@
   avgNull.name = "Average Position Null";
   avgNull.guideLayer = true;
   avgNull.label = 14;
+  avgNull.moveBefore(layers[0]);
 
-  var ii, il;
+  var sumX = 0;
+  var sumY = 0;
 
-  if (useDynamicPosition) {
-    var firstLayerIndex = layers[0].index;
-    var lastLayerIndex = layers[layers.length - 1].index;
-
-    avgNull.position.expression = [
-      "var firstLayerIndex = " + firstLayerIndex + ";",
-      "var lastLayerIndex = " + lastLayerIndex + ";",
-      "",
-      "var sum = [0, 0];",
-      "var numLayers = lastLayerIndex - firstLayerIndex + 1;",
-      "",
-      "for (var ii = firstLayerIndex; ii <= lastLayerIndex; ii++) {",
-      "  var layer = thisComp.layer(ii);",
-      "  sum += layer.position;",
-      "}",
-      "",
-      "sum / numLayers;"
-    ].join("\n");
-  } else {
-    var sumX = 0;
-    var sumY = 0;
-
-    for (ii = 0, il = layers.length; ii < il; ii++) {
-      var layer = layers[ii];
-      var layerPos = layer.position.valueAtTime(comp.time, false);
-      sumX += layerPos[0];
-      sumY += layerPos[1];
-    }
-
-    var avgX = sumX / layers.length;
-    var avgY = sumY / layers.length;
-
-    avgNull.position.setValue([avgX, avgY]);
+  for (var ii = 0, il = layers.length; ii < il; ii++) {
+    var layer = layers[ii];
+    var layerPos = layer.position.valueAtTime(comp.time, false);
+    sumX += layerPos[0];
+    sumY += layerPos[1];
   }
+
+  var avgX = sumX / layers.length;
+  var avgY = sumY / layers.length;
+
+  avgNull.position.setValue([avgX, avgY]);
 
   if (!keepLayersOrphans) {
     for (ii = 0, il = layers.length; ii < il; ii++) {
