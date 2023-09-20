@@ -172,7 +172,7 @@ Changes the background colour of all selected comps in the project panel to the 
   <div>
   <div>
 
-#### [Convert New Gaussian Blur to Old](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert New Gaussian Blur to Old.jsx>)
+#### [Convert New Gaussian Blur to Old](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Convert New Gaussian Blur To Old.jsx>)
 
   </div>
   <div>
@@ -220,6 +220,28 @@ Creates a new null at the center of selected layers (or all comp layers, if none
 | Modifier | Effect                              |
 | -------- | ----------------------------------- |
 | SHIFT    | Don't parent the layers to the null |
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
+#### [Create Layer Selector Dropdown](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Layer Selector Dropdown.jsx>)
+
+  </div>
+  <div>
+
+Creates a null with a dropdown menu to select any layer in current comp,
+toggling its visibility.
+
+Also adds dropdown to EGP.
 
   </div>
   </div>
