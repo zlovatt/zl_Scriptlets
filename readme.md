@@ -771,6 +771,25 @@ Recursively enable motion blur on selected comps, including all layers & precomp
   <div>
   <div>
 
+#### [Remove All Rulers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Remove All Rulers.jsx>)
+
+  </div>
+  <div>
+
+Removes every guide ruler from every item in the project.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Replace Items With Placeholders](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Replace Items With Placeholders.jsx>)
 
   </div>
