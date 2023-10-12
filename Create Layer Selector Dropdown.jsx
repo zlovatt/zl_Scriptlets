@@ -15,15 +15,15 @@
     return;
   }
 
-	var layers = comp.layers;
-	var layerNames = [];
-	var selectorName = comp.name + " Selector";
-	var controllerName = "_Controller";
+  var layers = comp.layers;
+  var layerNames = [];
+  var selectorName = comp.name + " Selector";
+  var controllerName = "_Controller";
 
-  app.beginUndoGroup("Toggle All Comp Expressions");
+  app.beginUndoGroup("Create Layer Selector Dropdown");
 
   try {
-		// Add expression to all layers, and get their names
+    // Add expression to all layers, and get their names
     for (var ii = 1, il = layers.length; ii <= il; ii++) {
       var layer = layers[ii];
       layerNames.push(layer.name);
@@ -35,19 +35,19 @@
       ].join("\n");
     }
 
-		// Create control null
-		var controlNull = comp.layers.addNull();
+    // Create control null
+    var controlNull = comp.layers.addNull();
     controlNull.name = controllerName;
     controlNull.guideLayer = true;
     controlNull.label = 14;
-		controlNull.enabled = false;
-		controlNull.moveToBeginning();
+    controlNull.enabled = false;
+    controlNull.moveToBeginning();
 
-		// Create the dropdown effect & name it
+    // Create the dropdown effect & name it
     var dropdownEffect = controlNull.effect.addProperty("ADBE Dropdown Control");
     var updatedDropdown = dropdownEffect.property(1).setPropertyParameters(layerNames);
-		updatedDropdown.propertyGroup(1).name = selectorName;
-		updatedDropdown.addToMotionGraphicsTemplate(comp);
+    updatedDropdown.propertyGroup(1).name = selectorName;
+    updatedDropdown.addToMotionGraphicsTemplate(comp);
   } catch (e) {
     alert(e, "Create Layer Selector Dropdown");
   } finally {
