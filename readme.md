@@ -440,6 +440,25 @@ Calculates the total file size of selected project items. Useful for when you're
   <div>
   <div>
 
+#### [Hoist Essential Properties](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Hoist Essential Properties.jsx>)
+
+  </div>
+  <div>
+
+Hoists essential properties from selected layers onto to new controller.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Keep Every N Keys](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Keep Every N Keys.jsx>)
 
   </div>
