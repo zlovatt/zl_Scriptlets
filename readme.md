@@ -233,6 +233,25 @@ Creates a new null at the center of selected layers (or all comp layers, if none
   <div>
   <div>
 
+#### [Create Dropdown From Text](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Dropdown From Text.jsx>)
+
+  </div>
+  <div>
+
+Provides a panel to quickly create a populated dropdown effect on a layer.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Create Layer Selector Dropdown](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Layer Selector Dropdown.jsx>)
 
   </div>
