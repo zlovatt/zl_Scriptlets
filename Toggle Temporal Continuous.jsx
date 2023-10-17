@@ -5,7 +5,7 @@
  *  - Hold SHIFT to DISABLE temporal continuous
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.2.1
+ * @version 0.2.2
  */
 (function toggleTemporalContinuous() {
   var enable = !ScriptUI.environment.keyboardState.shiftKey;
@@ -27,6 +27,11 @@
 
     for (var jj = 0, jl = props.length; jj < jl; jj++) {
       var prop = props[jj];
+
+      if (prop instanceof PropertyGroup) {
+        continue;
+      }
+
       var keys = prop.selectedKeys;
 
       for (var kk = 0, kl = keys.length; kk < kl; kk++) {
