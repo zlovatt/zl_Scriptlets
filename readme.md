@@ -274,6 +274,25 @@ Also adds dropdown to EGP.
   <div>
   <div>
 
+#### [Create Slider Driver](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Slider Driver.jsx>)
+
+  </div>
+  <div>
+
+Creates a simple Slider Driver system for a given property.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Default Folders v2.0](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Default Folders v2.0.jsx>)
 
   </div>
