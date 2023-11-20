@@ -1183,6 +1183,25 @@ Convert flat to curly ("smart") quotes in your AE text layers.
   <div>
   <div>
 
+#### [Sort Layers By Time](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Sort Layers By Time.jsx>)
+
+  </div>
+  <div>
+
+Sorts selected layers based on their in points, ascending.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [SRT to Text Layer Sequence](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/SRT to Text Layer Sequence.jsx>)
 
   </div>
