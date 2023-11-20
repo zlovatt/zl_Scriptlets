@@ -752,6 +752,25 @@ Uses markers & expressions-- move markers & change text to change audio!
   <div>
   <div>
 
+#### [Quick Freeze Expressions](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick Freeze Expressions.jsx>)
+
+  </div>
+  <div>
+
+Adds a simple `posterizeTime(0)` to selected properties' expressions.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Quick Rename Layers](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Quick Rename Layers.jsx>)
 
   </div>
