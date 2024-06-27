@@ -1202,6 +1202,32 @@ Convert flat to curly ("smart") quotes in your AE text layers.
   <div>
   <div>
 
+#### [Solo Traveler](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Solo Traveler.jsx>)
+
+  </div>
+  <div>
+
+Turns all guide layers into non-guide layers, in selected comps in project panel.
+
+Will recurse into precomps.
+
+| Modifier |           Effect            |
+| -------- | --------------------------- |
+| CTRL     | Skip locked layers          |
+| SHIFT    | Don't recurse into precomps |
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Sort Layers By Time](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Sort Layers By Time.jsx>)
 
   </div>
