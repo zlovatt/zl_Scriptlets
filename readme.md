@@ -252,6 +252,26 @@ Provides a panel to quickly create a populated dropdown effect on a layer.
   <div>
   <div>
 
+#### [Create Layer Backdrop](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Layer Backdrop.jsx>)
+
+  </div>
+  <div>
+
+Creates a new shape rectangle layer behind each selected layer.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Create Layer Selector Dropdown](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Create Layer Selector Dropdown.jsx>)
 
   </div>
