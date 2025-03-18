@@ -353,6 +353,27 @@ Delete all keys at current time
   <div>
   <div>
 
+#### [Flatten Folder](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Flatten Folder.jsx>)
+
+  </div>
+  <div>
+
+Flattens all child items in selected folder(s), moving every item into the selected folder.
+
+If nothing is selected, flattens every item into the project root.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Freeze Properties](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Freeze Properties.jsx>)
 
   </div>
