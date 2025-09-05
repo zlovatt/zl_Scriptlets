@@ -6,7 +6,7 @@ A series of small, simple AE utilities for [kbar2](https://aescripts.com/kbar), 
 
 Note that these all worked at the time they were developed; as AE has evolved, some may stop working. I'm absotively not liable if anything breaks; run at your own discretion 💝
 
-All tools © 2023 Zack Lovatt unless otherwise stated. All rights reserved.
+All tools © 2025 Zack Lovatt unless otherwise stated. All rights reserved.
 
 ## Installation Instructions
 
