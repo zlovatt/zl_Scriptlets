@@ -1,33 +1,56 @@
 /**
- * Gets file paths of selected files in the project panel
+ * Gets a copyable text list of selected project item file paths.
+ *
+ * When the alert is shown, simply `CTRL/CMD + C` to copy its contents to clipboard.
  *
  * @author Zack Lovatt <zack@lova.tt>
- * @version 0.1.0
+ * @version 0.2.0
  */
 (function getSelectedFilePaths () {
-  var items = app.project.selection;
+  var items = _getSelectedItemsElseAll();
 
-  if (items.length === 0) {
-    return;
-  }
+  try {
+    var selectedItemPaths = [];
 
-  var paths = [];
+    for (var ii = 0, il = items.length; ii < il; ii++) {
+      var item = items[ii];
 
-  for (var ii = 0, il = items.length; ii < il; ii++) {
-    var item = items[ii];
+      if (!(item instanceof FootageItem)) {
+        continue;
+      }
 
-    if (!(item instanceof FootageItem)) {
-      return;
+      var source = item.mainSource;
+
+      if (!(source instanceof FileSource)) {
+        continue;
+      }
+
+      selectedItemPaths.push(item.file.fullName);
     }
 
-    var source = item.mainSource;
-
-    if (!(source instanceof FileSource)) {
-      return;
+    if (selectedItemPaths.length === 0) {
+      throw "No file paths found!";
     }
 
-    paths.push(item.file.fullName);
+    alert(selectedItemPaths.join("\n"), "Get Selected Item Paths");
+  } catch (e) {
+    alert(e, "Get Selected Item Paths");
   }
 
-  alert(paths.join("\n"));
+  /**
+   * Gets all selected project items, else returns every item
+   *
+   * @return {Item[]} Project item array
+   */
+  function _getSelectedItemsElseAll() {
+    var items = app.project.selection;
+
+    if (items.length === 0) {
+      for (var ii = 1, il = app.project.numItems; ii <= il; ii++) {
+        items.push(app.project.item(ii));
+      }
+    }
+
+    return items;
+  }
 })();

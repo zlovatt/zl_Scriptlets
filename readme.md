@@ -467,7 +467,9 @@ If run as a ScriptUI Panel (if installed in AE), you can dock the panel to get v
   </div>
   <div>
 
-Gets file paths of selected files in the project panel.
+Gets a copyable text list of selected project item file paths.
+
+When the alert is shown, simply `CTRL/CMD + C` to copy its contents to clipboard.
 
   </div>
   </div>
