@@ -481,6 +481,27 @@ Gets file paths of selected files in the project panel.
   <div>
   <div>
 
+#### [Get Selected Item Names](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get Selected Item Names.jsx>)
+
+  </div>
+  <div>
+
+Gets a copyable text list of selected project item names.
+
+When the alert is shown, simply `CTRL/CMD + C` to copy its contents to clipboard.
+
+  </div>
+  </div>
+  </div>
+</div>
+
+---
+
+<div>
+  <div>
+  <div>
+  <div>
+
 #### [Get Total File Size](<https://raw.githubusercontent.com/zlovatt/zl_Scriptlets/master/Get Total File Size.jsx>)
 
   </div>
